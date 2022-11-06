@@ -205,7 +205,12 @@ Hello world!
     <line x1="48" y1="120" x2="56" y2="120" class="solid"></line>
   </g>
 </svg></pre>
-<p>Flix treats any directory containing a file called <code>FlixProject.toml</code> as a Flix project. There are two different basic types of Flix project:</p>
+<p>Flix treats any directory containing a file called <code>FlixProject.toml</code> as a Flix project. As a minimum, this needs to specify the name of our application and the version of Flix it’s expecting to be used to compile it:</p>
+<pre><code class="language-toml">[package]
+name = &quot;hello-world&quot;
+flix = &quot;0.32.1&quot;
+</code></pre>
+<p>There are two different basic types of Flix project:</p>
 <ul>
 <li>
 <p><strong>Applications:</strong> Collections of source files and other resources (e.g. HTML files, images, …) which are built into an executable project.</p>
@@ -216,7 +221,7 @@ Hello world!
 </ul>
 <p>By default <code>flix new</code> creates an application project, but it can be used to create a library by specifying the <code>lib</code> template: <code>flix new --template lib my-new-library</code>.</p>
 <blockquote>
-<p>🤔 Note: Perhaps not at first release, but eventually we should allow the creation of user defined templates to automate the creation of more complex projects, e.g. web apps (which in addition to the above would have a <code>resources</code> directory, <code>index.html</code>, default routes, etc.).</p>
+<p>🤔 Note: We should allow the creation of user defined templates to automate the creation of more complex projects, e.g. web apps (which in addition to the above would have a <code>resources</code> directory, <code>index.html</code>, default routes, etc.).</p>
 </blockquote>
 
                     </main>
