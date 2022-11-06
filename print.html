@@ -1,0 +1,3415 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Programming Flix</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction to Flix</a></li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="installing.html"><strong aria-hidden="true">2.1.</strong> Installing Flix</a></li><li class="chapter-item expanded "><a href="editor-support.html"><strong aria-hidden="true">2.2.</strong> Editor Support</a></li></ol></li><li class="chapter-item expanded "><a href="projects.html"><strong aria-hidden="true">3.</strong> Projects</a></li><li class="chapter-item expanded "><a href="data-types.html"><strong aria-hidden="true">4.</strong> Data Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="primitive-types.html"><strong aria-hidden="true">4.1.</strong> Primitives</a></li><li class="chapter-item expanded "><a href="tuples.html"><strong aria-hidden="true">4.2.</strong> Tuples</a></li><li class="chapter-item expanded "><a href="enums.html"><strong aria-hidden="true">4.3.</strong> Enums</a></li><li class="chapter-item expanded "><a href="type-aliases.html"><strong aria-hidden="true">4.4.</strong> Type Aliases</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li class="chapter-item expanded "><a href="immutable-data.html"><strong aria-hidden="true">6.</strong> Immutable Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lists.html"><strong aria-hidden="true">6.1.</strong> Lists</a></li><li class="chapter-item expanded "><a href="records.html"><strong aria-hidden="true">6.2.</strong> Records</a></li></ol></li><li class="chapter-item expanded "><a href="mutable-data.html"><strong aria-hidden="true">7.</strong> Mutable Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="references.html"><strong aria-hidden="true">7.1.</strong> References</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">7.2.</strong> Arrays</a></li></ol></li><li class="chapter-item expanded "><a href="control-structures.html"><strong aria-hidden="true">8.</strong> Control Structures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="if-then-else.html"><strong aria-hidden="true">8.1.</strong> If-Then-Else</a></li><li class="chapter-item expanded "><a href="pattern-matching.html"><strong aria-hidden="true">8.2.</strong> Pattern Matching</a></li><li class="chapter-item expanded "><a href="foreach-foryield.html"><strong aria-hidden="true">8.3.</strong> For-Each and For-Yield</a></li></ol></li><li class="chapter-item expanded "><a href="concurrency.html"><strong aria-hidden="true">9.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="parallelism.html"><strong aria-hidden="true">10.</strong> Parallelism</a></li><li class="chapter-item expanded "><a href="effects.html"><strong aria-hidden="true">11.</strong> Effect System</a></li><li class="chapter-item expanded "><a href="laziness.html"><strong aria-hidden="true">12.</strong> Laziness</a></li><li class="chapter-item expanded "><a href="fixpoints.html"><strong aria-hidden="true">13.</strong> Fixpoints with Datalog</a></li><li class="chapter-item expanded "><a href="type-classes.html"><strong aria-hidden="true">14.</strong> Type Classes</a></li><li class="chapter-item expanded "><a href="namespaces.html"><strong aria-hidden="true">15.</strong> Namespaces</a></li><li class="chapter-item expanded "><a href="interoperability.html"><strong aria-hidden="true">16.</strong> Interoperability</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="creating-objects.html"><strong aria-hidden="true">16.1.</strong> Creating Objects</a></li><li class="chapter-item expanded "><a href="calling-methods.html"><strong aria-hidden="true">16.2.</strong> Calling Methods</a></li><li class="chapter-item expanded "><a href="reading-and-writing-fields.html"><strong aria-hidden="true">16.3.</strong> Reading and Writing Fields</a></li><li class="chapter-item expanded "><a href="extending-classes-and-interfaces.html"><strong aria-hidden="true">16.4.</strong> Classes and Interfaces</a></li><li class="chapter-item expanded "><a href="nested-and-inner-classes.html"><strong aria-hidden="true">16.5.</strong> Nested and Inner classes</a></li></ol></li><li class="chapter-item expanded "><a href="everyday-programming.html"><strong aria-hidden="true">17.</strong> Everyday Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="main.html"><strong aria-hidden="true">17.1.</strong> The Main Function</a></li><li class="chapter-item expanded "><a href="printing-to-stdout.html"><strong aria-hidden="true">17.2.</strong> Printing to Standard Out</a></li><li class="chapter-item expanded "><a href="string-interpolation.html"><strong aria-hidden="true">17.3.</strong> String Interpolation</a></li><li class="chapter-item expanded "><a href="holes.html"><strong aria-hidden="true">17.4.</strong> Anonymous and Named Holes</a></li><li class="chapter-item expanded "><a href="type-ascriptions.html"><strong aria-hidden="true">17.5.</strong> Type Ascriptions</a></li><li class="chapter-item expanded "><a href="redundancy.html"><strong aria-hidden="true">17.6.</strong> Redundancy</a></li><li class="chapter-item expanded "><a href="debugging.html"><strong aria-hidden="true">17.7.</strong> Debugging</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">18.</strong> Tools</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vscode.html"><strong aria-hidden="true">18.1.</strong> Visual Studio Code</a></li><li class="chapter-item expanded "><a href="build-and-packages.html"><strong aria-hidden="true">18.2.</strong> Package Manager</a></li><li class="chapter-item expanded "><a href="test-framework.html"><strong aria-hidden="true">18.3.</strong> Test Framework</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="advanced-features.html"><strong aria-hidden="true">19.</strong> Advanced Features</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="upcast.html"><strong aria-hidden="true">19.1.</strong> Upcasts</a></li><li class="chapter-item expanded "><a href="casts.html"><strong aria-hidden="true">19.2.</strong> Type and Effect Casts</a></li><li class="chapter-item expanded "><a href="bug-and-unreachable.html"><strong aria-hidden="true">19.3.</strong> Bugs and Unreachable Code</a></li><li class="chapter-item expanded "><a href="purity-reflection.html"><strong aria-hidden="true">19.4.</strong> Purity Reflection</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="appendix.html"><strong aria-hidden="true">20.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="identifiers.html"><strong aria-hidden="true">20.1.</strong> Legal Identifiers</a></li><li class="chapter-item expanded "><a href="precedence.html"><strong aria-hidden="true">20.2.</strong> Operator Precedence</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Programming Flix</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/flix/book/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction-to-flix"><a class="header" href="#introduction-to-flix">Introduction to Flix</a></h1>
+<p>Flix is a principled functional, logic, and imperative programming language
+developed at <a href="https://cs.au.dk/">Aarhus University</a>, at the <a href="https://uwaterloo.ca/">University of
+Waterloo</a>, and by a community of <a href="https://github.com/flix/flix">open source
+contributors</a>.</p>
+<p>Flix is inspired by OCaml and Haskell with ideas from Rust and Scala. Flix looks
+like Scala, but its type system is based on Hindley-Milner. Two unique features
+of Flix are its polymorphic effect system and its support for first-class
+Datalog constraints. Flix compiles to efficient JVM bytecode, runs on the Java
+Virtual Machine, and supports full tail call elimination.</p>
+<p>Here are a few Flix programs to illustrate the look and feel of the language:</p>
+<p>This program illustrates the use of algebraic data types and pattern matching:</p>
+<pre><code class="language-flix">/// An algebraic data type for shapes.
+enum Shape {
+    case Circle(Int32),          // circle radius
+    case Square(Int32),          // side length
+    case Rectangle(Int32, Int32) // height and width
+}
+
+/// Computes the area of the given shape using
+/// pattern matching and basic arithmetic.
+def area(s: Shape): Int32 = match s {
+    case Circle(r)       =&gt; 3 * (r * r)
+    case Square(w)       =&gt; w * w
+    case Rectangle(h, w) =&gt; h * w
+}
+
+// Computes the area of a 2 by 4.
+def main(): Unit \ IO =
+    area(Rectangle(2, 4)) |&gt; println
+</code></pre>
+<p>Here is a Flix program using polymorphic records:</p>
+<pre><code class="language-flix">/// Returns the area of the polymorphic record `r`.
+/// Note that the use of the type variable `a` permits the record `r`
+/// to have labels other than `x` and `y`.
+def polyArea[a : RecordRow](r: {x = Int32, y = Int32 | a}): Int32 = r.x * r.y
+
+/// Computes the area of various rectangle records.
+/// Note that some records have additional fields.
+def polyAreas(): List[Int32] =
+    polyArea({x = 1, y = 2}) ::
+    polyArea({x = 2, y = 3, z = 4}) :: Nil
+
+def main(): Unit \ IO =
+    polyAreas() |&gt; println
+</code></pre>
+<p>and here is one using processes and channels:</p>
+<pre><code class="language-flix">/// A function that sends every element of a list
+def sendAll(l: List[Int32], o: Sender[Int32]): Unit \ IO =
+    match l {
+        case Nil     =&gt; ()
+        case x :: xs =&gt; Channel.send(x, o); sendAll(xs, o)
+    }
+
+/// A function that receives n elements
+/// and collects them into a list.
+def recvN(n: Int32, i: Receiver[Int32]): List[Int32] \ IO =
+    match n {
+        case 0 =&gt; Nil
+        case _ =&gt; Channel.recv(i) :: recvN(n - 1, i)
+    }
+
+/// A function that calls receive and sends the result on d.
+def wait(i: Receiver[Int32], n: Int32, d: Sender[List[Int32]]): Unit \ IO =
+    Channel.send(recvN(n, i), d);
+    ()
+
+/// Spawn a process for send and wait, and print the result.
+def main(): Unit \ IO =
+    let l = 1 :: 2 :: 3 :: Nil;
+    let (s1, r1) = Channel.buffered(100);
+    let (s2, r2) = Channel.buffered(100);
+    spawn sendAll(l, s1);
+    spawn wait(r1, List.length(l), s2);
+    println(Channel.recv(r2))
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
+<p>You can try Flix online at <a href="https://play.flix.dev">play.flix.dev</a>.</p>
+<ul>
+<li><a href="./installing.html">Installing Flix</a></li>
+<li><a href="./editor-support.html">Editor Support</a></li>
+<li><a href="./hello-world.html">Hello World</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="installing-flix"><a class="header" href="#installing-flix">Installing Flix</a></h1>
+<p>Prerequisites: <a href="installing.html#java">Java</a></p>
+<h2 id="brew-macos-and-linux"><a class="header" href="#brew-macos-and-linux">Brew (macOS and Linux)</a></h2>
+<p>The recommended way to install Flix on both macOS and Linux is via the <a href="">flix/tools</a> tap for <a href="https://brew.sh">Homebrew</a> (<a href="installing.html#other-ways-to-install-flix">other ways to install</a>):</p>
+<pre><code>brew install flix/tools/flix
+</code></pre>
+<blockquote>
+<p>🤔 Note: I’m suggesting that we follow <a href="https://github.com/clojure/homebrew-tools">Clojure’s lead</a> and create our own Homebrew Tap so that we can have complete control.</p>
+</blockquote>
+<h2 id="windows"><a class="header" href="#windows">Windows</a></h2>
+<blockquote>
+<p>🤔 Note: Decide on what the right approach for Windows is. Probably <a href="https://learn.microsoft.com/en-us/windows/package-manager/">winget</a>, but we could also create an installer package or use <a href="https://scoop.sh">Scoop</a>?</p>
+</blockquote>
+<h2 id="testing-your-setup"><a class="header" href="#testing-your-setup">Testing your setup</a></h2>
+<p>You can check to see what version of Flix you have installed with the command <code>flix --version</code> which should output:</p>
+<pre><code>% flix --version
+The Flix Programming Language v0.32.0
+</code></pre>
+<h2 id="other-ways-to-install-flix"><a class="header" href="#other-ways-to-install-flix">Other ways to install Flix</a></h2>
+<blockquote>
+<p>⚠️ TODO: Instructions for how to download and install manually.</p>
+</blockquote>
+<h2 id="java"><a class="header" href="#java">Java</a></h2>
+<blockquote>
+<p>⚠️ TODO: Details of which versions of Java Flix supports</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="editor-support"><a class="header" href="#editor-support">Editor Support</a></h1>
+<h2 id="visual-studio-code"><a class="header" href="#visual-studio-code">Visual Studio Code</a></h2>
+<p>The recommended editor for Flix is <a href="https://code.visualstudio.com">Visual Studio Code</a> with the <a href="https://marketplace.visualstudio.com/items?itemName=flix.flix">Flix Extension</a>:</p>
+<blockquote>
+<p>⚠️ TODO: Further introductory material for VSCode</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="projects"><a class="header" href="#projects">Projects</a></h1>
+<blockquote>
+<p>🤔 Note: The following is written from the POV of command line usage, but we should have and document VSCode equivalents.</p>
+</blockquote>
+<h2 id="creating-a-flix-project"><a class="header" href="#creating-a-flix-project">Creating a Flix Project</a></h2>
+<p>You can create and run a new Flix project with <code>flix new</code>, for example:</p>
+<pre><code>% flix new hello-world
+Creating project from template &quot;app&quot; in hello-world
+% cd hello-world
+% flix run
+Hello world!
+</code></pre>
+<h2 id="anatomy-of-a-flix-project"><a class="header" href="#anatomy-of-a-flix-project">Anatomy of a Flix Project</a></h2>
+<p>This is the structure that the above creates:</p>
+<pre class="svgbob"><style>text{fill:var(--fg)}</style><svg xmlns="http://www.w3.org/2000/svg" width="176" height="208">
+  <style>
+    line, path, circle, rect, polygon{stroke:var(--fg);stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;}text{font-family:Iosevka Fixed, monospace;font-size:14px;}rect.backdrop{stroke:none;fill:transparent;}.broken{stroke-dasharray:8;}.filled{fill:black;}.bg_filled{fill:transparent;}.nofill{fill:transparent;}.end_marked_arrow{marker-end:url(#arrow);}.start_marked_arrow{marker-start:url(#arrow);}.end_marked_diamond{marker-end:url(#diamond);}.start_marked_diamond{marker-start:url(#diamond);}.end_marked_circle{marker-end:url(#circle);}.start_marked_circle{marker-start:url(#circle);}.end_marked_open_circle{marker-end:url(#open_circle);}.start_marked_open_circle{marker-start:url(#open_circle);}.end_marked_big_open_circle{marker-end:url(#big_open_circle);}.start_marked_big_open_circle{marker-start:url(#big_open_circle);}
+    <!--separator-->
+    
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <polygon points="0,0 0,4 4,2 0,0"></polygon>
+    </marker>
+    <marker id="diamond" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <polygon points="0,2 2,0 4,2 2,4 0,2"></polygon>
+    </marker>
+    <marker id="circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <circle cx="4" cy="4" r="2" class="filled"></circle>
+    </marker>
+    <marker id="open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <circle cx="4" cy="4" r="2" class="bg_filled"></circle>
+    </marker>
+    <marker id="big_open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <circle cx="4" cy="4" r="3" class="bg_filled"></circle>
+    </marker>
+  </defs>
+  <rect class="backdrop" x="0" y="0" width="176" height="208"></rect>
+  <text x="34" y="28" >src</text>
+  <text x="66" y="60" >Main.flix</text>
+  <text x="34" y="92" >test</text>
+  <text x="66" y="124" >TestMain.flix</text>
+  <text x="34" y="156" >FlixProject.toml</text>
+  <text x="34" y="172" >LICENSE.txt</text>
+  <text x="34" y="188" >README.md</text>
+  <g>
+    <line x1="12" y1="0" x2="12" y2="180" class="solid"></line>
+    <line x1="12" y1="24" x2="24" y2="24" class="solid"></line>
+    <line x1="12" y1="88" x2="24" y2="88" class="solid"></line>
+    <line x1="12" y1="152" x2="24" y2="152" class="solid"></line>
+    <line x1="12" y1="168" x2="24" y2="168" class="solid"></line>
+    <path d="M 12,180 A 4,4 0,0,0 16,184" class="nofill"></path>
+    <line x1="16" y1="184" x2="24" y2="184" class="solid"></line>
+  </g>
+  <g>
+    <line x1="44" y1="32" x2="44" y2="52" class="solid"></line>
+    <path d="M 44,52 A 4,4 0,0,0 48,56" class="nofill"></path>
+    <line x1="48" y1="56" x2="56" y2="56" class="solid"></line>
+  </g>
+  <g>
+    <line x1="44" y1="96" x2="44" y2="116" class="solid"></line>
+    <path d="M 44,116 A 4,4 0,0,0 48,120" class="nofill"></path>
+    <line x1="48" y1="120" x2="56" y2="120" class="solid"></line>
+  </g>
+</svg></pre>
+<p>Flix treats any directory containing a file called <code>FlixProject.toml</code> as a Flix project. There are two different basic types of Flix project:</p>
+<ul>
+<li>
+<p><strong>Applications:</strong> Collections of source files and other resources (e.g. HTML files, images, …) which are built into an executable project.</p>
+</li>
+<li>
+<p><strong>Libraries:</strong> Collections of source files and other resources which are intended for use within applications (or other libraries).</p>
+</li>
+</ul>
+<p>By default <code>flix new</code> creates an application project, but it can be used to create a library by specifying the <code>lib</code> template: <code>flix new --template lib my-new-library</code>.</p>
+<blockquote>
+<p>🤔 Note: Perhaps not at first release, but eventually we should allow the creation of user defined templates to automate the creation of more complex projects, e.g. web apps (which in addition to the above would have a <code>resources</code> directory, <code>index.html</code>, default routes, etc.).</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="data-types"><a class="header" href="#data-types">Data Types</a></h1>
+<p>Flix comes with a collection of built-in data types,
+such as booleans, floats and integers, and
+compound types, such as tuples and records.
+Moreover, the standard library defines types such as
+<code>Option[a]</code>, <code>Result[t, e]</code>, <code>List[a]</code>, <code>Set[a]</code>,
+and <code>Map[k, v]</code>.</p>
+<p>In addition to these types, Flix allows programmers
+to define their own types, including <em>enumerated
+types</em>, <em>recursive types</em>, and <em>polymorphic types</em>.</p>
+<p>Flix also supports type aliases (new types).</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="primitive-types"><a class="header" href="#primitive-types">Primitive Types</a></h1>
+<p>Flix supports the usual primitive types:</p>
+<div class="table-wrapper"><table><thead><tr><th>Type</th><th>Syntax</th><th>Description</th></tr></thead><tbody>
+<tr><td>Unit</td><td><code>()</code></td><td>The unit value.</td></tr>
+<tr><td>Bool</td><td><code>true</code>, <code>false</code></td><td>A boolean value.</td></tr>
+<tr><td>Char</td><td><code>'a'</code>, <code>'b'</code>, <code>'c'</code></td><td>A character value.</td></tr>
+<tr><td>Float32</td><td><code>0.0f32</code>, <code>21.42f32</code>, <code>-21.42f32</code></td><td>A 32-bit floating point integer.</td></tr>
+<tr><td>Float64</td><td><code>0.0f64</code>, <code>21.42f64</code>, <code>-21.42f64</code></td><td>A 64-bit floating point integer.</td></tr>
+<tr><td>Int8</td><td><code>0i8</code>, <code>1i8</code>, <code>-1i8</code>, <code>127i8</code>, <code>-128i8</code></td><td>A signed 8-bit integer.</td></tr>
+<tr><td>Int16</td><td><code>0i16</code>, <code>123i16</code>, <code>-123i16</code></td><td>A signed 16-bit integer.</td></tr>
+<tr><td>Int32</td><td><code>0i32</code>, <code>123i32</code>, <code>-123i32</code></td><td>A signed 32-bit integer.</td></tr>
+<tr><td>Int64</td><td><code>0i64</code>, <code>123i64</code>, <code>-123i64</code></td><td>A signed 64-bit integer.</td></tr>
+<tr><td>String</td><td><code>&quot;hello&quot;</code>, <code>&quot;world&quot;</code></td><td>A string value.</td></tr>
+<tr><td>BigInt</td><td><code>0ii</code>, <code>123ii</code>, <code>-123ii</code></td><td>An arbitrary precision integer.</td></tr>
+<tr><td>BigDecimal</td><td><code>0.0ff</code>, <code>123.45ff</code>, <code>-123.45ff</code></td><td>An arbitrary precision decimal.</td></tr>
+</tbody></table>
+</div>
+<p><code>Float64</code> and <code>Int32</code> values can be
+written without suffix, i.e. <code>123.0f64</code> can simply be written
+as <code>123.0</code> and <code>123i32</code> can be written as <code>123</code>.</p>
+<h2 id="built-in-literals"><a class="header" href="#built-in-literals">Built-in Literals</a></h2>
+<p>Flix has built-in syntactic sugar for lists, sets, and
+maps.</p>
+<h3 id="list-literals"><a class="header" href="#list-literals">List Literals</a></h3>
+<p>A list literal is written using the infix <code>::</code>
+constructor.
+For example:</p>
+<pre><code class="language-flix">1 :: 2 :: 3 :: Nil
+</code></pre>
+<p>which is syntactic sugar for:</p>
+<pre><code class="language-flix">Cons(1, Cons(2, Cons(3, Nil)))
+</code></pre>
+<h3 id="set-literals"><a class="header" href="#set-literals">Set Literals</a></h3>
+<p>A set literal is written using the notation
+<code>Set#{v1, v2, ...}</code>.
+For example:</p>
+<pre><code class="language-flix">Set#{1, 2, 3}
+</code></pre>
+<p>which is syntactic sugar for:</p>
+<pre><code class="language-flix">Set.insert(1, Set.insert(2, Set.insert(3, Set.empty())))
+</code></pre>
+<h3 id="map-literals"><a class="header" href="#map-literals">Map Literals</a></h3>
+<p>A map literal is written using the notion
+<code>Map#{k1 =&gt; v1, k2 =&gt; v2, ...}</code>.
+For example:</p>
+<pre><code class="language-flix">Map#{1 =&gt; &quot;Hello&quot;, 2 =&gt; &quot;World&quot;}
+</code></pre>
+<p>which is syntactic sugar for:</p>
+<pre><code class="language-flix">Map.insert(1, &quot;Hello&quot;, Map.insert(2, &quot;World&quot;, Map.empty()))
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tuples"><a class="header" href="#tuples">Tuples</a></h1>
+<p>A tuple is a product of values.</p>
+<p>A tuple is written with parentheses.
+For example, here is a 2-tuple (a pair) of an
+<code>Int32</code> and a <code>Bool</code>:</p>
+<pre><code class="language-flix">(123, true)
+</code></pre>
+<p>The type of the tuple is <code>(Int32, Bool)</code>.</p>
+<p>We can destructure a tuple using pattern matching.
+For example:</p>
+<pre><code class="language-flix">let t = (&quot;Lucky&quot;, &quot;Luke&quot;, 42, true); // 4-tuple
+let (fstName, lstName, age, male) = t;
+lstName
+</code></pre>
+<p>evaluates to the string <code>&quot;Luke&quot;</code>.</p>
+<p>The Flix prelude defines the <code>fst</code> and <code>snd</code>
+functions:</p>
+<pre><code class="language-flix">let t = (1, 2);
+let x = fst(t); // x = 1
+let y = snd(t)  // y = 2
+</code></pre>
+<p>which are useful when working with 2-tuples (i.e.
+pairs).
+For example:</p>
+<pre><code class="language-flix">let l = (1, 1) :: (2, 2) :: Nil; // has type List[(Int32, Int32)]
+List.map(fst, l)                 // has type List[Int32]
+</code></pre>
+<p>which evaluates to a list that contains all the
+first components of the list <code>l</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="enums"><a class="header" href="#enums">Enums</a></h1>
+<h2 id="enumerated-types"><a class="header" href="#enumerated-types">Enumerated Types</a></h2>
+<p>Enumerated types are used to define a type that has
+a finite (enumerated) set of values.
+Enumerated types are useful for things such as
+modeling compass directions, the cards in a deck,
+and the days in a week.</p>
+<p>For example, here is an enumeration of the days in a
+week:</p>
+<pre><code class="language-flix">enum Weekday {
+    case Monday,
+    case Tuesday,
+    case Wednesday,
+    case Thursday,
+    case Friday,
+    case Saturday,
+    case Sunday
+}
+</code></pre>
+<p>Here <code>Monday</code>, <code>Tuesday</code> and so on are referred to as
+the <em>constructors</em> of the enum.</p>
+<p>We can refer to a weekday as <code>Monday</code> or
+<code>Weekday.Monday</code>.
+The latter is required if we have multiple enums in
+scope with similarly named constructors.</p>
+<p>We can use pattern matching to destruct an enum
+value.
+For example:</p>
+<pre><code class="language-flix">enum Animal {
+    case Cat,
+    case Dog,
+    case Giraffe
+}
+
+def isTall(a: Animal): Bool = match a {
+    case Cat        =&gt; false
+    case Dog        =&gt; false
+    case Giraffe    =&gt; true
+}
+</code></pre>
+<p>The function <code>isTall</code> takes a value of type <code>Animal</code>
+and performs a pattern match on it.
+If the value is <code>Giraffe</code> the function returns
+<code>true</code>.
+Otherwise it returns <code>false</code>.</p>
+<p>Flix guarantees that pattern matches are exhaustive,
+i.e. that all cases have been covered.
+It is a compile-time error if a pattern match is
+non-exhaustive.
+A pattern match can always be made exhaustive by
+adding a default case as the last case.
+A default case is written with an underscore
+<code>case _ =&gt; ???</code>.</p>
+<h2 id="recursive-types"><a class="header" href="#recursive-types">Recursive Types</a></h2>
+<p>Recursive types are used to define types that are
+self-referential.</p>
+<p>For example, we can define a binary tree of integers
+as follows:</p>
+<pre><code class="language-flix">enum Tree {
+    case Leaf(Int32),
+    case Node(Tree, Tree)
+}
+</code></pre>
+<p>A tree is either a <code>Leaf</code> with an <code>Int32</code> value or an
+internal <code>Node</code> with a left and a right sub-tree.
+Note that the definition of <code>Tree</code> refers to itself.</p>
+<p>We can write a function, using pattern matching, to
+compute the sum of all integers in such a tree:</p>
+<pre><code class="language-flix">def sum(t: Tree): Int32 = match t {
+    case Leaf(x)    =&gt; x
+    case Node(l, r) =&gt; sum(l) + sum(r)
+}
+</code></pre>
+<p>The <code>sum</code> function pattern matches on a tree value.
+If the tree is a leaf its value is simply returned.
+Otherwise the function recurses on both subtrees and
+adds their results.</p>
+<h2 id="polymorphic-types"><a class="header" href="#polymorphic-types">Polymorphic Types</a></h2>
+<p>Polymorphic types are types parameterized by other
+types.
+For example, we can write:</p>
+<pre><code class="language-flix">enum Bottle[a] {
+    case Empty,
+    case Full(a)
+}
+
+def isEmpty[a](b: Bottle[a]): Bool = match b {
+    case Empty   =&gt; true
+    case Full(_) =&gt; false
+}
+</code></pre>
+<p>Here the <code>Bottle</code> type is parameterized by the type
+parameter <code>a</code>.
+In Flix, type parameters, like ordinary parameters
+are always written in lowercase.
+The <code>Bottle</code> type has two cases: either the bottle
+is empty (and contains no value) or it is full (and
+contains one value of type <code>a</code>).
+The <code>isEmpty</code> function takes a bottle, type
+parameterized by <code>a</code>, and determines if the bottle
+is empty.</p>
+<p>The careful reader might have noticed that <code>Bottle</code>
+is equivalent to the more well-known <code>Option</code> type.</p>
+<p>In general, polymorphic types can have more than one
+type argument.
+For example, the standard library implement of the
+<code>Result</code> has two type parameters:</p>
+<pre><code class="language-flix">enum Result[t, e] {
+    case Ok(t),
+    case Err(e)
+}
+</code></pre>
+<h2 id="shorthand-enum-syntax"><a class="header" href="#shorthand-enum-syntax">Shorthand Enum Syntax</a></h2>
+<p>A typical enum may look like:</p>
+<pre><code class="language-flix">enum Weekday {
+    case Monday,
+    case Tuesday,
+    case Wednesday,
+    case Thursday,
+    case Friday,
+    case Saturday,
+    case Sunday
+}
+</code></pre>
+<p>The same enum can also be declared as:</p>
+<pre><code class="language-flix">enum Weekday {
+    case Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+}
+</code></pre>
+<p>This shorthand syntax is always available, but should
+only be used for simple enums.</p>
+<h2 id="singleton-enum-syntax"><a class="header" href="#singleton-enum-syntax">Singleton Enum Syntax</a></h2>
+<p>An enum with a single case:</p>
+<pre><code class="language-flix">enum USD {
+  case USD(Int32)
+}
+</code></pre>
+<p>can be shortened to:</p>
+<pre><code class="language-flix">enum USD(Int32)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="type-aliases"><a class="header" href="#type-aliases">Type Aliases</a></h1>
+<p>Type aliases introduces a short-hand name for a
+type.
+For example:</p>
+<pre><code class="language-flix">///
+/// A type alias for a map from keys of type `k`
+/// to values of type `Result[v, String]`
+///
+type alias M[k, v] = Map[k, Result[v, String]]
+
+def foo(): M[Bool, Int32] = Map#{true =&gt; Ok(123)}
+</code></pre>
+<p>A <em>type alias</em> does not define a new distinct type.
+Rather a type alias is simply a syntactic short-hand
+for a (usually complex) type.</p>
+<p>The Flix compiler expands type aliases before type
+checking.
+Consequently, type errors are always reported with
+respect to the actual underlying types.</p>
+<blockquote>
+<p><strong>Note:</strong> A type alias cannot be recursively defined in terms
+of itself. The Flix compiler will detect and report such
+recursive cycles.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="functions"><a class="header" href="#functions">Functions</a></h1>
+<p>Functions and higher-order functions are the key
+building block of a functional programming language.</p>
+<p>In Flix, top-level functions are defined with the
+<code>def</code> keyword.
+For example:</p>
+<pre><code class="language-flix">def add(x: Int32, y: Int32): Int32 = x + y + 1
+</code></pre>
+<p>A definition consists of the function name followed
+by an argument list, the return type, and the
+function body.
+Although Flix supports type
+inference, top-level function definitions must
+declare the type of their arguments and their return
+type.</p>
+<p>In Flix, all function arguments and local variables
+must be used.
+If a function argument is not used it must be
+prefixed with an underscore to explicitly mark it as
+unused.</p>
+<h2 id="first-class-and-higher-order-functions"><a class="header" href="#first-class-and-higher-order-functions">First-Class and Higher-Order Functions</a></h2>
+<p>A <em>higher-order function</em> is a function that takes a
+parameter which is itself a function.
+For example:</p>
+<pre><code class="language-flix">def twice(f: Int32 -&gt; Int32, x: Int32): Int32 = f(f(x))
+</code></pre>
+<p>Here the <code>twice</code> function takes two arguments, a
+function <code>f</code> and an integer <code>x</code>, and applies <code>f</code> to
+<code>x</code> two times.</p>
+<p>We can pass a lambda expression to the <code>twice</code>
+function:</p>
+<pre><code class="language-flix">twice(x -&gt; x + 1, 42)
+</code></pre>
+<p>which evaluates to <code>44</code> since <code>42</code> is incremented
+twice.</p>
+<p>We can also define a higher-order function that
+requires a function which takes two arguments:</p>
+<pre><code class="language-flix">def twice(f: (Int32, Int32) -&gt; Int32, x: Int32): Int32 =
+    f(f(x, x), f(x, x))
+</code></pre>
+<p>which can be called as follows:</p>
+<pre><code class="language-flix">twice((x, y) -&gt; x + y, 42)
+</code></pre>
+<p>We can call a higher-order function with a top-level
+function as follows:</p>
+<pre><code class="language-flix">def inc(x: Int32): Int32 = x + 1
+
+def twice(f: Int32 -&gt; Int32, x: Int32): Int32 = f(f(x))
+
+twice(inc, 42)
+</code></pre>
+<h2 id="function-type-syntax"><a class="header" href="#function-type-syntax">Function Type Syntax</a></h2>
+<p>Depending on the number of arguments to a function,
+the syntax for the function type differs:</p>
+<pre><code class="language-flix">Unit -&gt; Int32                // For nullary functions
+Int32 -&gt; Int32               // For unary functions
+(Int32, Int32, ...) -&gt; Int32 // For the rest
+</code></pre>
+<h2 id="function-composition"><a class="header" href="#function-composition">Function Composition</a></h2>
+<p>Flix supports several operators for function
+composition and pipelining:</p>
+<pre><code class="language-flix">let f = x -&gt; x + 1;
+let g = x -&gt; x * 2;
+let h = f &gt;&gt; g;     // equivalent to x -&gt; g(f(x))
+</code></pre>
+<p>Here <code>&gt;&gt;</code> is forward function composition.</p>
+<p>We can also write function applications using the
+pipeline operator:</p>
+<pre><code class="language-flix">List.range(1, 100) |&gt;
+List.filter(x -&gt; x mod 2 == 0) |&gt;
+List.map(x -&gt; x * x) |&gt;
+println;
+</code></pre>
+<p>Here <code>x |&gt; f</code> is equivalent to the function
+application <code>f(x)</code>.</p>
+<h2 id="curried-by-default"><a class="header" href="#curried-by-default">Curried by Default</a></h2>
+<p>Functions are curried by default.
+A curried function can be called with fewer
+arguments than it declares returning a new function
+that takes the remainder of the arguments.
+For example:</p>
+<pre><code class="language-flix">def sum(x: Int32, y: Int32): Int32 = x + y
+
+def main(): Unit \ IO =
+    let inc = sum(1);
+    inc(42) |&gt; println
+</code></pre>
+<p>Here the <code>sum</code> function takes two arguments, <code>x</code> and
+<code>y</code>, but it is only called with one argument inside
+<code>main</code>.
+This call returns a new function which is
+similar to <code>sum</code>, except that in this function <code>x</code>
+is always bound to <code>1</code>.
+Hence when <code>inc</code> is called with <code>42</code> it returns <code>43</code>.</p>
+<p>Currying is useful in many programming patterns.
+For example, consider the <code>List.map</code> function.
+This function takes two arguments, a function of
+type <code>a -&gt; b</code> and a list of type <code>List[a]</code>, and
+returns a <code>List[b]</code> obtained by applying the
+function to every element of the list.
+Now, if we combine currying with the pipeline
+operator <code>|&gt;</code> we are able to write:</p>
+<pre><code class="language-flix">def main(): Unit \ IO =
+    List.range(1, 100) |&gt;
+    List.map(x -&gt; x + 1) |&gt;
+    println
+</code></pre>
+<p>Here the call to <code>List.map</code> passes the function
+<code>x -&gt; x + 1</code> which <em>returns</em> a new function that
+expects a list argument.
+This list argument is then supplied by the pipeline
+operator <code>|&gt;</code> which, in this case, expects a list
+and a function that takes a list.</p>
+<h2 id="pipelines"><a class="header" href="#pipelines">Pipelines</a></h2>
+<p>Flix supports the pipeline operator <code>|&gt;</code> which is
+simply a prefix version of function application (i.e.
+the argument appears before the function).</p>
+<p>The pipeline operator can often be used to make
+functional code more readable.
+For example:</p>
+<pre><code class="language-flix">let l = 1 :: 2 :: 3 :: Nil;
+l |&gt;
+List.map(x -&gt; x * 2) |&gt;
+List.filter(x -&gt; x &lt; 4) |&gt;
+List.count(x -&gt; x &gt; 1)
+</code></pre>
+<p>Here is another example:</p>
+<pre><code class="language-flix">&quot;Hello World&quot; |&gt; String.toUpperCase |&gt; println
+</code></pre>
+<h2 id="operators"><a class="header" href="#operators">Operators</a></h2>
+<p>Flix has a number of built-in unary and infix operators.
+In addition Flix supports infix function application by enclosing
+the function name in backticks. For example:</p>
+<pre><code class="language-flix">123 `sum` 456
+</code></pre>
+<p>is equivalent to the normal function call:</p>
+<pre><code class="language-flix">sum(123, 456)
+</code></pre>
+<p>In addition, a function named with an operator name (some combination of <code>+</code>, <code>-</code>, <code>*</code>, <code>&lt;</code>, <code>&gt;</code>, <code>=</code>, <code>!</code>, <code>&amp;</code>, <code>|</code>, <code>^</code>, and <code>$</code>) can also be used infix. For example:</p>
+<pre><code class="language-flix">def &lt;*&gt;(x: Int32, y: Int32): Int32 = ???
+</code></pre>
+<p>can be used as follows:</p>
+<pre><code class="language-flix">1 &lt;*&gt; 2
+</code></pre>
+<h2 id="pure-impure-and-effect-polymorphic-functions"><a class="header" href="#pure-impure-and-effect-polymorphic-functions">Pure, Impure, and Effect Polymorphic Functions</a></h2>
+<p>In Flix every function is pure, impure, or effect
+polymorphic.</p>
+<p>The Flix type and effect system ensures that a pure
+function always returns the same result when given
+the same arguments and that it cannot have
+(observable) side effects.</p>
+<p>In Flix every function definition is <em>implicitly</em>
+marked as <code>Pure</code>.
+For example, the function definition:</p>
+<pre><code class="language-flix">def add(x: Int32, y: Int32): Int32 = x + y
+</code></pre>
+<p>is actually equivalent to:</p>
+<pre><code class="language-flix">def add(x: Int32, y: Int32): Int32 \ {} = x + y
+</code></pre>
+<p>Note the annotation for <code>Pure</code> is <code>\ {}</code>.</p>
+<p>A function that prints to the console is <code>Impure</code>
+and must be marked with <code>\ IO</code>:</p>
+<pre><code class="language-flix">def addAndPrint(x: Int32, y: Int32): Int32 \ IO =
+    let r = x + y;
+    println(r);
+    r
+</code></pre>
+<p>since the type signature of the library function
+<code>println</code> specifies that it is <code>Impure</code>.</p>
+<p>The purity (or impurity) of a higher-order function
+may depend on the purity of its argument(s).
+For example, whether <code>List.map</code> is pure or impure
+depends on whether function we map is pure or
+impure.
+Fortunately Flix can model such behavior using
+<em>effect polymorphism</em>.
+For example:</p>
+<pre><code class="language-flix">def map(f: a -&gt; b \ ef, l: List[a]): List[b] \ ef = ???
+</code></pre>
+<p>Here the signature of <code>map</code> captures that if the
+function argument <code>f</code> has type <code>a -&gt; b</code> with effect
+<code>ef</code> then the effect of <code>map</code> itself is <code>ef</code>.
+This means that if <code>map</code> is called with a pure
+(resp. impure) function argument then the overall
+expression is pure (resp. impure).
+For example:</p>
+<pre><code class="language-flix">List.map(x -&gt; x + 123, l)    // pure
+List.map(x -&gt; println(x), l) // impure
+</code></pre>
+<blockquote>
+<p><strong>Design Note</strong></p>
+<p>The Flix standard library enforces several program
+invariants using purity.
+For example, in Flix, the <code>Eq</code> and <code>Order</code> type
+classes require that their operations are pure.
+This ensures that collections, such as lists, sets,
+and maps, do not leak internal implementation
+details.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="immutable-data"><a class="header" href="#immutable-data">Immutable Data</a></h1>
+<p>Flix is a functional programming language and the bread-and-butter of the language
+is in its immutable data types. We have already seen enumerated types. In this chapter,
+we look at lists and records.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lists"><a class="header" href="#lists">Lists</a></h1>
+<p>The bread and butter of functional programming is
+list processing.
+A list is either the empty list, written as <code>Nil</code>,
+or a cons cell, written as <code>x :: xs</code> where <code>x</code> is
+the head element and <code>xs</code> is the tail of the list.
+The <code>List</code> type is polymorphic so you can have a
+list of integers, written as <code>List[Int32]</code>, or a
+list of strings written as <code>List[String]</code>.
+The <code>List</code> type and list operations are part of the
+Flix standard library.</p>
+<p>We write the empty list as follows:</p>
+<pre><code class="language-flix">Nil
+</code></pre>
+<p>We can construct a list of strings with the strings
+<code>&quot;Hello&quot;</code> and <code>&quot;World&quot;</code> as follows:</p>
+<pre><code class="language-flix">&quot;Hello&quot; :: &quot;World&quot; :: Nil
+</code></pre>
+<p>Given a list there are many useful operations we can
+perform on it.</p>
+<p>For example, we can compute the length of a list as
+follows:</p>
+<pre><code class="language-flix">List.length(1 :: 2 :: 3 :: Nil)
+</code></pre>
+<p>We can also reverse the order of elements in a list:</p>
+<pre><code class="language-flix">List.reverse(1 :: 2 :: 3 :: Nil)
+</code></pre>
+<p>We can append two lists using the <code>List.append</code>
+function as follows:</p>
+<pre><code class="language-flix">let xs = (1 :: 2 :: 3 :: Nil);
+let ys = (4 :: 5 :: 6 :: Nil);
+List.append(xs, ys)
+</code></pre>
+<p>Or, alternatively, we can use the built-in append
+operator <code>:::</code> as follows:</p>
+<pre><code class="language-flix">let xs = (1 :: 2 :: 3 :: Nil);
+let ys = (4 :: 5 :: 6 :: Nil);
+xs ::: ys
+</code></pre>
+<p>Flix has an extensive collection of functions to
+operate on lists.</p>
+<p>Here are some of the most common:</p>
+<pre><code class="language-flix">List.count(x -&gt; x == 1, 1 :: 2 :: 3 :: Nil);
+List.filter(x -&gt; x == 1, 1 :: 2 :: 3 :: Nil);
+List.map(x -&gt; x + 1, 1 :: 2 :: 3 :: Nil);
+List.foldLeft((x, y) -&gt; x + y, 0, 1 :: 2 :: 3 :: Nil)
+</code></pre>
+<p>And here are some more exotic functions:</p>
+<pre><code class="language-flix">List.intersperse(&quot;X&quot;, &quot;a&quot; :: &quot;b&quot; :: &quot;c&quot; :: Nil)
+</code></pre>
+<p>which inserts <code>&quot;X&quot;</code> between every element in the
+list.</p>
+<pre><code class="language-flix">let l1 = &quot;X&quot; :: &quot;Y&quot; :: Nil;
+let l2 = (&quot;a&quot; :: &quot;b&quot; :: Nil) :: (&quot;c&quot; :: &quot;d&quot; :: Nil) :: Nil;
+List.intercalate(l1, l2)
+</code></pre>
+<p>which inserts the list <code>l1</code> between every element in
+the list <code>l2</code>.</p>
+<p>We can write our own recursive functions to operate
+on lists.</p>
+<p>For example, here is an implementation of the <code>map</code>
+function:</p>
+<pre><code class="language-flix">///
+/// Returns the result of applying `f` to every element in `l`.
+/// That is, the result is of the form: `f(x1) :: f(x2) :: ...`.
+///
+pub def map(f: a -&gt; b \ ef, l: List[a]): List[b] \ ef = match l {
+    case Nil     =&gt; Nil
+    case x :: xs =&gt; f(x) :: map(f, xs)
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="records"><a class="header" href="#records">Records</a></h1>
+<p>Flix supports row polymorphic extensible records.
+Flix records are immutable (but may contain mutable
+reference cells).</p>
+<h2 id="record-literals"><a class="header" href="#record-literals">Record Literals</a></h2>
+<p>A record literal is written with curly braces:</p>
+<pre><code class="language-flix">{ x = 1, y = 2 }
+</code></pre>
+<p>which has the record type
+<code>{ x = Int32, y = Int32 }</code>.</p>
+<p>The order of fields in a record does not matter,
+hence the above record is equivalent to the
+record:</p>
+<pre><code class="language-flix">{ y = 2, x = 1 }
+</code></pre>
+<p>which has the record type
+<code>{ y = Int32, x = Int32 }</code>.
+This type is equivalent to the record type
+<code>{ x = Int32, y = Int32 }</code>.
+That is, the order of fields within a record type do
+not matter.</p>
+<h2 id="field-access"><a class="header" href="#field-access">Field Access</a></h2>
+<p>We can access the field of a record using a dot:</p>
+<pre><code class="language-flix">let p = { x = 1, y = 2 };
+p.x + p.y
+</code></pre>
+<p>The Flix type system ensures that we cannot access a
+field that does not exist.</p>
+<p>Records are immutable. A record, once constructed,
+cannot have the values of any of its fields changed.</p>
+<h2 id="field-update"><a class="header" href="#field-update">Field Update</a></h2>
+<p>While records are immutable, we can construct a new
+record with an updated field value:</p>
+<pre><code class="language-flix">let p1 = { x = 1, y = 2 };
+let p2 = { x = 3 | p1 };
+p1.x + p2.x
+</code></pre>
+<p>The expression <code>{ x = 3 | p1 }</code> updates the record
+<code>p1</code> with a new value of its <code>x</code> field.
+Note that updating a field requires that the field
+exists on the record (!) A record cannot be
+<em>updated</em> with a new field, but it can be <em>extended</em>
+with a new field, as we shall see later.</p>
+<h2 id="record-extension"><a class="header" href="#record-extension">Record Extension</a></h2>
+<p>We can add a new field to an existing record as follows:</p>
+<pre><code class="language-flix">let p1 = { x = 1, y = 2 };
+let p2 = { +z = 3 | p1 };
+p1.x + p1.y + p2.z
+</code></pre>
+<p>Here the expression <code>{ +z = 3 | p1 }</code> extends the
+record <code>p1</code> with a new field <code>z</code> such that the
+result has three fields: <code>x</code>, <code>y</code>, and <code>z</code> all of
+which are of <code>Int32</code> type.</p>
+<h2 id="record-restriction"><a class="header" href="#record-restriction">Record Restriction</a></h2>
+<p>Similarly to record extension, we can also remove a
+field from a record:</p>
+<pre><code class="language-flix">let p1 = { x = 1, y = 2 };
+let p2 = { -y | p1 };
+</code></pre>
+<p>Here the record <code>p2</code> has the same fields as <code>p1</code>
+except that the <code>y</code> field has been removed.</p>
+<h2 id="row-polymorphism-open-and-closed-records"><a class="header" href="#row-polymorphism-open-and-closed-records">Row Polymorphism: Open and Closed Records</a></h2>
+<p>A function may specify that it requires a record
+with two fields:</p>
+<pre><code class="language-flix">def f(r: {x = Int32, y = Int32}): Int32 = r.x + r.y
+</code></pre>
+<p>We can call this function with the records
+<code>{ x = 1, y = 2 }</code> and <code>{ y = 2, x = 1 }</code>, but we
+<em>cannot</em> call it with the record
+<code>{ x = 1, y = 2, z = 3 }</code> since the signature of <code>f</code>
+demands a record with <em>exactly</em> two fields: <code>x</code> and
+<code>y</code>.
+We say that the record <code>r</code> is <em>closed</em>.</p>
+<p>We can lift this restriction by using row
+polymorphism:</p>
+<pre><code class="language-flix">def g(r: {x = Int32, y = Int32 | s}): Int32 = r.x + r.y
+</code></pre>
+<p>We can call this function with <em>any</em> record as long
+as it has <code>x</code> and <code>y</code> fields which are of type
+<code>Int32</code>.
+We say that the record type of <code>r</code> is <em>open</em>.</p>
+<h2 id="named-parameters-with-records"><a class="header" href="#named-parameters-with-records">Named Parameters with Records</a></h2>
+<p>When a function has multiple parameters that share
+the same type, it is easy to get confused about the
+right argument order.
+For example, what does
+<code>String.contains(&quot;Hello&quot;,&quot;Hello World&quot;)</code> return?
+What does <code>String.contains(&quot;Hello World&quot;, &quot;Hello&quot;)</code>
+return?</p>
+<p>A common solution to this problem is to use
+<em>named parameters</em>.
+Flix supports a form of named parameters building on
+records.
+For example, we can write a function translate to
+translate from one language to another as follows:</p>
+<pre><code class="language-flix">def translate(from: {from = Language}, to: {to = Language}, text: String): String = ???
+</code></pre>
+<p>We can call this function as follows:</p>
+<pre><code class="language-flix">translate({from = English}, {to = French}, &quot;Where is the library?&quot;)
+</code></pre>
+<p>Since such verbosity gets tedious, we can also use
+the syntactic sugar:</p>
+<pre><code class="language-flix">translate(from = English, to = French, &quot;Where is the library?&quot;)
+</code></pre>
+<p>which is equivalent to the above.</p>
+<h2 id="illegal-record-field-length"><a class="header" href="#illegal-record-field-length">Illegal Record Field: length</a></h2>
+<p>A record field <em>cannot</em> be named <code>length</code>.
+The reason is that the expression:</p>
+<pre><code class="language-flix">a.length
+</code></pre>
+<p>is understood as accessing the length of the array
+<code>a</code>, <em>not</em> as accessing a field named <code>length</code> on a
+record <code>a</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mutable-data"><a class="header" href="#mutable-data">Mutable Data</a></h1>
+<p>We now turn our attention to mutable data.</p>
+<p>All mutable data is built from two the basic mutable data types:</p>
+<ul>
+<li>References</li>
+<li>Arrays</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="references"><a class="header" href="#references">References</a></h1>
+<p>Flix supports references in the ML-tradition.
+The three key operations are <code>ref e</code>, <code>deref e</code>, and
+<code>e := e</code>.
+The <code>ref e</code> operation allocates a reference cell in
+the heap and returns its location, the <code>deref</code>
+operation dereferences a location and returns the
+content of a reference cell, and finally the
+assigment <code>:=</code> operation changes the value
+of a reference cell. Informally, a reference cell can
+be thought of as an “object” with a single field that
+can be changed.</p>
+<p>All operations on references are impure.
+As such, all functions that use references must be
+marked with annotation <code>\ IO</code> for <code>Impure</code>
+or be casted to <code>Pure</code>.</p>
+<h2 id="allocation"><a class="header" href="#allocation">Allocation</a></h2>
+<p>A reference cell is allocated as follows:</p>
+<pre><code class="language-flix">ref 42
+</code></pre>
+<p>which evaluates to a value of type <code>Ref[Int32]</code> which
+is a reference (pointer) to a single memory cell that
+holds the value <code>42</code>.</p>
+<h2 id="dereference"><a class="header" href="#dereference">Dereference</a></h2>
+<p>A reference cell is accessed (de-referenced) as
+follows:</p>
+<pre><code class="language-flix">let l = ref 42;
+deref l
+</code></pre>
+<p>which evaluates to <code>42</code> as expected.</p>
+<h2 id="assignment"><a class="header" href="#assignment">Assignment</a></h2>
+<p>A reference cell can have its value updated as
+follows:</p>
+<pre><code class="language-flix">let l = ref 42;
+l := 84;
+deref l
+</code></pre>
+<p>which evaluates to <code>84</code> as expected.</p>
+<h2 id="example-a-simple-counter"><a class="header" href="#example-a-simple-counter">Example: A Simple Counter</a></h2>
+<p>The following program models a simple counter that
+can be incremented:</p>
+<pre><code class="language-flix">enum Counter {
+    case Counter(Ref[Int32])
+}
+
+def newCounter(): Counter \ IO = Counter(ref 0)
+
+def getCount(c: Counter): Int32 \ IO =
+    let Counter(l) = c;
+    deref l
+
+def increment(c: Counter): Unit \ IO =
+    let Counter(l) = c;
+    l := (deref l) + 1
+
+def f(): Unit \ IO =
+    let c = newCounter();
+    increment(c);
+    increment(c);
+    increment(c);
+    getCount(c) |&gt; println
+</code></pre>
+<p>Note that the <code>newCounter</code>, <code>getCount</code>, <code>increment</code>
+and <code>f</code> functions must all be marked as <code>Impure</code>
+with the annotation <code>\ IO</code>.</p>
+<h2 id="aliasing-and-references-to-references"><a class="header" href="#aliasing-and-references-to-references">Aliasing and References to References</a></h2>
+<p>References naturally support aliasing since that is
+exactly their purpose.
+For example:</p>
+<pre><code class="language-flix">let l1 = ref 42;
+let l2 = l1;
+l2 := 84;
+deref l1
+</code></pre>
+<p>Evaluates to <code>84</code> because the reference cell that
+<code>l1</code> points to is modified through the alias <code>l2</code>.</p>
+<p>References can point-to references as the following
+example illustrates:</p>
+<pre><code class="language-flix">let l1 = ref 42;
+let l2 = ref l1;
+deref (deref l2)
+</code></pre>
+<p>Evaluates to <code>42</code> as expected.</p>
+<blockquote>
+<p><strong>Design Note</strong></p>
+<p>Flix does not support any notion of global mutable
+state.
+If you need to maintain a program-wide counter (or
+other mutable state) then you have to allocate it in
+the main function and explicitly thread it through
+the program.</p>
+</blockquote>
+<h2 id="mutable-tuples-and-records"><a class="header" href="#mutable-tuples-and-records">Mutable Tuples and Records</a></h2>
+<p>Flix tuples and records are <em>immutable</em>.
+However, tuples and records may contain mutable
+references.</p>
+<p>For example, here is a pair that contains two mutable
+references:</p>
+<pre><code class="language-flix">let p = (ref 1, ref 2);
+fst(p) := 123
+</code></pre>
+<p>The type of the pair is <code>(Ref[Int32], Ref[Int32])</code>.
+The assignment does not change the pair itself (it is
+immutable), but rather changes the value of the
+reference cell in the first component of the pair.</p>
+<p>Similarly, here is a record that contains two mutable
+references:</p>
+<pre><code class="language-flix">let r = { fstName = ref &quot;Lucky&quot;, lstName = ref &quot;Luke&quot; };
+r.fstName := &quot;Unlucky&quot;
+</code></pre>
+<p>The type of the record is
+<code>{ fstName = Ref[String], lstName = Ref[String] }</code>.
+Again, the assignment does not change the record
+itself, but rather changes the value of the reference
+cell corresponding to the <code>fstName</code> field.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="arrays"><a class="header" href="#arrays">Arrays</a></h1>
+<p>While Flix recommends the use of immutable data
+structures (such as immutable lists, sets, and maps),
+mutable arrays may be useful for performance critical
+code.</p>
+<p>We recommend that arrays are used sparingly and that
+when possible their use is hidden as an
+implementation detail.
+For example, the Flix Datalog engine uses arrays
+internally but exposes a functional (immutable)
+interface.</p>
+<p>Flix uses monomorphization and consequently primitive
+arrays are not boxed.
+For example, the representation of an <code>Array[Int32]</code>
+is compact and efficient.</p>
+<p>All operations on arrays are impure.
+As such, all functions that use arrays must be marked as
+impure (with annotation <code>\ IO</code>) or be casted to pure.
+However, accessing the length of an array is pure
+since the size of an array cannot change after it has
+been created.</p>
+<p>Arrays should only be used for low-level code.
+The <code>MutList</code> data structure, available in the
+standard library, provides a mutable
+dynamically-expanding data structure similar to
+<code>java.util.ArrayList</code>. Its implementation is backed
+by an array that is dynamically resized and it
+provides amortized O(1) push operations.</p>
+<h2 id="array-literals"><a class="header" href="#array-literals">Array Literals</a></h2>
+<p>An array literal is of the form <code>[e1, e2, ... en]</code>.
+For example, the expression:</p>
+<pre><code class="language-flix">[1, 2, 3, 4]
+</code></pre>
+<p>evaluates to an array with the four elements:
+<code>1, 2, 3, 4</code>.</p>
+<p>In some cases it is useful to allocate a large array
+filled with the same value.
+The expression:</p>
+<pre><code class="language-flix">[&quot;Hello World&quot;; 100]
+</code></pre>
+<p>evaluates to an array of length 100 where every entry
+contains the string <code>&quot;Hello World&quot;</code>.</p>
+<blockquote>
+<p><strong>Design Note</strong></p>
+<p>Flix does not allow the allocation of an array
+without assigning a “default value” to each entry in
+the array.</p>
+</blockquote>
+<h2 id="reading-and-writing-from-arrays"><a class="header" href="#reading-and-writing-from-arrays">Reading and Writing from Arrays</a></h2>
+<p>Arrays can be accessed and updated using standard
+syntax.
+For example:</p>
+<pre><code class="language-flix">let a = [0; 10];
+a[0] = 21;
+a[1] = 42;
+a[0] + a[1]
+</code></pre>
+<p>evaluates to <code>63</code>, as expected.</p>
+<h2 id="array-slicing"><a class="header" href="#array-slicing">Array Slicing</a></h2>
+<p>Arrays can be sliced.
+Slicing an array (shallowly) copies a subrange of the
+array.
+For example:</p>
+<pre><code class="language-flix">let a = [1, 2, 3, 4, 5];
+a[2..4]
+</code></pre>
+<p>evaluates to the array <code>[3, 4]</code>.</p>
+<p>The start or end index may be omitted.
+For example:</p>
+<pre><code class="language-flix">let a = [1, 2, 3, 4, 5];
+let a1 = a[2..]; // evaluates to [3, 4, 5]
+let a2 = a[..4]  // evaluates to [1, 2, 3, 4]
+</code></pre>
+<p>If both the start and end index are omitted the
+entire array is copied.
+For example:</p>
+<pre><code class="language-flix">let a = [1, 2, 3, 4, 5];
+a[..]
+</code></pre>
+<p>evaluates to the (copied) array <code>[1, 2, 3, 4, 5]</code>.</p>
+<blockquote>
+<p><strong>Design Note</strong></p>
+<p>Slicing an array using the same start and end index
+returns the empty array.
+For example, <code>[0, 1, 2, 3][2..2]</code> evaluates to <code>[]</code>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Warning</strong></p>
+<p>Slicing with negative indices is undefined and
+results in runtime errors.</p>
+</blockquote>
+<h2 id="array-length"><a class="header" href="#array-length">Array Length</a></h2>
+<p>The length of an array is accessed as follows:</p>
+<pre><code class="language-flix">let a = [1, 2, 3, 4, 5];
+a.length
+</code></pre>
+<p>which evaluates to <code>5</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="control-structures"><a class="header" href="#control-structures">Control Structures</a></h1>
+<p>The Flix control structures are:</p>
+<ul>
+<li><a href="./if-then-else.html">If-Then-Else</a></li>
+<li><a href="./pattern-matching.html">Pattern Matching</a></li>
+<li><a href="./foreach-foryield.html">For-Each and For-Yield</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="if-then-else"><a class="header" href="#if-then-else">If-then-else</a></h1>
+<p>Flix supports the usual <em>if-then-else</em> expression:</p>
+<pre><code class="language-flix">if (1 == 1) &quot;Hello&quot; else &quot;World&quot;
+</code></pre>
+<p>which evaluates to <code>Hello</code>.</p>
+<p>But <code>if</code> guards are also supported in other parts of the language.</p>
+<h2 id="guarded-pattern-matches"><a class="header" href="#guarded-pattern-matches">Guarded Pattern Matches</a></h2>
+<p>We can use an <code>if</code>-guard in a pattern match:</p>
+<pre><code class="language-flix">def isSquare(s: Shape): Bool = match s {
+    case Rectangle(h, w) if h == w =&gt; true
+    case _                         =&gt; false
+}
+</code></pre>
+<h2 id="guarded-datalog-rules"><a class="header" href="#guarded-datalog-rules">Guarded Datalog Rules</a></h2>
+<p>We can use an <code>if</code>-guard in a Datalog rule:</p>
+<pre><code class="language-flix">Path(x, z) :- Path(x, y), Edge(y, z), if x != z.
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pattern-matching"><a class="header" href="#pattern-matching">Pattern Matching</a></h1>
+<h2 id="let-pattern-match"><a class="header" href="#let-pattern-match">Let Pattern Match</a></h2>
+<p>In addition to the pattern <code>match</code> construct, a
+let-binding can be used to destruct a value.
+For example:</p>
+<pre><code class="language-flix">let (x, y, z) = (1, 2, 3)
+</code></pre>
+<p>Binds the variables <code>x</code>, <code>y</code>, and <code>z</code> to the values
+<code>1</code>, <code>2</code>, and <code>3</code>, respectively.</p>
+<p>Any exhaustive pattern may be used in a let-binding.
+For example:</p>
+<pre><code class="language-flix">let (x, Foo(y, z)) = (1, Foo(2, 3))
+</code></pre>
+<p>is legal provided that the <code>Foo</code> constructor belongs
+to a type where it is the only constructor.</p>
+<p>The following let-bindings are <em>illegal</em> because they
+are not exhaustive:</p>
+<pre><code class="language-flix">let (1, 2, z) = ...
+let Some(x) = ...
+</code></pre>
+<p>The Flix compiler will reject such non-exhaustive
+patterns.</p>
+<h2 id="match-lambdas"><a class="header" href="#match-lambdas">Match Lambdas</a></h2>
+<p>Pattern matches can also be used with lambda
+expressions.
+For example:</p>
+<pre><code class="language-flix">List.map(match (x, y) -&gt; x + y, (1, 1) :: (2, 2) :: Nil)
+</code></pre>
+<p>is equivalent to:</p>
+<pre><code class="language-flix">List.map(w -&gt; match w { case (x, y) =&gt; x + y }, (1, 1) :: (2, 2) :: Nil)
+</code></pre>
+<p>As for let-bindings, such pattern matches must be
+exhaustive.</p>
+<p>Note the difference between the two lambda expressions:</p>
+<pre><code class="language-flix">let f = (x, y, z) -&gt; x + y + z + 42i32
+let g = match (x, y, z) -&gt; x + y + z + 42i32
+</code></pre>
+<p>Here <code>f</code> is a function that expects <em>three</em> <code>Int32</code>
+arguments,whereas <code>g</code> is a function that expects <em>one</em>
+three tuple <code>(Int32, Int32, Int32)</code> argument.</p>
+<h2 id="let-do-notation"><a class="header" href="#let-do-notation">Let* (Do-notation)</a></h2>
+<p>Flix supports a feature similar to <em>do-notation</em> in
+Haskelland <em>for-comprehensions</em> in Scala.</p>
+<p>The following monadic code:</p>
+<pre><code class="language-flix">use Option.flatMap;
+let o1 = Some(21);
+let o2 = Some(42);
+flatMap(x -&gt; flatMap(y -&gt; Some(x + y), o2), o1)
+</code></pre>
+<p>May be expressed more concisely as:</p>
+<pre><code class="language-flix">use Option.flatMap;
+let* o1 = Some(21);
+let* o2 = Some(42);
+Some(o1 + o2)
+</code></pre>
+<p>where each <code>let*</code> corresponds to a <code>flatMap</code> use.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="for-each-and-for-yield"><a class="header" href="#for-each-and-for-yield">For-Each and For-Yield</a></h1>
+<blockquote>
+<p><strong>Note:</strong> This feature is experimental and not yet intended for use.</p>
+</blockquote>
+<p>In Flix, as in other functional programming languages, most iteration is expressed either through recursion or with combinators (e.g. <code>map</code> or <code>foldLeft</code>).</p>
+<p>That said, Flix has syntactic sugar for two common types of loops: <em>for-each</em> and <em>for yield</em>.</p>
+<h2 id="for-each"><a class="header" href="#for-each">For Each</a></h2>
+<p>The <em>for-each</em> construct is useful for iterating over a collection
+and apply some transformation to each element and works particularly
+well with mutable collections.
+This is due to the fact that the <em>for-each</em> loop is actually just
+syntactic sugar for a call to <code>Iterable.foreach</code> which has return
+type <code>Unit</code>.
+Thus, for the loop to be useful the body of the loop should have an effect.
+However, before going any further an example is in order.</p>
+<p>To use the <em>for-each</em> loop an instance of <code>Iterable</code> on the collection is required.
+For this example we will use a <code>MutList</code>.</p>
+<pre><code class="language-flix">def main(): Unit &amp; Impure = region r {
+    use MutList.push!;
+
+    let l = new MutList(r)
+        !&gt; push!(1)
+        !&gt; push!(2)
+        !&gt; push!(3);
+
+    foreach (x &lt;- l)
+        println(x)
+}
+</code></pre>
+<h2 id="for-yield"><a class="header" href="#for-yield">For Yield</a></h2>
+<p>Flix also supports a <em>for-yield</em> construct which is similar to Scala’s for-comprehensions
+or to Haskell’s list comprehension. The <em>for-yield</em> construct is simply syntactic sugar
+for uses of <code>point</code> and <code>flatMap</code> (which requires an instance of the <code>Monad</code> type class).
+The <em>for-yield</em> construct also supports a <em>guard</em>-expression which, when used,
+additionally requires an instance of the <code>MonadZero</code> type class.</p>
+<p>The for-yield expression:</p>
+<pre><code class="language-flix">let l1 = 1 :: 2 :: Nil;
+let l2 = 1 :: 2 :: Nil;
+for (x &lt;- l1; y &lt;- l2)
+    yield (x, y)
+</code></pre>
+<p>evaluates to the list:</p>
+<pre><code class="language-flix">(1, 1) :: (1, 2) :: (2, 1) :: (2, 2) :: Nil
+</code></pre>
+<p>The for-yield expression:</p>
+<pre><code class="language-flix">let l1 = 1 :: 2 :: Nil;
+let l2 = 1 :: 2 :: Nil;
+for (x &lt;- l1; y &lt;- l2; if x &lt; y)
+    yield (x, y)
+</code></pre>
+<p>evaluates to the list:</p>
+<pre><code class="language-flix">(1, 2) :: Nil
+</code></pre>
+<p>We can use for-yield on any data type which implements the <code>Monad</code> type class. For example, we can iterate through non-empty lists:</p>
+<pre><code class="language-flix">let l1 = Nel(1, 2 :: Nil);
+let l2 = Nel(1, 2 :: Nil);
+for (x &lt;- l1; y &lt;- l2)
+    yield (x, y)
+</code></pre>
+<p>which evaluates to the non-empty list:</p>
+<pre><code class="language-flix">Nel((1, 1), (1, 2) :: (2, 1) :: (2, 2) :: Nil)
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> We cannot use an <code>if</code>-guard with a non-empty list because such an <code>if</code>-guard requires an instance of the <code>MonadZero</code> type class which is not implemented by non-empty list. Intuitively, we cannot use a filter in combination with a data structures that cannot be empty.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="concurrency-with-channels-and-processes"><a class="header" href="#concurrency-with-channels-and-processes">Concurrency with Channels and Processes</a></h1>
+<p>Flix supports CSP-style concurrency with channels and
+processes inspired by Go and Rust.</p>
+<h2 id="spawning-processes"><a class="header" href="#spawning-processes">Spawning Processes</a></h2>
+<p>We can spawn a process with the <code>spawn</code> keyword:</p>
+<pre><code class="language-flix">spawn (1 + 2)
+</code></pre>
+<p>This spawns a process that computes <code>1 + 2</code> and
+throws the result away.
+The <code>spawn</code> expression always returns <code>Unit</code>.
+We can spawn any expression, but we typically spawn
+functions to run in a new process:</p>
+<pre><code class="language-flix">def sum(x: Int32, y: Int32): Int32 = x + y
+
+def main(): Unit \ IO = spawn sum(1, 2)
+</code></pre>
+<h2 id="communicating-with-channels"><a class="header" href="#communicating-with-channels">Communicating with Channels</a></h2>
+<p>To communicate between processes we use channels.
+A <em>channel</em> allows two or more processes to exchange
+data by sending immutable messages to each other.</p>
+<p>A channel comes in one of two variants: <em>buffered</em> or
+<em>unbuffered</em>.</p>
+<p>A buffered channel has a size, set at creation time,
+and can hold that many messages.
+If a process attempts to put a message into a
+buffered channel that is full, then the process is
+blocked until space becomes available.
+If, on the other hand, a process attempts to get a
+message from an empty channel, the process is blocked
+until a message is put into the channel.</p>
+<p>An unbuffered channel works like a buffered channel
+of size zero; for a get and a put to happen both
+processes must rendezvous (block) until the message
+is passed from sender to receiver.</p>
+<p>Here is an example of sending and receiving a message
+over a channel:</p>
+<pre><code class="language-flix">def main(): Int32 \ IO =
+    let (s, r) = Channel.unbuffered();
+    spawn Channel.send(42, s);
+    Channel.recv(r)
+</code></pre>
+<p>Here the <code>main</code> function creates an unbuffered
+channel which returns <code>Sender</code> <code>s</code> and a <code>Receiver</code> <code>r</code> channels,
+spawns the <code>send</code> function, and waits
+for a message from the channel.</p>
+<p>As the example shows, a channel consists of two end points:
+the <em>Sender</em> and the <em>Receiver</em>. As one would expect, 
+messages can only be send using the <code>Sender</code>, and only 
+received using the <code>Receiver</code>.</p>
+<h2 id="selecting-on-channels"><a class="header" href="#selecting-on-channels">Selecting on Channels</a></h2>
+<p>We can use the <code>select</code> expression to receive a
+message from a collection of channels.
+For example:</p>
+<pre><code class="language-flix">def meow(s: Sender[String]): Unit \ IO = Channel.send(&quot;Meow!&quot;, s)
+
+def woof(s: Sender[String]): Unit \ IO = Channel.send(&quot;Woof!&quot;, s)
+
+def main(): Unit \ IO =
+    let (s1, r1) = Channel.buffered(1);
+    let (s2, r2) = Channel.buffered(1);
+    spawn meow(s1);
+    spawn woof(s2);
+    select {
+        case m &lt;- recv(r1) =&gt; m
+        case m &lt;- recv(r2) =&gt; m
+    } |&gt; println
+</code></pre>
+<p>Many important concurrency patterns such as
+producer-consumer and load balancers can be expressed
+using the <code>select</code> expression.</p>
+<h3 id="selecting-with-default"><a class="header" href="#selecting-with-default">Selecting with Default</a></h3>
+<p>In some cases, we do not want to block until a
+message arrives, potentially waiting forever.
+Instead, we want to take some alternative action if
+no message is readily available.
+We can achieve this with a <em>default case</em> as shown
+below:</p>
+<pre><code class="language-flix">def main(): String \ IO =
+    let (_, r1) = Channel.buffered(1);
+    let (_, r2) = Channel.buffered(1);
+    select {
+        case _ &lt;- recv(r1) =&gt; &quot;one&quot;
+        case _ &lt;- recv(r2) =&gt; &quot;two&quot;
+        case _             =&gt; &quot;default&quot;
+    }
+</code></pre>
+<p>Here a message is never sent to <code>r1</code> nor <code>r2</code>.
+The <code>select</code> expression tries all cases, and if no
+channel is ready, it immediately selects the default
+case.
+Hence using a default case prevents the <code>select</code>
+expression from blocking forever.</p>
+<h3 id="selecting-with-timeouts"><a class="header" href="#selecting-with-timeouts">Selecting with Timeouts</a></h3>
+<p>As an alternative to a default case, we can use
+<em>tickers</em> and <em>timers</em> to wait for pre-defined
+periods of time inside a <code>select</code> expression.</p>
+<p>For example, here is a program that has a slow
+function that takes a minute to send a message on
+a channel, but the <code>select</code> expression relies on
+<code>Channel.timeout</code> to only wait <code>5</code> seconds before
+giving up:</p>
+<pre><code class="language-flix">def slow(s: Sender[String]): Unit \ IO =
+    Thread.sleep(Time/Duration.fromSeconds(60));
+    Channel.send(&quot;I am very slow&quot;, s)
+
+def main(): Unit \ IO =
+    let (s, r) = Channel.buffered(1);
+    spawn slow(s);
+    let timeout = Channel.timeout(Time/Duration.fromSeconds(5));
+    select {
+        case m &lt;- recv(r)        =&gt; m
+        case _ &lt;- recv(timeout)  =&gt; &quot;timeout&quot;
+    } |&gt; println
+</code></pre>
+<p>This program prints the string <code>&quot;timeout&quot;</code> after five
+seconds.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="parallelism"><a class="header" href="#parallelism">Parallelism</a></h1>
+<p>We have seen how the <code>spawn</code> expression allow us to evaluate an expression in another thread:</p>
+<pre><code class="language-flix">spawn (1 + 2)
+</code></pre>
+<p>This allows us to write both concurrent and parallel programs. 
+The downside is that we must manually coordinate communication between threads using channels. 
+If want parallelism, but not concurrency, a more light-weight approach is to use the <code>par</code> expression.</p>
+<p>The <code>par</code> expression:</p>
+<pre><code class="language-flix">par (1 + 2, 3 + 4)
+</code></pre>
+<p>evaluates <code>1 + 2</code> and <code>3 + 4</code> in <em>parallel</em> and returns a tuple with the result. </p>
+<p>If we have expressions <code>e1</code>, <code>e2</code>, and <code>e3</code> and we want evaluate them in parallel, we can write:</p>
+<pre><code class="language-flix">let (x, y, z) = par (e1, e2, e3)
+</code></pre>
+<p>which will spawn a thread for each of <code>e1</code>, <code>e2</code>, and <code>e3</code> and bind the result to the local variables <code>x</code>, <code>y</code>, and <code>z</code>.</p>
+<p>For convenience, Flix also supports a parallel function application expression.</p>
+<p>The <code>par</code> expression:</p>
+<pre><code class="language-flix">par f(e1, e2, e3)
+</code></pre>
+<p>evaluates the function expression <code>f</code>, and its argument expressions <code>e1</code>, <code>e2</code>, and <code>e3</code> in parallel.</p>
+<p>Once all four expressions have been evaluated, the function <code>f</code> is called with the arguments in the current thread.</p>
+<p>This allows us to write a parallel <code>List.map</code> function:</p>
+<pre><code class="language-flix">def parMap(f: a -&gt; b, l: List[a]): List[b] = match l {
+    case Nil     =&gt; Nil
+    case x :: xs =&gt; par (f(x) :: parMap(f, xs))
+}
+</code></pre>
+<p>This function will evaluate <code>f(x)</code> and <code>parMap(f, xs)</code> in parallel. Thus each recursive call spawns a new thread.
+Whether this leads to performance improvements depends on how expensive <code>f</code> is to compute.</p>
+<blockquote>
+<p><strong>Note:</strong> The <code>par</code> construct requires the sub-expression(s) to be pure.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="effect-system"><a class="header" href="#effect-system">Effect System</a></h1>
+<p>The Flix type and effect system separates pure and
+impure expressions.
+A pure expression is guaranteed to be referentially
+transparent.
+A pure function always returns the same value when
+given the same argument(s) and cannot have any
+(observable) side-effects.</p>
+<p>For example, the following expression is of type
+<code>Int32</code> and is pure (marked with <code>\ {}</code>):</p>
+<pre><code class="language-flix">1 + 2 : Int32 \ {}
+</code></pre>
+<p>whereas the following expression is impure (marked with <code>\ IO</code>):</p>
+<pre><code class="language-flix">println(&quot;Hello World&quot;) : Unit \ IO
+</code></pre>
+<p>A higher-order function can specify that a function
+argument must be pure, impure, or that it is effect
+polymorphic.</p>
+<p>For example, the definition of <code>Set.exists</code> requires
+that its function argument <code>f</code> is pure:</p>
+<pre><code class="language-flix">// The syntax a -&gt; Bool is short-hand for a -&gt; Bool \ {}
+def exists(f: a -&gt; Bool, s: Set[a]): Bool = ???
+</code></pre>
+<p>The requirement that <code>f</code> must be pure ensures that
+implementation details do not leak.
+For example, since <code>f</code> is pure it cannot be used to
+determine in what order the elements of the set are
+traversed.
+If <code>f</code> was impure such details could leak, e.g. by
+passing a function that also prints the current
+element, revealing the internal element order inside
+the set.</p>
+<p>The type and effect system is sound, but not
+complete.
+That is, if a function is pure then it cannot cause
+an effect, whereas if a function is impure then it
+may, but does not necessarily, cause an effect.
+For example, the following expression is impure even
+though it cannot produce an effect at run-time:</p>
+<pre><code class="language-flix">if (1 == 2) println(&quot;Hello World!&quot;) else ()
+</code></pre>
+<p>A higher-order function can also be effect
+polymorphic: its effect(s) can depend on its
+argument(s).</p>
+<p>For example, the standard library definition of
+<code>List.map</code> is effect polymorphic:</p>
+<pre><code class="language-flix">def map(f: a -&gt; b \ ef, xs: List[a]): List[b] \ ef
+</code></pre>
+<p>The <code>List.map</code> function takes a function <code>f</code> from
+elements of type <code>a</code> to <code>b</code> with effect <code>ef</code>.
+The effect of the function itself is <code>ef</code>.
+Consequently, if <code>List.map</code> is invoked with a pure
+function then the entire expression is pure whereas
+if it is invoked with an impure function then the
+entire expression is impure.</p>
+<p>A higher-order function that takes multiple function
+arguments may combine their effects.</p>
+<p>For example, the standard library definition of
+forward function composition <code>&gt;&gt;</code> is pure if both its
+function arguments are pure:</p>
+<pre><code class="language-flix">def &gt;&gt;(f: a -&gt; b \ ef1, g: b -&gt; c \ ef2): a -&gt; c \ { ef1, ef2 } = x -&gt; g(f(x))
+</code></pre>
+<p>The type and effect signature can be understood as
+follows: The <code>&gt;&gt;</code> function takes two function
+arguments: <code>f</code> with effect <code>ef1</code> and <code>g</code> with
+effect <code>ef2</code>.
+The effect of <code>&gt;&gt;</code> is effect polymorphic in the
+conjunction of <code>ef1</code> and <code>ef2</code>.
+If both are pure (their effect is <code>true</code>) then the
+overall expression is pure (<code>true</code>).
+Otherwise it is impure.</p>
+<p>The type and effect system allows arbitrary boolean
+expressions to control the purity of function
+arguments.</p>
+<p>For example, it is possible to express a higher-order
+function <code>h</code> that accepts two function arguments <code>f</code>
+and <code>g</code> of which at most one is impure:</p>
+<pre><code class="language-flix">def h(f: a -&gt; b \ ef1, g: b -&gt; c \ { (not ef1) or ef2 }): Unit
+</code></pre>
+<p>Note that here <code>ef1</code> and <code>ef2</code> are arbitrary boolean
+variables which are not directly associated with the
+effect of <code>f</code> or <code>g</code> (like it was the case in the
+simpler example above).
+In general, the possible effects for argument
+functions and the to-be-defined function are described
+by arbitrary boolean expressions.
+Here the possible effects of <code>g</code> (whether it can be
+pure or impure) are specified by the boolean
+<code>not ef1 or ef2</code>.
+For a specific combination of pure and impure to be
+accepted, there must be an assignment of the boolean
+variables <code>ef1</code> and <code>ef2</code> to true and false such that
+the boolean expressions for <em>pure</em> arguments evaluate
+to <code>true</code> and those for <em>impure</em> arguments evaluate to
+<code>false</code>.</p>
+<p>If in this example <code>h</code> is called with a function
+argument <code>f</code> which is impure, then the variable <code>ef1</code>
+must be false and thus the second argument must be
+pure (because <code>not ef1 or ef2</code> will always be true,
+no matter how we choose <code>ef2</code>).
+Conversely, if <code>f</code> is pure, then <code>ef1</code> must be true
+and <code>g</code> may be pure (<code>ef2 = true</code>) or impure
+(<code>ef2 = false</code>).
+It is a compile-time error to call <code>h</code> with two impure
+functions.</p>
+<p>The type and effect system can be used to ensure that
+statement expressions are useful, i.e. that if an
+expression or function is evaluated and its result is
+discarded then it must have a side-effect.
+For example, compiling the program fragment below:</p>
+<pre><code class="language-flix">List.map(x -&gt; x + 1, 1 :: 2 :: Nil);
+123
+</code></pre>
+<p>causes a compiler error:</p>
+<pre><code>-- Redundancy Error -------------------------------------------------- ???
+
+&gt;&gt; Useless expression: It has no side-effect(s) and its result is discarded.
+
+2 |     List.map(x -&gt; x + 1, 1 :: 2 :: Nil);
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+useless expression.
+
+
+Possible fixes:
+
+(1)  Use the result computed by the expression.
+(2)  Remove the expression statement.
+(3)  Introduce a let-binding with a wildcard name.
+</code></pre>
+<p>because it is non-sensical to evaluate the pure
+expression
+<code>List.map(x -&gt; 2 * x, 1 :: 2 :: Nil)</code> and then to
+discard its result.
+Most likely the programmer wanted to use the result
+(or alternatively the expression is redundant and
+could be deleted).
+Consequently, Flix rejects such programs.</p>
+<p>In summary, Flix function types are of the form:</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Function Type</th><th style="text-align: center">Syntax</th><th style="text-align: center">Short Hand</th></tr></thead><tbody>
+<tr><td style="text-align: center">The type of a <em>pure</em> function from <code>a</code> to <code>b</code>.</td><td style="text-align: center"><code>a -&gt; b \ {}</code></td><td style="text-align: center"><code>a -&gt; b</code></td></tr>
+<tr><td style="text-align: center">The type of an <em>effect polymorphic</em> function from <code>a</code> to <code>b</code> with effect <code>ef</code>.</td><td style="text-align: center"><code>a -&gt; b \ ef</code></td><td style="text-align: center">n/a</td></tr>
+<tr><td style="text-align: center">The type of an <em>effect polymorphic</em> function from <code>a</code> to <code>b</code> with effect <code>ef1 and ef2</code> (i.e. pure if both <code>ef1</code> and <code>ef2</code> are true.)</td><td style="text-align: center"><code>a -&gt; b \ { ef1, ef2 }</code></td><td style="text-align: center">n/a</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="laziness"><a class="header" href="#laziness">Laziness</a></h1>
+<p>Flix uses eager evaluation in most circumstances, but allows the programmer to opt-in to lazy evaluation when appropriate with the <code>lazy</code> keyword:</p>
+<pre><code class="language-flix">let x: Lazy[Int32] = lazy (1 + 2);
+</code></pre>
+<p>The expression won’t be evaluated until it’s <em>forced</em>:</p>
+<pre><code class="language-flix">let y: Int32 = force x;
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> The <code>lazy</code> construct requires the expression it’s given to be pure.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note:</strong> Forcing a lazy value that’s already been evaluated won’t evaluate it for a second time.</p>
+</blockquote>
+<h2 id="lazy-data-structures"><a class="header" href="#lazy-data-structures">Lazy data structures</a></h2>
+<p>Laziness can be used to create lazy data structures which are evaluated as they’re used. This even allows us to create infinite data structures.</p>
+<p>Here for example, is a data structure which implements an infinitely long stream of integers which increase by one each time:</p>
+<pre><code class="language-flix">namespace IntStream {
+
+    enum IntStream { case SCons(Int32, Lazy[IntStream]) }
+
+    pub def from(x: Int32): IntStream =
+        IntStream.SCons(x, lazy from(x + 1))
+}
+</code></pre>
+<p>Given this, we can implement functions such as <code>map</code> and <code>take</code>:</p>
+<pre><code class="language-flix">    pub def take(n: Int32, s: IntStream): List[Int32] =
+        match n {
+            case 0 =&gt; Nil
+            case _ =&gt; match s {
+                case SCons(h, t) =&gt; h :: take(n - 1, force t)
+            }
+        }
+
+    pub def map(f: Int32 -&gt; Int32, s: IntStream): IntStream =
+        match s {
+            case SCons(h, t) =&gt; IntStream.SCons(f(h), lazy map(f, force t))
+        }
+</code></pre>
+<p>So, for example:</p>
+<pre><code class="language-flix">IntStream.from(42) |&gt; IntStream.map(x -&gt; x + 10) |&gt; IntStream.take(10)
+</code></pre>
+<p>Will return:</p>
+<pre><code class="language-flix">52 :: 53 :: 54 :: 55 :: 56 :: 57 :: 58 :: 59 :: 60 :: 61 :: Nil
+</code></pre>
+<p>Flix provides <code>DelayList</code> and <code>DelayMap</code> data structures which already implement this functionality and more:</p>
+<pre><code class="language-flix">DelayList.from(42) |&gt; DelayList.map(x -&gt; x + 10) |&gt; DelayList.take(10)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fixpoints"><a class="header" href="#fixpoints">Fixpoints</a></h1>
+<p>A unique feature of Flix is its built-in support for
+fixpoint computations on <em>constraint on relations</em>
+and <em>constraint on lattices</em>.</p>
+<p>We assume that the reader is already familiar with
+Datalog and focus on the Flix specific features.</p>
+<h2 id="using-flix-to-solve-constraints-on-relations"><a class="header" href="#using-flix-to-solve-constraints-on-relations">Using Flix to Solve Constraints on Relations</a></h2>
+<p>We can use Flix to solve a fixpoint computation
+inside a function.</p>
+<p>For example, given a set of edges <code>s</code>, a <code>src</code> node,
+and <code>dst</code> node, compute if there is a path from <code>src</code>
+to <code>dst</code>.
+We can elegantly solve this problem as follows:</p>
+<pre><code class="language-flix">def isConnected(s: Set[(Int32, Int32)], src: Int32, dst: Int32): Bool =
+    let rules = #{
+        Path(x, y) :- Edge(x, y).
+        Path(x, z) :- Path(x, y), Edge(y, z).
+    };
+    let edges = inject s into Edge;
+    let paths = query edges, rules select true from Path(src, dst);
+    not (paths |&gt; Array.isEmpty)
+
+def main(): Unit \ IO =
+    let s = Set#{(1, 2), (2, 3), (3, 4), (4, 5)};
+    let src = 1;
+    let dst = 5;
+    if (isConnected(s, src, dst)) {
+        println(&quot;Found a path between ${src} and ${dst}!&quot;)
+    } else {
+        println(&quot;Did not find a path between ${src} and ${dst}!&quot;)
+    }
+</code></pre>
+<p>The <code>isConnected</code> function behaves like any other
+function: We can call it with a set of edges
+(<code>Int32</code>-pairs), an <code>Int32</code> source node, and
+an <code>Int32</code> destination node.
+What is interesting about <code>isConnected</code> is that its
+implementation uses a small Datalog program to solve
+the task at hand.</p>
+<p>In the <code>isConnected</code> function, the local variable
+<code>rules</code> holds a Datalog program fragment that
+consists of two rules which define the <code>Path</code>
+relation.
+Note that the predicate symbols, <code>Edge</code> and <code>Path</code> do
+not have to be explicitly introduced; they are simply
+used.
+The local variable <code>edges</code> holds a collection of edge
+facts that are obtained by taking all the tuples in
+the set <code>s</code> and turning them into <code>Edge</code> facts.
+Next, the local variable <code>paths</code> holds the result of
+computing the fixpoint of the facts and rules
+(<code>edges</code> and <code>rules</code>) and selecting the Boolean
+<code>true</code> <em>if</em> there is a <code>Path(src, dst)</code> fact.
+Note that here <code>src</code> and <code>dst</code> are the
+lexically-bound function parameters.
+Thus, <code>paths</code> is either an empty array (no paths were
+found) or a one-element array (a path was found), and
+we simply return this fact.</p>
+<p>Flix is strongly typed.
+Any attempt to use predicate symbol with terms of the
+wrong type (or with the wrong arity) is caught by the
+type checker.
+Note also that Flix supports type inference, hence we
+did not have to declare the type of <code>Edge</code> nor of
+<code>Path</code>.</p>
+<h2 id="stratified-negation"><a class="header" href="#stratified-negation">Stratified Negation</a></h2>
+<p>Flix supports <em>stratified negation</em> which allow
+restricted use of negation in rule bodies.
+For example:</p>
+<pre><code class="language-flix">def main(): Unit \ IO =
+    let movies = #{
+        Movie(&quot;The Hateful Eight&quot;).
+        Movie(&quot;Interstellar&quot;).
+    };
+    let actors = #{
+        StarringIn(&quot;The Hateful Eight&quot;, &quot;Samuel L. Jackson&quot;).
+        StarringIn(&quot;The Hateful Eight&quot;, &quot;Kurt Russel&quot;).
+        StarringIn(&quot;The Hateful Eight&quot;, &quot;Quentin Tarantino&quot;).
+        StarringIn(&quot;Interstellar&quot;, &quot;Matthew McConaughey&quot;).
+        StarringIn(&quot;Interstellar&quot;, &quot;Anne Hathaway&quot;).
+    };
+    let directors = #{
+        DirectedBy(&quot;The Hateful Eight&quot;, &quot;Quentin Tarantino&quot;).
+        DirectedBy(&quot;Interstellar&quot;, &quot;Christopher Nolan&quot;).
+    };
+    let rule = #{
+        MovieWithoutDirector(title) :-
+            Movie(title),
+            DirectedBy(title, name),
+            not StarringIn(title, name).
+    };
+    query movies, actors, directors, rule
+        select title from MovieWithoutDirector(title) |&gt; println
+</code></pre>
+<p>The program defines three local variables that
+contain information about movies, actors, and
+directors.
+The local variable <code>rule</code> contains a rule that
+captures all movies where the director does not star
+in the movie.
+Note the use negation in this rule.
+The query returns an array with the string
+<code>&quot;Interstellar&quot;</code> because Christopher Nolan did not
+star in that movie.</p>
+<blockquote>
+<p><strong>Design Note</strong></p>
+<p>Flix enforces that programs are stratified, i.e. a
+program must not have recursive dependencies on
+which there is use of negation.
+If there is, the Flix compiler rejects the program.</p>
+</blockquote>
+<h2 id="programming-with-first-class-constraints"><a class="header" href="#programming-with-first-class-constraints">Programming with First-class Constraints</a></h2>
+<p>A unique feature of Flix is its support for
+<em>first-class constraints</em>.
+A first-class constraint is a value that can be
+constructed, passed around, composed with other
+constraints, and ultimately solved.
+The solution to a constraint system is another
+constraint system which can be further composed.
+For example:</p>
+<pre><code class="language-flix">def getParents(): #{ ParentOf(String, String) | r } = #{
+    ParentOf(&quot;Pompey&quot;, &quot;Strabo&quot;).
+    ParentOf(&quot;Gnaeus&quot;, &quot;Pompey&quot;).
+    ParentOf(&quot;Pompeia&quot;, &quot;Pompey&quot;).
+    ParentOf(&quot;Sextus&quot;, &quot;Pompey&quot;).
+}
+
+def getAdoptions(): #{ AdoptedBy(String, String) | r } = #{
+    AdoptedBy(&quot;Augustus&quot;, &quot;Caesar&quot;).
+    AdoptedBy(&quot;Tiberius&quot;, &quot;Augustus&quot;).
+}
+
+def withAncestors(): #{ ParentOf(String, String),
+                        AncestorOf(String, String) | r } = #{
+        AncestorOf(x, y) :- ParentOf(x, y).
+        AncestorOf(x, z) :- AncestorOf(x, y), AncestorOf(y, z).
+}
+
+def withAdoptions(): #{ AdoptedBy(String, String),
+                        AncestorOf(String, String) | r } = #{
+    AncestorOf(x, y) :- AdoptedBy(x, y).
+}
+
+def main(): Unit \ IO =
+    let c = false;
+    if (c) {
+        query getParents(), getAdoptions(), withAncestors()
+            select (x, y) from AncestorOf(x, y) |&gt; println
+    } else {
+        query getParents(), getAdoptions(), withAncestors(), withAdoptions()
+            select (x, y) from AncestorOf(x, y) |&gt; println
+    }
+</code></pre>
+<p>The program uses three predicate symbols: <code>ParentOf</code>,
+<code>AncestorOf</code>, and <code>AdoptedBy</code>.
+The <code>getParents</code>function returns a collection of facts
+that represent biological parents, whereas the
+<code>getAdoptions</code> function returns a collection of facts
+that represent adoptions.
+The <code>withAncestors</code> function returns two constraints
+that populate the <code>AncestorOf</code> relation using the
+<code>ParentOf</code> relation.
+The <code>withAdoptions</code> function returns a constraint
+that populates the <code>ParentOf</code> relation using the
+<code>AdoptedBy</code> relation.</p>
+<p>In the <code>main</code> function the local variable <code>c</code>
+controls whether we query a Datalog program that only
+considers biological parents or if we include
+adoptions.</p>
+<p>As can be seen, the types the functions are
+row-polymorphic.
+For example, the signature of <code>getParents</code> is
+<code>def getParents(): #{ ParentOf | r }</code> where <code>r</code>
+is row polymorphic type variable that represent the
+rest of the predicates that the result of the
+function can be composed with.</p>
+<blockquote>
+<p><strong>Design Note</strong></p>
+<p>The row polymorphic types are best understood as an
+over-approximation of the predicates that may occur
+in a constraint system.
+For example, if a constraint system has type
+<code>#{ A(String), B(Int32, Int32) }</code> that does
+necessarily mean that it will contain facts or rules
+that use the predicate symbols <code>A</code> or <code>B</code>, but it
+does guarantee that it will not contain any fact or
+rule that refer to a predicate symbol <code>C</code>.</p>
+</blockquote>
+<h2 id="polymorphic-first-class-constraints"><a class="header" href="#polymorphic-first-class-constraints">Polymorphic First-class Constraints</a></h2>
+<p>Another unique feature of Flix is its support for
+first-class <em>polymorphic</em> constraints.
+That is, constraints where one or more constraints
+are polymorphic in their term types.
+For example:</p>
+<pre><code class="language-flix">def edgesWithNumbers(): #{ LabelledEdge(String, Int32 , String) | r } = #{
+    LabelledEdge(&quot;a&quot;, 1, &quot;b&quot;).
+    LabelledEdge(&quot;b&quot;, 1, &quot;c&quot;).
+    LabelledEdge(&quot;c&quot;, 2, &quot;d&quot;).
+}
+
+def edgesWithColor(): #{ LabelledEdge(String, String, String) | r } = #{
+    LabelledEdge(&quot;a&quot;, &quot;red&quot;, &quot;b&quot;).
+    LabelledEdge(&quot;b&quot;, &quot;red&quot;, &quot;c&quot;).
+    LabelledEdge(&quot;c&quot;, &quot;blu&quot;, &quot;d&quot;).
+}
+
+def closure(): #{ LabelledEdge(String, l, String),
+                  LabelledPath(String, l, String) } with Boxable[l] = #{
+    LabelledPath(x, l, y) :- LabelledEdge(x, l, y).
+    LabelledPath(x, l, z) :- LabelledPath(x, l, y), LabelledPath(y, l, z).
+}
+
+def main(): Unit \ IO =
+    query edgesWithNumbers(), closure()
+        select (x, l, z) from LabelledPath(x, l, z) |&gt; println;
+    query edgesWithColor(), closure()
+        select (x, l, z) from LabelledPath(x, l, z) |&gt; println
+</code></pre>
+<p>Here we use two predicate symbols: <code>LabelledEdge</code> and
+<code>LabelledPath</code>.
+Each predicate has a type parameter named <code>l</code> and is
+polymorphic in the “label” type associated with the
+edge/path.
+Note how <code>edgesWithNumbers</code> returns a collection of
+edge facts where the labels are integers, whereas
+<code>edgesWithColor</code> returns a collection of facts where
+the labels are strings.
+The <code>closure</code> function is polymorphic and returns two
+rules that compute the transitive closure of edges
+that have the same label.</p>
+<p>The Flix type system ensures that we cannot
+accidentally mix edges (or paths) with different
+types of labels.</p>
+<blockquote>
+<p><strong>Design Note</strong></p>
+<p>The <code>Boxable</code> type class constraint simply requires
+that each label type has <code>Eq</code>, <code>Order</code>, and
+<code>ToString</code> instances.</p>
+</blockquote>
+<h2 id="injecting-facts-into-datalog"><a class="header" href="#injecting-facts-into-datalog">Injecting Facts into Datalog</a></h2>
+<p>Flix provides a flexible mechanism that allows
+functional data structures (such as lists, sets,
+and maps) to be converted into Datalog facts.</p>
+<p>For example, given a Flix list of pairs we can
+convert it to a collection of Datalog facts:</p>
+<pre><code class="language-flix">let l = (1, 2) :: (2, 3) :: Nil;
+let p = inject l into Edge;
+</code></pre>
+<p>where <code>l</code> has type <code>List[(Int32, Int32)]</code>.
+The <code>inject</code> expression converts <code>l</code> into a Datalog
+constraint set <code>p</code> of type
+<code>#{ Edge(Int32, Int32) | ... }</code>.</p>
+<p>The <code>inject</code> expression works with any type that
+implements the <code>Foldable</code> type class.
+Consequently, it can be used with lists, sets, maps,
+and so forth.</p>
+<p>The <code>inject</code> expression can operate on multiple
+collections simultaneously.
+For example:</p>
+<pre><code class="language-flix">let names = &quot;Lucky Luke&quot; :: &quot;Luke Skywalker&quot; :: Nil;
+let jedis = &quot;Luke Skywalker&quot; :: Nil;
+let p = inject names, jedis into Name, Jedi;
+</code></pre>
+<p>where <code>p</code> has type
+<code>#{ Name(String), Jedi(String) | ... }</code>.</p>
+<h2 id="pipelines-of-fixpoint-computations"><a class="header" href="#pipelines-of-fixpoint-computations">Pipelines of Fixpoint Computations</a></h2>
+<p>The solution (i.e. fixpoint) of a constraint system
+is another constraint system.
+We can use this to construct <em>pipelines</em> of fixpoint
+computations, i.e. to feed the result of one fixpoint
+computation into another fixpoint computation.
+For example:</p>
+<pre><code class="language-flix">def main(): Unit \ IO =
+    let f1 = #{
+        ColorEdge(1, &quot;blue&quot;, 2).
+        ColorEdge(2, &quot;blue&quot;, 3).
+        ColorEdge(3, &quot;red&quot;, 4).
+    };
+    let r1 = #{
+        ColorPath(x, c, y) :- ColorEdge(x, c, y).
+        ColorPath(x, c, z) :- ColorPath(x, c, y), ColorEdge(y, c, z).
+    };
+    let r2 = #{
+        ColorlessPath(x, y) :- ColorPath(x, _, y).
+    };
+    let m = solve f1, r1 inject ColorPath;
+    query m, r2 select (x, y) from ColorlessPath(x, y) |&gt; println
+</code></pre>
+<p>The program uses three predicates: <code>ColorEdge</code>,
+<code>ColorPath</code>, and <code>ColorlessPath</code>.
+Our goal is to compute the transitive closure of the
+colored edges and then afterwards construct a graph
+where the edges have no color.</p>
+<p>The program first computes the fixpoint of <code>f1</code> and
+<code>r1</code> and injects out the <code>ColorPath</code> fact.
+The result is stored in <code>m</code>. Next, the program
+queries <code>m</code> and <code>r2</code>, and selects all <code>ColorlessPath</code>
+facts.</p>
+<h2 id="using-flix-to-solve-constraints-on-lattices"><a class="header" href="#using-flix-to-solve-constraints-on-lattices">Using Flix to Solve Constraints on Lattices</a></h2>
+<p>Flix supports not only <em>constraints on relations</em>,
+but also <em>constraints on lattices</em>.
+To create such constraints, we must first define the
+lattice operations (the partial order, the least
+upper bound, and so on) as functions, associate them
+with a type, and then declare the predicate symbols
+that have lattice semantics.</p>
+<p>We begin with the definition of the <code>Sign</code> data type:</p>
+<pre><code class="language-flix">enum Sign {
+    case Top,
+    case Neg,
+    case Zer,
+    case Pos,
+    case Bot
+}
+</code></pre>
+<p>We need to define the usual <code>Eq</code>, <code>Order</code>, and
+<code>ToString</code> instances for this new type.
+Note that the order instance is unrelated to the
+partial order instance we will later define, and is
+simply used to sort elements for pretty printing etc.</p>
+<pre><code class="language-flix">instance Boxable[Sign]
+
+instance Eq[Sign] {
+    pub def eq(x: Sign, y: Sign): Bool = match (x, y) {
+        case (Bot, Bot) =&gt; true
+        case (Neg, Neg) =&gt; true
+        case (Zer, Zer) =&gt; true
+        case (Pos, Pos) =&gt; true
+        case (Top, Top) =&gt; true
+        case _          =&gt; false
+    }
+}
+
+instance Order[Sign] {
+    pub def compare(x: Sign, y: Sign): Comparison =
+        let num = w -&gt; match w {
+            case Bot =&gt; 0
+            case Neg =&gt; 1
+            case Zer =&gt; 2
+            case Pos =&gt; 3
+            case Top =&gt; 4
+        };
+        num(x) &lt;=&gt; num(y)
+}
+
+instance ToString[Sign] {
+    pub def toString(x: Sign): String = match x {
+        case Bot =&gt; &quot;Bot&quot;
+        case Neg =&gt; &quot;Neg&quot;
+        case Zer =&gt; &quot;Zer&quot;
+        case Pos =&gt; &quot;Pos&quot;
+        case Top =&gt; &quot;Top&quot;
+    }
+}
+</code></pre>
+<p>With these type class instances in place, we can now
+define the lattice operations on <code>Sign</code>.</p>
+<p>We define the bottom element and the partial order:</p>
+<pre><code class="language-flix">instance LowerBound[Sign] {
+    pub def minValue(): Sign = Bot
+}
+
+instance PartialOrder[Sign] {
+    pub def lessEqual(x: Sign, y: Sign): Bool =
+        match (x, y) {
+            case (Bot, _)   =&gt; true
+            case (Neg, Neg) =&gt; true
+            case (Zer, Zer) =&gt; true
+            case (Pos, Pos) =&gt; true
+            case (_, Top)   =&gt; true
+            case _          =&gt; false
+        }
+}
+</code></pre>
+<p>Next, we define the least upper bound and greatest
+lower bound:</p>
+<pre><code class="language-flix">instance JoinLattice[Sign] {
+    pub def leastUpperBound(x: Sign, y: Sign): Sign =
+        match (x, y) {
+            case (Bot, _)   =&gt; y
+            case (_, Bot)   =&gt; x
+            case (Neg, Neg) =&gt; Neg
+            case (Zer, Zer) =&gt; Zer
+            case (Pos, Pos) =&gt; Pos
+            case _          =&gt; Top
+        }
+}
+
+instance MeetLattice[Sign] {
+    pub def greatestLowerBound(x: Sign, y: Sign): Sign =
+        match (x, y) {
+            case (Top, _)   =&gt; y
+            case (_, Top)   =&gt; x
+            case (Neg, Neg) =&gt; Neg
+            case (Zer, Zer) =&gt; Zer
+            case (Pos, Pos) =&gt; Pos
+            case _          =&gt; Bot
+        }
+}
+</code></pre>
+<p>With all of these definitions we are ready to write
+Datalog constraints with lattice semantics.
+But before we proceed, let us also write a single
+monotone function:</p>
+<pre><code class="language-flix">def sum(x: Sign, y: Sign): Sign = match (x, y) {
+    case (Bot, _)   =&gt; Bot
+    case (_, Bot)   =&gt; Bot
+    case (Neg, Zer) =&gt; Neg
+    case (Zer, Neg) =&gt; Neg
+    case (Zer, Zer) =&gt; Zer
+    case (Zer, Pos) =&gt; Pos
+    case (Pos, Zer) =&gt; Pos
+    case (Pos, Pos) =&gt; Pos
+    case _          =&gt; Top
+}
+</code></pre>
+<p>We can now finally put everything to use:</p>
+<pre><code class="language-flix">pub def main(): Unit \ IO =
+    let p = #{
+        LocalVar(&quot;x&quot;; Pos).
+        LocalVar(&quot;y&quot;; Zer).
+        LocalVar(&quot;z&quot;; Neg).
+        AddStm(&quot;r1&quot;, &quot;x&quot;, &quot;y&quot;).
+        AddStm(&quot;r2&quot;, &quot;x&quot;, &quot;y&quot;).
+        AddStm(&quot;r2&quot;, &quot;y&quot;, &quot;z&quot;).
+        LocalVar(r; sum(v1, v2)) :-
+            AddStm(r, x, y), LocalVar(x; v1), LocalVar(y; v2).
+    };
+    query p select (r, v) from LocalVar(r; v) |&gt; println
+</code></pre>
+<p>Note the careful use of <code>;</code> to designate lattice
+semantics.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="type-classes"><a class="header" href="#type-classes">Type Classes</a></h1>
+<p>Type classes are one of the ways to support a high
+level of genericity in functional programming.
+Flix’s type classes largely follow the style of those
+of Haskell, with some additional principles.</p>
+<h2 id="essentials"><a class="header" href="#essentials">Essentials</a></h2>
+<p>The function <code>isSingleton</code> naively determines whether
+a list has exactly one element.
+However, it only works with lists.
+Although checking the length of a collection like
+this is possible for all standard collections, we
+have to implement a separate <code>isSingleton</code> function
+for each of them.</p>
+<pre><code class="language-flix">def isSingleton(l: List[a]): Bool =
+    List.length(l) == 1
+</code></pre>
+<p>We can generalize this behavior by using a type class
+constraint.
+Rather than requiring the argument to be a list, we
+use a type variable <code>a</code> and constrain it with to the
+type class <code>Length</code>, which means that the function
+<code>Length.length</code> can be applied to the argument.</p>
+<pre><code class="language-flix">def isSingleton(l: a): Bool with Length[a] =
+    Length.length(l) == 1
+</code></pre>
+<p>The type class declaration <code>Length</code> specifies what
+can be done with its members.
+In this case, there is only one function:
+<code>Length.length</code>, which takes the member type as an
+argument and returns an integer.
+The law <code>nonnegative</code> is also defined as part of the
+class.
+Laws will be further explored below.</p>
+<pre><code class="language-flix">pub class Length[a] {
+    pub def length(x: a): Int32
+
+    law nonnegative: forall(x: a) . Length.length(x) &gt;= 0
+}
+</code></pre>
+<p>If we try to use the new <code>isSingleton</code> function, we
+will see that it fails to compile:</p>
+<pre><code class="language-flix">isSingleton(1 :: 2 :: Nil)
+</code></pre>
+<p>While we know that a list has a length, we haven’t
+told this to the compiler.
+To do this, we introduce an <code>instance</code> of the type
+class for the generic type <code>List[a]</code>.</p>
+<pre><code class="language-flix">instance Length[List[a]] {
+    pub def length(x: List[a]): Int32 = List.length(x)
+}
+</code></pre>
+<p>This instance simply states that in order to get the
+length of the list, we just use the <code>List.length</code>
+function from the standard library.
+With this instance around, the call to the
+<code>isSingleton</code> function will compile.
+However, you may have noticed that our implementation
+is inefficient.
+While comparing the length to 1 is a correct solution
+generally, for lists specifically the solution has a
+greater runtime complexity than necessary.
+In order to preserve the general solution while
+allowing for optimizations where needed, we can use a
+default implementation in the type class and an
+override implementation in the instance.</p>
+<pre><code class="language-flix">pub class Length[a] {
+
+    pub def length(x: a): Int32
+
+    pub def isSingleton(x: a): Bool = length(x) == 1
+
+    law nonnegative: forall(x: a) . Length.length(x) &gt;= 0
+
+    law singletonMeansOne: forall(x: a) . Length.length(x) == 1 &lt;==&gt; Length.isSingleton(x)
+}
+
+instance Length[List[a]] {
+    pub def length(x: List[a]): Int32 = List.length(x)
+    override pub def isSingleton(x: List[a]): Bool = match x {
+        case _ :: Nil =&gt; true
+        case _ =&gt; false
+    }
+}
+</code></pre>
+<p>We have added the <code>isSingleton</code> function to the
+<code>Length</code> type class, with a default implementation
+that works in general.
+(We also added a new law <code>singletonMeansOne</code>; see
+section <strong>Laws</strong>.)
+We have added an efficient <code>override</code> implementation
+of <code>isSingleton</code> to the <code>Length</code> instance for
+<code>List[a]</code>.
+The advantage of the default implementation is that
+if there’s no special behavior needed for a type, the
+default is assumed.
+The function does not have to be implemented.</p>
+<pre><code class="language-flix">instance Length[String] {
+    pub def length(x: String): Int32 = String.length(x)
+}
+</code></pre>
+<p>The instance <code>Length[String]</code> simply uses the default
+implementation of the <code>isSingleton</code> function.</p>
+<h2 id="laws"><a class="header" href="#laws">Laws</a></h2>
+<p>In addition to the functions forming part of their
+contract, type classes have laws that govern how the
+functions may be implemented.</p>
+<pre><code class="language-flix">pub class Length[a] {
+    pub def length(x: a): Int32
+
+    law nonnegative: forall(x: a) . Length.length(x) &gt;= 0
+}
+</code></pre>
+<p>The <code>nonnegative</code> law asserts that the length of
+something can never be negative.</p>
+<h4 id="planned-feature"><a class="header" href="#planned-feature">Planned Feature</a></h4>
+<p>We plan to implement a quickcheck framework to verify
+that these laws hold.
+For now, however, they only serve as a form of
+documentation.</p>
+<h2 id="type-constraints"><a class="header" href="#type-constraints">Type Constraints</a></h2>
+<p>We’ve seen type constraints on on function
+definitions, but constraints can appear on on
+instances and type classes themselves as well.</p>
+<pre><code class="language-flix">pub class TreeSize[a] {
+    /// Returns the number of nodes in the object graph of this object
+    pub def size(x: a): Int32
+
+    law positive: forall(x: a) . size(x) &gt; 0
+}
+
+instance TreeSize[Int32] {
+    pub def size(x: Int32): Int32 = 1
+}
+
+instance TreeSize[List[a]] with TreeSize[a] {
+    pub def size(x: List[a]): Int32 = {
+        // one node for each cons cell, one for the nil, and nodes for each node's value
+        List.Length(x) + 1 + List.foldLeft((acc, y) -&gt; acc + TreeSize.size(y), 0, x)
+    }
+}
+</code></pre>
+<h2 id="sealed-classes"><a class="header" href="#sealed-classes">Sealed Classes</a></h2>
+<p>In general, a user can add an instance of a class for
+any type they define.
+In some cases, however, it is useful to restrict
+membership in a class to a finite list of types,
+defined by the author of the class.
+This is the purpose of a <code>sealed</code> class, for which
+instances outside the class’s namespace are not
+permitted.</p>
+<pre><code class="language-flix">sealed class Primitive[a]
+
+instance Primitive[Bool]
+instance Primitive[Int32]
+instance Primitive[Float64]
+// ... and so on
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="namespaces"><a class="header" href="#namespaces">Namespaces</a></h1>
+<p>Flix supports hierarchical namespaces as known from
+many other programming languages.</p>
+<h2 id="declaring-a-namespace"><a class="header" href="#declaring-a-namespace">Declaring a Namespace</a></h2>
+<p>We can declare a namespace to nest definitions and
+types within it.
+For example:</p>
+<pre><code class="language-flix">namespace Math {
+    def sum(x: Int32, y: Int32): Int32 = x + y
+}
+</code></pre>
+<p>Namespaces are hierarchical, so we can declare a
+deeper namespace:</p>
+<pre><code class="language-flix">namespace Core/Math {
+    def sum(x: Int32, y32: Int): Int32 = x + y
+}
+</code></pre>
+<p>Note that the fragments of a namespace are separated
+by <code>/</code>.</p>
+<p>We can freely nest namespaces.
+For example:</p>
+<pre><code class="language-flix">namespace Core {
+    namespace Math {
+
+        def sum(x: Int32, y: Int32): Int32 = x + y
+
+        namespace Stats {
+            def median(xs: List[Int32]): Int32 = ???
+        }
+    }
+}
+</code></pre>
+<h2 id="using-definitions-from-a-namespace"><a class="header" href="#using-definitions-from-a-namespace">Using Definitions from a Namespace</a></h2>
+<p>We can refer to definitions from a namespace by their
+fully-qualified name.
+For example:</p>
+<pre><code class="language-flix">namespace Core/Math {
+    pub def sum(x: Int32, y: Int32): Int32 = x + y
+}
+
+def main(): Unit \ IO =
+    Core/Math.sum(21, 42) |&gt; println
+</code></pre>
+<p>Note that we must declare <code>sum</code> as public (<code>pub</code>) to
+allow access to it from outside its own namespace.</p>
+<p>It can quickly get tedious to refer to definitions by
+their fully-qualified name.</p>
+<p>The <code>use</code> construct allows us to “import” definitions
+from another namespace:</p>
+<pre><code class="language-flix">namespace Core/Math {
+    pub def sum(x: Int32, y: Int32): Int32 = x + y
+}
+
+def main(): Unit \ IO =
+    use Core/Math.sum;
+    sum(21, 42) |&gt; println
+</code></pre>
+<p>Here the <code>use</code> is local to the <code>main</code> function.
+A <code>use</code> can also appear at the top of a file:</p>
+<pre><code class="language-flix">use Core/Math.sum;
+
+def main(): Unit \ IO =
+    sum(21, 42) |&gt; println
+
+namespace Core/Math {
+    pub def sum(x: Int32, y: Int32): Int32 = x + y
+}
+</code></pre>
+<h2 id="using-multiple-definitions-from-a-namespaces"><a class="header" href="#using-multiple-definitions-from-a-namespaces">Using Multiple Definitions from a Namespaces</a></h2>
+<p>We can also use multiple definitions from a namespace:</p>
+<pre><code class="language-flix">use Core/Math.sum;
+use Core/Math.mul;
+
+def main(): Unit \ IO =
+    mul(42, 84) |&gt; sum(21) |&gt; println
+
+namespace Core/Math {
+    pub def sum(x: Int32, y: Int32): Int32 = x + y
+    pub def mul(x: Int32, y: Int32): Int32 = x * y
+}
+</code></pre>
+<p>Multiple such uses can be grouped together:</p>
+<pre><code class="language-flix">use Core/Math.{sum, mul};
+
+def main(): Unit \ IO =
+    mul(42, 84) |&gt; sum(21) |&gt; println
+
+namespace Core/Math {
+    pub def sum(x: Int32, y: Int32): Int32 = x + y
+    pub def mul(x: Int32, y: Int32): Int32 = x * y
+}
+</code></pre>
+<blockquote>
+<p><strong>Design Note</strong></p>
+<p>Flix does not support <em>wildcard</em> uses because they
+are inherently ambiguous and may lead to subtle
+errors during refactoring.</p>
+</blockquote>
+<h2 id="avoiding-name-clashes-with-renaming"><a class="header" href="#avoiding-name-clashes-with-renaming">Avoiding Name Clashes with Renaming</a></h2>
+<p>We can use renaming to avoid name clashes between
+identically named definitions.
+For example:</p>
+<pre><code class="language-flix">use A.{concat =&gt; stringConcat};
+use B.{concat =&gt; listConcat};
+
+def main(): Unit \ IO =
+    stringConcat(&quot;Hello&quot;, &quot; World!&quot;) |&gt; println
+
+namespace A {
+    pub def concat(x: String, y: String): String = x + y
+}
+
+namespace B {
+    pub def concat(xs: List[Int32], ys: List[Int32]): List[Int32] = xs ::: ys
+}
+</code></pre>
+<p>In many cases a better approach is to use a <em>local</em>
+<code>use</code> to avoid the problem in the first place.</p>
+<h2 id="using-types-from-a-namespace"><a class="header" href="#using-types-from-a-namespace">Using Types from a Namespace</a></h2>
+<p>We can use types from a namespace in the same way as
+definitions.
+For example:</p>
+<pre><code class="language-flix">use A/B.Color;
+
+def redColor(): Color = Color.Red
+
+namespace A/B {
+    pub enum Color {
+        case Red, Blue
+    }
+}
+</code></pre>
+<p>We can also use <em>type aliases</em> in the same way:</p>
+<pre><code class="language-flix">use A/B.Color;
+use A/B.Hue;
+
+def blueColor(): Hue = Color.Blue
+
+namespace A/B {
+    pub enum Color {
+        case Red, Blue
+    }
+    pub type alias Hue = Color
+}
+</code></pre>
+<h2 id="using-enums-from-a-namespace"><a class="header" href="#using-enums-from-a-namespace">Using Enums from a Namespace</a></h2>
+<p>We can use enumerated types from a namespace.
+For example:</p>
+<pre><code class="language-flix">def blueIsRed(): Bool =
+    use A/B.Color.{Blue, Red};
+    Blue != Red
+
+namespace A/B {
+    pub enum Color with Eq {
+        case Red, Blue
+    }
+}
+</code></pre>
+<p>Note that <code>A/B.Color</code> is the fully-qualified name of
+a <em>type</em> whereas <code>A/B.Color.Red</code> is the
+fully-qualified name of a <em>tag</em> inside an enumerated
+type.
+That is, a fully-qualified definition is of the
+form <code>A/B/C.d</code>, a fully-qualified type is of the
+form <code>A/B/C.D</code>, and finally a fully-qualified tag is
+of the form <code>A/B/C.D.T</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="interoperability-with-java"><a class="header" href="#interoperability-with-java">Interoperability with Java</a></h1>
+<p>Flix is <a href="https://en.wikipedia.org/wiki/Java_virtual_machine">Java Virtual Machine</a> (JVM)-based programming language,
+hence:</p>
+<ul>
+<li>Flix programs compile to efficient JVM bytecode.</li>
+<li>Flix programs run on any Java Virtual Machine<sup class="footnote-reference"><a href="#1">1</a></sup>.</li>
+<li>Flix programs can call Java code.</li>
+</ul>
+<p>Flix supports most Java features necessary for interoperability:</p>
+<ul>
+<li><a href="./creating-objects.html">Creating objects from existing classes</a></li>
+<li><a href="./calling-methods.html">Calling methods on classes and objects</a></li>
+<li><a href="./reading-and-writing-fields.html">Reading and writing fields on objects</a></li>
+<li><a href="./extending-classes-and-interfaces.html">Anonymous extension of classes and interfaces</a></li>
+<li><a href="./nested-and-inner-classes.html">Nested and inner classes</a></li>
+</ul>
+<p>Thus Flix programs can reuse Java Class Library and have access to the Java ecosystem.</p>
+<p>Flix and Java share the same base types, in particular:</p>
+<div class="table-wrapper"><table><thead><tr><th>Flix Type</th><th>Java Type</th></tr></thead><tbody>
+<tr><td>Bool</td><td>boolean</td></tr>
+<tr><td>Char</td><td>char</td></tr>
+<tr><td>Float32</td><td>float</td></tr>
+<tr><td>Float64</td><td>double</td></tr>
+<tr><td>Int8</td><td>byte</td></tr>
+<tr><td>Int16</td><td>short</td></tr>
+<tr><td>Int32</td><td>int</td></tr>
+<tr><td>Int64</td><td>long</td></tr>
+<tr><td>String</td><td>String</td></tr>
+</tbody></table>
+</div>
+<p>In Flix primitive types are always unboxed.
+Hence, to call a Java method that expects a <code>java.lang.Integer</code>,
+if you have a Flix <code>Int32</code>, it must be boxed by calling <code>java.lang.Integer.valueOf</code>.</p>
+<blockquote>
+<p><strong>Design Note:</strong> Unlike other programming languages that target the JVM,
+Flix does not aim to embed the Java type system within Flix.
+Instead, Flix sacrifices some convenience to stay true to its design goals.
+In particular, the Flix type system does not support sub-typing.
+Consequently, unlike in Java, a sub-type cannot be used where its super-type is expected.
+For example, <code>java.lang.String</code> is incompatible with <code>java.lang.Object</code>.
+Fortunately, this limitation can be overcome by using <a href="./upcast.html">upcasts</a>.</p>
+</blockquote>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Flix currently targets Java 11. Once Project Loom is released, we will target that version.</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="creating-objects"><a class="header" href="#creating-objects">Creating Objects</a></h2>
+<p>We can import the constructor of a Java class as a
+Flix function and use it to construct new objects.</p>
+<p>For example:</p>
+<pre><code class="language-flix">import new java.io.File(String): ##java.io.File \ IO as newFile;
+newFile(&quot;HelloWorld.txt&quot;)
+</code></pre>
+<p>Here we import the constructor of the <code>java.io.File</code>
+class and give it the local name <code>newFile</code>.
+The <code>newFile</code> function takes a string argument and
+returns a fresh Java <code>File</code> object.
+Constructing a fresh object is impure, hence <code>main</code>
+is marked as having the <code>IO</code> effect.</p>
+<p>When we import a constructor, we must specify the
+types of its formal parameters. This is required because
+Java supports constructor overloading (i.e. a class may
+have multiple constructors only distinguished by their
+formal parameters.)</p>
+<p>For example, the <code>java.io.File</code> class has another
+constructor that takes two arguments: one for the parent
+pathname and one for the child pathname.
+We can use this constructor as follows:</p>
+<pre><code class="language-flix">import new java.io.File(String, String): ##java.io.File \ IO as newFile;
+newFile(&quot;foo&quot;, &quot;HelloWorld.txt&quot;)
+</code></pre>
+<p>Here the import describes that the constructor expects two
+<code>String</code> arguments.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="invoking-object-methods"><a class="header" href="#invoking-object-methods">Invoking Object Methods</a></h2>
+<p>We can use the import mechanism to invoke methods on objects.</p>
+<p>For example:</p>
+<pre><code class="language-flix">import new java.io.File(String): ##java.io.File \ IO as newFile;
+import java.io.File.exists(): Bool \ IO as fileExists;
+let f = newFile(&quot;HelloWorld.txt&quot;);
+fileExists(f)
+</code></pre>
+<p>Here we import the <code>java.io.File.exists</code> method under the name <code>fileExists</code>.</p>
+<p>If the Java method name is a legal Flix name and we want to reuse it,
+we can also import the method without an <code>as</code> clause. For example:</p>
+<pre><code class="language-flix">import new java.io.File(String): ##java.io.File \ IO as newFile;
+import java.io.File.exists(): Bool \ IO;
+let f = newFile(&quot;HelloWorld.txt&quot;);
+exists(f)
+</code></pre>
+<p>Here we import the method under the name <code>exists</code>.</p>
+<p>When a Java method is imported, we must annotate it with its effect.
+Most commonly, a Java method has a side-effect (such as deleting a file),
+and hence must be annotated with the <code>IO</code> effect.</p>
+<p>In rare cases where a method is pure, we can import it as such by
+writing the empty effect set: <code>{}</code>. For example:</p>
+<pre><code class="language-flix">import java.lang.String.startsWith(String): Bool \ {};
+startsWith(&quot;Hello World&quot;, &quot;Hello&quot;)
+</code></pre>
+<p>And as another example:</p>
+<pre><code class="language-flix">import java.lang.String.charAt(Int32): Char \ {};
+charAt(&quot;Hello World&quot;, 2)
+</code></pre>
+<p>Type signatures should use Flix type names and not
+Java type names for primitive types.
+For example, if a Java method takes a <code>Double</code> its
+signature should use the Flix type <code>Float64</code>.
+Similarly, if a Java method takes a <code>Boolean</code> its
+signature should use the Flix type <code>Bool</code>.
+This goes for return types, too.</p>
+<h2 id="invoking-static-methods"><a class="header" href="#invoking-static-methods">Invoking Static Methods</a></h2>
+<p>We can invoke a <em>static</em> method by writing the
+<code>static</code> keyword after import:</p>
+<pre><code class="language-flix">import static java.lang.String.valueOf(Bool): String \ {};
+valueOf(true)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="reading-and-writing-fields"><a class="header" href="#reading-and-writing-fields">Reading and Writing Fields</a></h2>
+<p>We can read and write fields by importinf functions that serve as “getters” and “setters”.</p>
+<p>Assume we have the class:</p>
+<pre><code class="language-flix">class TestClass {
+    boolean boolField = true;
+}
+</code></pre>
+<p>Then here is how we can access the <code>boolField</code>:</p>
+<pre><code class="language-flix">import new flix.test.TestClass(): ##flix.test.TestClass \ IO as newObject;
+import get flix.test.TestClass.boolField: Bool \ IO as getField;
+let o = newObject();
+getField(o)
+</code></pre>
+<p>Here we import the (default, empty) constructor of <code>TestClass</code> as <code>newObject</code>.
+Next, we import the field <code>boolField</code> as the function <code>getField</code>. We use 
+<code>newObject</code> to construct a fresh object and we call <code>getField</code> on it to 
+obtain the value of <code>o.boolField</code>.</p>
+<p>Writing a field of an object is similar:</p>
+<pre><code class="language-flix">import new flix.test.TestClass(): ##flix.test.TestClass \ IO as newObject;
+import get flix.test.TestClass.boolField: Bool \ IO as getField;
+import set flix.test.TestClass.boolField: Unit \ IO as setField;
+let o = newObject();
+setField(o, false);
+getField(o)
+</code></pre>
+<p>Here we import both a “getter” and “setter” for the <code>boolField</code> field.</p>
+<h3 id="reading-and-writing-static-fields"><a class="header" href="#reading-and-writing-static-fields">Reading and Writing Static Fields</a></h3>
+<p>Reading or writing <em>static</em> fields is similar to
+reading or writing object fields.
+For example:</p>
+<pre><code class="language-flix">import static get java.lang.Integer.MIN_VALUE: Int32 \ IO as getMinValue;
+getMinValue()
+</code></pre>
+<p>The only difference is to write the
+<code>static</code> keyword to indicate that the reference is to
+a static field.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="classes-and-interfaces"><a class="header" href="#classes-and-interfaces">Classes and Interfaces</a></h2>
+<p>Flix allows us to create objects that extend a Java class or implements a Java interface.</p>
+<p>This feature is conceptually similar to Java’s <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html">Anonymous Classes</a>: 
+We can define an (unnamed class) which implements an interface or extends a class and create an object of that class. All in one expression. </p>
+<p>For example, we can create an object that implements the <code>java.lang.Runnable</code> interface:</p>
+<pre><code class="language-flix">import java.lang.Runnable
+
+def newRunnable(): Runnable \ IO = new Runnable {
+    def run(_this: Runnable): Unit \ IO = 
+        println(&quot;I am running!&quot;)
+}
+</code></pre>
+<p>Every time we call <code>newRunnable</code> we get a <em>fresh</em> object that implements <code>java.lang.Runnable</code>.</p>
+<blockquote>
+<p><strong>Note:</strong> The implicit <code>this</code> argument is always passed as the first argument in a new expression.</p>
+</blockquote>
+<p>As another example, we can create an object that implements the <code>java.io.Closeable</code> interface:</p>
+<pre><code class="language-flix">import java.io.Closeable
+
+def newClosable(): Closeable \ IO = new Closeable {
+    def close(_this: Closeable): Unit \ IO = 
+        println(&quot;I am closing!&quot;)
+}
+</code></pre>
+<p>We can also extend classes. For example, we can create a
+<code>java.lang.Object</code> where we override the <code>hashCode</code> and <code>toString</code> methods:</p>
+<pre><code class="language-flix">def newObject(): Object \ IO = new Object {
+    def hashCode(_this: Object): Int32 = 42
+    def toString(_this: Object): String = &quot;Hello World!&quot;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="nested-and-inner-classes"><a class="header" href="#nested-and-inner-classes">Nested and Inner Classes</a></h2>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html">Java supports two different types of nested class</a>: static nested classes and inner classes:</p>
+<pre><code class="language-java">class OuterClass {
+    ...
+    class InnerClass {
+        ...
+    }
+    static class StaticNestedClass {
+        ...
+    }
+}
+</code></pre>
+<p>Although these appear superficially similar, they provide very different functionality.</p>
+<p>Flix supports static nested classes, but does not yet support inner classes. To reference a static nested class, use a <code>$</code> instead of <code>.</code> in the class name, for example <code>java.util.Locale$Builder</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="everyday-programming"><a class="header" href="#everyday-programming">Everyday Programming</a></h1>
+<p>In this chapter we cover some everyday programming features:</p>
+<ul>
+<li>The signature of the <code>main</code> function.</li>
+<li>How to print to standard out and standard error.</li>
+<li>How to use string interpolation.</li>
+<li>How to use anonymous and named holes for incomplete programs.</li>
+<li>How to use type ascriptions to explicitly provide some types to the compiler.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-main-function"><a class="header" href="#the-main-function">The Main Function</a></h1>
+<p>The entry point of any Flix program is the <code>main</code>
+function which <em>must</em> have the signature:</p>
+<pre><code class="language-flix">def main(): Unit \ IO
+</code></pre>
+<p>That is, the <code>main</code> function</p>
+<ol>
+<li>must return <code>Unit</code>, and</li>
+<li>must be <code>Impure</code> (marked with annotation <code>\ IO</code>).</li>
+</ol>
+<p>The signature of <code>main</code> does not specify any
+arguments, but the command line arguments passed to
+the program can be accessed by calling
+<code>Environment.getArgs()</code>.</p>
+<pre><code class="language-flix">def main(): Unit \ IO =
+    let args = Environment.getArgs();
+    ...
+</code></pre>
+<p>Flix requires main to be <code>Impure</code>.
+If main was pure there would be no reason to run the
+program.
+Typically the impurity requirement is satisfied
+because main prints to the console or has another
+side-effect.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="printing-to-standard-out"><a class="header" href="#printing-to-standard-out">Printing to Standard Out</a></h1>
+<p>The Flix prelude defines two impure functions:
+<code>print</code> and <code>println</code> that can be used to print a
+string to standard out.
+For example:</p>
+<pre><code class="language-flix">println(&quot;Hello World&quot;)
+</code></pre>
+<p>The <code>println</code> function prints with a newline after the
+string.
+The <code>print</code> function can be used to print without this
+newline.
+For example:</p>
+<pre><code class="language-flix">let name = &quot;Lucky Luke&quot;;
+print(&quot;Hello&quot;);
+print(&quot; &quot;);
+println(name)
+</code></pre>
+<p>which prints <code>Hello Lucky Luke</code> on one line.</p>
+<p>The <code>print</code> and <code>println</code> functions can print any
+value whose type implements <code>ToString</code> type class and
+consequently can be converted to a <code>String</code>.
+For example:</p>
+<pre><code class="language-flix">let o = Some(123);
+let l = 1 :: 2 :: 3 :: Nil;
+println(o);
+println(l)
+</code></pre>
+<p>The <code>print</code> and <code>println</code> functions are rightfully
+<code>Impure</code>.
+Consequently they cannot be called from a pure
+context.
+This can sometimes hinder debugging of a pure function
+where you want to log some intermediate computation.
+A solution is to cast the <code>print</code> and <code>println</code>
+functions as <code>Pure</code>.
+Here is an example:</p>
+<pre><code class="language-flix">def sum(x: Int32, y: Int32): Int32 =
+    let _ = println(x) as \ {};
+    let _ = println(y) as \ {};
+    x + y
+</code></pre>
+<p>Note that <code>sum</code> remains a pure function despite the
+two calls to <code>println</code>.
+Moreover, since the call <code>println(x)</code> is pure we must
+introduce a let-binding with an unused variable to
+prevent Flix from rejecting the program due to a
+redundant pure computation.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="string-interpolation"><a class="header" href="#string-interpolation">String Interpolation</a></h2>
+<p>Flix strings support interpolation.
+Inside a string, the form <code>&quot;${e}&quot;</code> evaluates <code>e</code> to a
+value and converts it to a string using the <code>ToString</code>
+type class.
+For example:</p>
+<pre><code class="language-flix">let fstName = &quot;Lucky&quot;;
+let lstName = &quot;Luke&quot;;
+&quot;Hello Mr. ${lstName}. Do you feel ${fstName}, punk?&quot;
+</code></pre>
+<p>String interpolation works for any types that
+implements a <code>ToString</code> instance.
+For example:</p>
+<pre><code class="language-flix">let i = 123;
+let o = Some(123);
+let l = 1 :: 2 :: 3 :: Nil;
+&quot;i = ${i}, o = ${o}, l = ${l}&quot;
+</code></pre>
+<p>String interpolations may contain arbitrary
+expressions.
+For example:</p>
+<pre><code class="language-flix">let x = 1;
+let y = 2;
+&quot;${x + y + 1}&quot;
+</code></pre>
+<p>String interpolation is the preferred way to
+concatenate two strings:</p>
+<pre><code class="language-flix">let x = &quot;Hello&quot;;
+let y = &quot;World&quot;;
+&quot;${x}${y}&quot; // equivalent to x + y
+</code></pre>
+<p>String interpolation is the preferred way to convert a
+value to a string:</p>
+<pre><code class="language-flix">let o = Some(123);
+&quot;${o}&quot;
+</code></pre>
+<p>which is equivalent to an explicit use of the
+<code>toString</code> function from the <code>ToString</code> type class:</p>
+<pre><code class="language-flix">ToString.toString(o)
+</code></pre>
+<p>String interpolators may nest, but this is discouraged.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="anonymous-and-named-holes"><a class="header" href="#anonymous-and-named-holes">Anonymous and Named Holes</a></h1>
+<p>During development, Flix encourages the use of holes
+for incomplete code.
+For example:</p>
+<pre><code class="language-flix">def sum(x: Int32, y: Int32): Int32 = ???
+</code></pre>
+<p>The triple question marks <code>???</code> represents an
+anonymous hole and can be used wherever an expression
+is expected.
+In the above code, <code>???</code> represents a missing function
+body, but it can also be used inside an expression.
+For example:</p>
+<pre><code class="language-flix">def length(l: List[a]): Int32 = match l {
+    case Nil     =&gt; 0
+    case x :: xs =&gt; ???
+}
+</code></pre>
+<p>When a program has multiple holes, it can be useful to
+name them.
+For example:</p>
+<pre><code class="language-flix">def length(l: List[a]): Int32 = match l {
+    case Nil     =&gt; ?base
+    case x :: xs =&gt; ?step
+}
+</code></pre>
+<p>Flix requires that each named hole has a unique name.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="type-ascriptions"><a class="header" href="#type-ascriptions">Type Ascriptions</a></h1>
+<p>While Flix supports local type inference, it can
+sometimes be useful to annotate an expression or a
+let-binding with its type.
+We call such annotations <em>type ascriptions</em>.
+A type ascription cannot change the type of an
+expression nor can it be used to violate type safety.</p>
+<p>A type ascription can be placed after an expression:</p>
+<pre><code class="language-flix">(&quot;Hello&quot; :: &quot;World&quot; :: Nil) : List[String]
+</code></pre>
+<p>and it can also be placed on a let-binding:</p>
+<pre><code class="language-flix">let l: List[String] = &quot;Hello&quot; :: &quot;World&quot; :: Nil
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="redundancy"><a class="header" href="#redundancy">Redundancy</a></h1>
+<p>The Flix compiler aggressively rejects programs that contain unused elements. 
+The idea is to help programmers avoid subtle bugs. While this can take some
+getting use to during development, we believe in the long-run the trade-off
+is worth it. </p>
+<p>In particular, the Flix compiler ensures that a program does not have:</p>
+<ul>
+<li>Unused local variables.</li>
+<li>Useless expressions.</li>
+<li>Unused non-unit values.</li>
+</ul>
+<h2 id="unused-local-variables"><a class="header" href="#unused-local-variables">Unused Local Variables</a></h2>
+<p>Flix rejects programs with unused variables.</p>
+<p>For example, the following program is rejected:</p>
+<pre><code class="language-flix">def main(): Unit \ IO =
+    let x = 123;
+    let y = 456;
+    println(&quot;The sum is ${x + x}&quot;)
+</code></pre>
+<p>with the message:</p>
+<pre><code>❌ -- Redundancy Error -------------------------------------------------- Main.flix
+
+&gt;&gt; Unused local variable 'y'. The variable is not referenced within its scope.
+
+3 |     let y = 456;
+            ^
+            unused local variable.
+</code></pre>
+<p>Unused local variables can be prefixed by an underscore <code>_</code> to supress the error.
+For example, if we replace <code>y</code> by <code>_y</code> the above program compiles:</p>
+<pre><code class="language-flix">def main(): Unit \ IO =
+    let x = 123;
+    let _y = 456; // OK
+    println(&quot;The sum is ${x + x}&quot;)
+</code></pre>
+<h2 id="useless-expressions"><a class="header" href="#useless-expressions">Useless Expressions</a></h2>
+<p>Flix rejects programs with <em>pure</em> expressions whose results are discarded.</p>
+<p>For example, the following program is rejected:</p>
+<pre><code class="language-flix">def main(): Unit \ IO =
+    123 + 456;
+    println(&quot;Hello World!&quot;)
+</code></pre>
+<p>with the message:</p>
+<pre><code>❌ -- Redundancy Error -------------------------------------------------- Main.flix
+
+&gt;&gt; Useless expression: It has no side-effect(s) and its result is discarded.
+
+2 |     123 + 456;
+        ^^^^^^^^^
+        useless expression.
+
+The expression has type 'Int32'
+</code></pre>
+<p>An expression that has no side-effect and whose result is unused is suspicious,
+since it could just be removed from the program without changing its meaning.</p>
+<h2 id="unused-non-unit-values"><a class="header" href="#unused-non-unit-values">Unused Non-Unit Values</a></h2>
+<p>Flix rejects programs with non-Unit valued expressions whose results are discarded.</p>
+<p>For example, the following program is rejected:</p>
+<pre><code class="language-flix">def main(): Unit \ IO =
+    File.creationTime(&quot;foo.txt&quot;);
+    println(&quot;Hello World!&quot;)
+</code></pre>
+<p>with the message:</p>
+<pre><code>❌ -- Redundancy Error -------------------------------------------------- Main.flix
+
+&gt;&gt; Unused non-unit value: The impure expression value is not used.
+
+2 |     File.creationTime(&quot;foo.txt&quot;);
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        discarded value.
+
+The expression has type 'Result[Int64, String]'
+</code></pre>
+<p>Even though <code>File.creationTime</code> has a side-effects, we should probably be using the result <code>Result[Int64, String]</code>.
+At least to ensure that the operation was successful. </p>
+<p>If the result of an impure expression is truly not needed, then the <code>discard</code> expression can be used:</p>
+<pre><code class="language-flix">def main(): Unit \ IO =
+    discard File.creationTime(&quot;foo.txt&quot;);
+    println(&quot;Hello World!&quot;)
+</code></pre>
+<p>which permits a non-Unit value to be thrown away as long as the expression is non-pure.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="debugging"><a class="header" href="#debugging">Debugging</a></h1>
+<p>When debugging, it is often helpful to output the values of expressions and variables. This can be challenging in a functional language like Flix because <code>print</code> is impure, so:</p>
+<pre><code class="language-flix">def myAdd(x: Int32): Int32 =
+    println(&quot;myAdd called with: ${x}&quot;);
+    x + 1
+</code></pre>
+<p>Results in an error:</p>
+<pre><code>Impure function declared as pure.
+</code></pre>
+<h2 id="debug"><a class="header" href="#debug"><code>debug</code></a></h2>
+<p>Flix provides a special-case <code>debug</code> function which has the same signature as the <code>identity</code> fuction:</p>
+<pre><code class="language-flix">def debug(x: a): a
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> <code>debug</code> isn’t a true function, which means that there are a few limitations on how it can be used: see <a href="debugging.html#limitations">Limitations</a> for details.</p>
+</blockquote>
+<p>Because <code>debug</code> appears to be pure, it can be used anywhere within Flix, including pure functions:</p>
+<pre><code class="language-flix">def myAdd(x: Int32): Int32 =
+    debug(&quot;myAdd called with: ${x}&quot;);
+    x + 1
+</code></pre>
+<p>And because it returns its argument, it can be inserted within expressions without modifying their behaviour. For example let statements:</p>
+<pre><code class="language-flix">let x = debug(1 + 1);
+</code></pre>
+<p>For-yield expressions:</p>
+<pre><code class="language-flix">for(i &lt;- List.range(0, 10);
+    j &lt;- debug(List.range(i, 10)))
+    yield (i, j)
+</code></pre>
+<p>Or pipelines:</p>
+<pre><code class="language-flix">DelayList.from(42) |&gt; DelayList.map(x -&gt; x + 10) |&gt; debug |&gt; DelayList.take(10)
+</code></pre>
+<h2 id="output-format"><a class="header" href="#output-format">Output format</a></h2>
+<p>Debug output is not generated with <code>toString</code>. Instead <code>debug</code> prints the internal Flix datastructure. For example <code>debug(1 :: 2 :: Nil)</code> outputs:</p>
+<pre><code class="language-flix">Cons(1, Cons(2, Nil))
+</code></pre>
+<p>This means that <code>debug</code> can output any Flix datastructure, whether or not it implements the <code>ToString</code> class.</p>
+<p>You can bypass this by calling <code>toString</code> yourself, or using string interpolation:</p>
+<pre><code class="language-flix">debug(&quot;${x}&quot;)
+</code></pre>
+<p>The debug format is available within string interploation by using <code>%{...}</code>:</p>
+<pre><code class="language-flix">println(&quot;Internally, lists look like this: %{1 :: 2 :: Nil}&quot;)
+</code></pre>
+<h2 id="source-location-and-expression"><a class="header" href="#source-location-and-expression">Source location and expression</a></h2>
+<p>Flix provides two additional variants of <code>debug</code>: <code>debug!</code> and <code>debug!!</code>. The first displays the source location from which <code>debug</code> was called, and the second both the source location and the source code of the expression passed to <code>debug!!</code></p>
+<h2 id="limitations"><a class="header" href="#limitations">Limitations</a></h2>
+<ul>
+<li>Although <code>debug</code> <em>appears</em> to be pure, it is not, and should not be used in production code. Future versions of Flix will enforce this requirement by raising an error if <code>debug</code> appears in production builds.</li>
+<li>The location and expression output by <code>debug!</code> and <code>debug!!</code> are not guaranteed to be correct if they’re used as values (e.g. within a pipeline).</li>
+<li>Because <code>debug</code> appears to be pure, it can be optimised away, for example if the value is not used:
+<pre><code class="language-flix">let _ = debug(...)
+</code></pre>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tools"><a class="header" href="#tools">Tools</a></h1>
+<p>This chapter covers the tooling which Flix ships with, including:</p>
+<ul>
+<li>A fully-featured <a href="./vscode.html">Visual Studio Code extension</a>.</li>
+<li>A <a href="./build-and-packages.html">package manager</a>.</li>
+<li>A built-in <a href="./test-framework.html">test framework</a>.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="visual-studio-code-extension"><a class="header" href="#visual-studio-code-extension">Visual Studio Code Extension</a></h1>
+<p>Flix comes with a fully-featured Visual Studio Code Extension:</p>
+<p><img src="images/vscode1.png" alt="Visual Studio Code1" /></p>
+<p>The extension uses the real Flix compiler and supports almost all of LSP.</p>
+<p>Flix also comes with an (optional) Visual Studio Code color theme called “Flixify Dark”.</p>
+<h1 id="installation-and-use"><a class="header" href="#installation-and-use">Installation and Use</a></h1>
+<p>The Flix extension can be installed from the marketplace.
+It will automatically download the latest stable version of the Flix compiler.
+Alternatively, the Flix compiler (<code>flix.jar</code>) can be placed in the root of the project folder.</p>
+<blockquote>
+<p><strong>Note:</strong> The Flix extension only works when a folder is opened in VSCode, not for a single file.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="build-and-package-management"><a class="header" href="#build-and-package-management">Build and Package Management</a></h1>
+<p>Flix has a nascent build system and package manager.
+The package manager does not yet support
+<em>dependency resolution</em>, but the system is sufficient
+to build and share packages.
+There is no central package registry, so distribution
+and versioning must be handled manually for the
+moment.
+We propose that the semantic version of a package is
+included as part of its name, e.g. <code>foo-1.2.1.fpkg</code>.</p>
+<p>The Flix build system makes it easy to create,
+compile, run, and test a Flix project.</p>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>The Flix build system supports the following commands:</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Command</th><th style="text-align: center">Description</th></tr></thead><tbody>
+<tr><td style="text-align: center"><code>init</code></td><td style="text-align: center">Creates a new project in the current directory.</td></tr>
+<tr><td style="text-align: center"><code>check</code></td><td style="text-align: center">Checks the current project for errors.</td></tr>
+<tr><td style="text-align: center"><code>build</code></td><td style="text-align: center">Builds (i.e. compiles) the current project.</td></tr>
+<tr><td style="text-align: center"><code>build-jar</code></td><td style="text-align: center">Builds a jar-file from the current project.</td></tr>
+<tr><td style="text-align: center"><code>build-pkg</code></td><td style="text-align: center">Builds a fpkg-file from the current project.</td></tr>
+<tr><td style="text-align: center"><code>run</code></td><td style="text-align: center">Runs main for the current project.</td></tr>
+<tr><td style="text-align: center"><code>test</code></td><td style="text-align: center">Runs tests for the current project.</td></tr>
+</tbody></table>
+</div>
+<p>A command is executed by running <code>flix &lt;command&gt;</code> in
+the project directory.
+For example:</p>
+<pre><code class="language-bash">$ java -jar path/to/flix.jar init
+</code></pre>
+<p>Build commands can also be invoked from within Visual
+Studio Code by pressing <code>CTRL + SHIFT + P</code> (to bring
+up the command palette) and typing the name of the
+relevant command.
+This is the recommended way to use the build system.</p>
+<p><strong>Tip:</strong> To create a new project in Visual Studio
+Code:</p>
+<ol>
+<li>create a new empty folder,</li>
+<li>open the folder in Visual Studio Code
+(<code>File -&gt; Open Folder...</code>), and</li>
+<li>press <code>CTRL + SHIFT + P</code> and type <code>Flix init</code>.</li>
+</ol>
+<h2 id="creating-a-new-project"><a class="header" href="#creating-a-new-project">Creating a New Project</a></h2>
+<p>We can create a new project by creating an empty
+directory and running the <code>init</code> command inside it:</p>
+<pre><code class="language-bash">$ mkdir myproject
+$ cd myproject
+$ java -jar path/to/flix.jar init
+</code></pre>
+<p>This will create a project structure with the
+following layout (running <code>$ tree .</code> in the directory
+will give the result below):</p>
+<pre><code>.
+├── build
+├── flix.jar
+├── HISTORY.md
+├── lib
+├── LICENSE.md
+├── README.md
+├── src
+│   └── Main.flix
+└── test
+    └── TestMain.flix
+
+4 directories, 6 files
+</code></pre>
+<p>The most relevant files are <code>src/Main.flix</code> and
+<code>test/TestMain.flix</code>.</p>
+<p>The <code>lib/</code> directory is intended to hold Flix package
+files (<code>.fpkg</code>-files).
+The build system and Visual Studio Code will
+automatically detect Flix packages that are in the
+<code>lib/</code> directory.</p>
+<h2 id="checking-a-project"><a class="header" href="#checking-a-project">Checking a Project</a></h2>
+<p>We can check a project for errors by running the
+<code>check</code> command inside the project directory:</p>
+<pre><code class="language-bash">$ java -jar path/to/flix.jar check
+</code></pre>
+<p>Checking a project is equivalent to building a
+project, except no code is generated and the
+process is significantly faster than a complete build.</p>
+<h2 id="building-a-project"><a class="header" href="#building-a-project">Building a Project</a></h2>
+<p>We can build a project by running the <code>build</code> command
+inside the project directory:</p>
+<pre><code class="language-bash">$ java -jar path/to/flix.jar build
+</code></pre>
+<p>Building a project populates the <code>build</code> directory
+with class files.</p>
+<blockquote>
+<p><strong>Design Note</strong></p>
+<p>There is no <code>clean</code> command, but deleting everything
+inside the <code>build</code> directory serves the same purpose.</p>
+</blockquote>
+<h2 id="building-a-jar-file"><a class="header" href="#building-a-jar-file">Building a JAR-file</a></h2>
+<p>We can compile a project to a JAR-file with the
+<code>build-jar</code> command:</p>
+<pre><code class="language-bash">$ java -jar path/to/flix.jar build-jar
+</code></pre>
+<p>which will produce a <code>myproject.jar</code> ready to run:</p>
+<pre><code class="language-bash">$ java -jar myproject.jar
+</code></pre>
+<p>The JAR-file contains all class files from the
+<code>build/</code> directory.</p>
+<blockquote>
+<p><strong>Warning</strong></p>
+<p>The project must have been built beforehand with the
+<code>build</code> command.</p>
+</blockquote>
+<blockquote>
+<p><strong>Design Note</strong></p>
+<p>At the time of writing (July 2021), the built
+JAR-file still depends on the <code>flix.jar</code> file.
+Thus to run a Flix program you must put both the
+generated JAR-file and <code>flix.jar</code> on the class path.
+For example, on Windows, the command would be:
+<code>java -jar &quot;flix.jar;myproject.jar&quot; Main</code>.
+In the future, the plan is to make the generated
+JAR-file fully self-contained.</p>
+</blockquote>
+<h2 id="building-a-flix-project-file-fpkg"><a class="header" href="#building-a-flix-project-file-fpkg">Building a Flix Project File (fpkg)</a></h2>
+<p>We can compile a project to a Flix package file
+(fpkg) with the <code>build-pkg</code> command:</p>
+<pre><code class="language-bash">$ java -jar path/to/flix.jar build-pkg
+</code></pre>
+<p>which will produce a <code>myproject.fpkg</code> package.</p>
+<p>A Flix package file is essentially a zip-file of the
+project source code.
+A Flix package file can be reused in another project
+by placing it into the <code>lib/</code> directory.</p>
+<p>It is recommended to include the semantic version in
+the filename of the package, e.g. <code>foo-1.2.1.fpkg</code>.</p>
+<blockquote>
+<p><strong>Design Note</strong></p>
+<p>Flix does not compile to an intermediate format, but
+instead relies on packages to contain source code.
+This means that Flix does not lose any information
+about a package and can perform cross-package
+optimizations.</p>
+</blockquote>
+<h2 id="running-a-project"><a class="header" href="#running-a-project">Running a Project</a></h2>
+<p>We do not have to build a JAR-file to run a project,
+we can simply use the <code>run</code> command:</p>
+<pre><code class="language-bash">$ java -jar path/to/flix.jar run
+</code></pre>
+<p>which will compile and run the main entry point.</p>
+<h2 id="testing-a-project"><a class="header" href="#testing-a-project">Testing a Project</a></h2>
+<p>We can use the <code>test</code> command to run all test cases
+in a project:</p>
+<pre><code class="language-bash">$ java -jar path/to/flix.jar test
+</code></pre>
+<p>Flix will collect all functions marked with <code>@test</code>,
+execute them, and print a summary of the results:</p>
+<pre><code>-- Tests -------------------------------------------------- root
+✓ testMain01
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="test-framework"><a class="header" href="#test-framework">Test Framework</a></h1>
+<p>Flix comes with a simple built-in test framework. </p>
+<p>A test is a Flix function marked with the <code>@Test</code> annotation. That’s it. </p>
+<p>A test function can return any value. If it returns a Bool then <code>true</code> is interpreted as success and <code>false</code> as failure. Any non-Boolean value is interpreted as success. </p>
+<p>The <code>Assert.eq</code> function can be used to test for equality between two values that implement the <code>Eq</code> and <code>ToString</code> type classes. The advantage of <code>Assert.eq</code> (over <code>==</code>) is that it will print the two values if they are unequal. The <code>Assert.eq</code> function should not be used outside of unit tests.</p>
+<p>Here is an example:</p>
+<pre><code class="language-flix">def add(x: Int32, y: Int32): Int32 = x + y
+
+@Test
+def testAdd01(): Bool = 0 == add(0, 0)
+
+@Test
+def testAdd02(): Bool = Assert.eq(1, add(0, 1))
+
+@Test
+def testAdd03(): Bool = Assert.eq(2, add(1, 1))
+
+@Test
+def testAdd04(): Bool = Assert.eq(4, add(1, 2))
+
+@Test @Skip
+def testAdd05(): Bool = Assert.eq(8, add(2, 3))
+</code></pre>
+<p>Running the tests (e.g. with the command <code>test</code>) yields:</p>
+<pre><code>Running 5 tests...
+
+   PASS  testAdd01 237,3us
+   PASS  testAdd02 21,1us
+   PASS  testAdd03 10,3us
+   FAIL  testAdd04 (Assertion Error)
+   SKIP  testAdd05 (SKIPPED)
+
+--------------------------------------------------------------------------------
+
+   FAIL  testAdd04
+    Assertion Error
+      Expected: 4
+      Actual:   3
+
+    dev.flix.runtime.HoleError: Hole '?Assert.assertEq' at Assert.flix:32:13    
+        at Assert.Def%eq%174731.invoke(Unknown Source)
+        at Cont%Bool.unwind(Cont%Bool)
+        at Ns.m_testAdd04(Unknown Source)
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+        at ca.uwaterloo.flix.language.phase.jvm.JvmBackend$.$anonfun$link$1(JvmBackend.scala:286)
+        at ca.uwaterloo.flix.language.phase.jvm.JvmBackend$.$anonfun$getCompiledDefs$2(JvmBackend.scala:259)
+        at ca.uwaterloo.flix.tools.Tester$TestRunner.runTest(Tester.scala:182)
+        at ca.uwaterloo.flix.tools.Tester$TestRunner.$anonfun$run$7(Tester.scala:153)
+        at ca.uwaterloo.flix.tools.Tester$TestRunner.$anonfun$run$7$adapted(Tester.scala:152)
+        at scala.collection.immutable.Vector.foreach(Vector.scala:1856)
+        at ca.uwaterloo.flix.tools.Tester$TestRunner.run(Tester.scala:152)
+
+--------------------------------------------------------------------------------
+
+Passed: 3, Failed: 1. Skipped: 1. Elapsed: 3,0ms.
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="advanced-features"><a class="header" href="#advanced-features">Advanced Features</a></h1>
+<p>In this chapter, we discuss some advanced features of Flix, including:</p>
+<ul>
+<li><a href="./upcast.html">Safe Upcasts</a></li>
+<li><a href="./casts.html">Unsafe Type and Effect Casts</a></li>
+<li><a href="./bug-and-unreachable.html">Bugs and Reachable Code</a></li>
+<li><a href="./purity-reflection.html">Purity Reflection</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="upcast"><a class="header" href="#upcast">Upcast</a></h1>
+<blockquote>
+<p><strong>Note:</strong> This feature is experimental and not yet intended for use.</p>
+</blockquote>
+<p>Flix does not support sub-typing nor sub-effecting.</p>
+<p>Nevertheless, there is way to use both in a safe manner.</p>
+<p>For example, the following program does not compile:</p>
+<pre><code class="language-flix">def main(): Unit =
+    let s = &quot;Hello World&quot;;
+    let o: ##java.lang.Object = s;
+    ()
+</code></pre>
+<p>because:</p>
+<pre><code>❌ -- Type Error --------------------------------------------------
+
+&gt;&gt; Expected type: 'Object' but found type: 'String'.
+
+4 |     let o: ##java.lang.Object = s;
+                                    ^
+                                    expression has unexpected type.
+</code></pre>
+<p>i.e. the <code>String</code> type is not the same as the <code>Object</code> type.</p>
+<p>We can, however, safely <em>upcast</em> from <code>String</code> to <code>Object</code>:</p>
+<pre><code class="language-flix">def main(): Unit =
+    let s = &quot;Hello World&quot;;
+    let o: ##java.lang.Object = upcast s;
+    ()
+</code></pre>
+<p>As another example, if we have a higher-order function which expects an effectful function:</p>
+<pre><code class="language-flix">def hof(f: a -&gt; b \ IO): Unit = ???
+
+def main(): Unit =
+    hof(x -&gt; x + 1) // Does not compile
+</code></pre>
+<p>We cannot pass the pure function <code>x -&gt; x + 1</code> because <code>hof</code> expects a function with effect <code>IO</code>.</p>
+<p>We can, however, safely upcast the pure function type <code>Int32 -&gt; Int32</code> to <code>Int32 -&gt; Int32 \ IO</code>:</p>
+<pre><code class="language-flix">def hof(f: a -&gt; b \ IO): Unit = ???
+
+def main(): Unit =
+    hof(upcast (x -&gt; x + 1))
+</code></pre>
+<p>which permits the program to compile.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="type-and-effect-casts"><a class="header" href="#type-and-effect-casts">Type and Effect Casts</a></h1>
+<p>Flix supports both type and effects casts, but they should be used with extreme care.</p>
+<p>A better solution is almost always to us a compiler-checked <em>upcast</em>.</p>
+<h2 id="type-casts"><a class="header" href="#type-casts">Type Casts</a></h2>
+<p>A <strong>type cast</strong> instructs the compiler that an expression has a specific type.</p>
+<blockquote>
+<p><strong>Warning️️</strong></p>
+<p><em>Type casts are by nature dangerous and should be used with caution!</em></p>
+</blockquote>
+<p>A Flix programmer should not normally use type casts except in two cases:</p>
+<ul>
+<li>To cast a Java type to one of its super-types.</li>
+<li>To cast the <code>null</code> value to a nullable type.</li>
+</ul>
+<p>Both use cases are legitimate and safe.</p>
+<h4 id="example-safe-cast-to-a-super-type"><a class="header" href="#example-safe-cast-to-a-super-type">Example: Safe Cast to a Super-Type</a></h4>
+<p>The expression below casts a <code>String</code> to an <code>Object</code>:</p>
+<pre><code class="language-flix">&quot;Hello World&quot; as ##java.lang.Object
+</code></pre>
+<h4 id="example-safe-cast-from-null-to-an-object-type"><a class="header" href="#example-safe-cast-from-null-to-an-object-type">Example: Safe Cast from Null to an Object-Type</a></h4>
+<p>The expression below casts the <code>null</code> value (of type <code>Null</code>) to <code>String</code>:</p>
+<pre><code class="language-flix">null as ##java.lang.String
+</code></pre>
+<h4 id="example-unsafe-cast"><a class="header" href="#example-unsafe-cast">Example: Unsafe Cast</a></h4>
+<p>The expression below contains an illegal cast and triggers a <code>ClassCastException</code>:</p>
+<pre><code class="language-flix">(123, 456) as String
+</code></pre>
+<h4 id="primitive-values-and-boxing"><a class="header" href="#primitive-values-and-boxing">Primitive Values and Boxing</a></h4>
+<p>A type cast should <em>not</em> be used to box or unbox primitive values.
+Instead use the designated Java methods.
+For example, <code>Integer.valueOf</code> and <code>Integer.intValue</code>.</p>
+<h2 id="effect-casts"><a class="header" href="#effect-casts">Effect Casts</a></h2>
+<p>An <strong>effect cast</strong> instructs the compiler that an expression has a specific effect.</p>
+<blockquote>
+<p><strong>Warning️️</strong></p>
+<p><em>Effect casts are by nature extremely dangerous and should be used with utmost caution!</em></p>
+</blockquote>
+<p>A Flix programmer should not normally use effect casts except in two cases:</p>
+<ul>
+<li>To cast an pure function to an effect polymorphic function.</li>
+<li>To cast a pure function to an impure function.</li>
+</ul>
+<p>Both cases are legitimate and safe.</p>
+<h4 id="example-safe-cast-of-pure-function-to-effect-polymorphic"><a class="header" href="#example-safe-cast-of-pure-function-to-effect-polymorphic">Example: Safe Cast of Pure Function to Effect Polymorphic</a></h4>
+<p>Flix does not (yet) have sub-effecting which means that in certain rare cases it
+can be necessary to manually insert a cast. For example:</p>
+<pre><code class="language-flix">def findRight(f: a -&gt; Bool \ ef, l: List[a]): Option[a] \ ef =
+    def loop(ll, k) = match ll {
+        case Nil     =&gt; k()
+        case x :: xs =&gt; loop(xs, () -&gt; if (f(x)) Some(x) else k())
+    };
+    loop(l, () -&gt; None as \ ef)
+</code></pre>
+<p>Here the cast <code>() -&gt; None as \ ef</code> is required because otherwise
+the function <code>() -&gt; None</code> would be pure and not effect polymorphic as required.</p>
+<blockquote>
+<p><strong>Warning</strong></p>
+<p>Never cast effectful expression to pure.
+You have been warned.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bug-and-unreachable"><a class="header" href="#bug-and-unreachable"><code>bug!</code> and <code>unreachable!</code></a></h1>
+<p>Flix supports two special “functions”: <code>bug!</code> and
+<code>unreachable!</code> that can be used to indicate when an
+internal program invariant is broken and execute
+should abort.
+For example:</p>
+<pre><code class="language-flix">match o {
+    case Some(x) =&gt; ...
+    case None    =&gt; bug!(&quot;The value of `o` cannot be empty.&quot;)
+}
+</code></pre>
+<p>As another example:</p>
+<pre><code class="language-flix">match k {
+    case n if n == 0 =&gt; ...
+    case n if n &gt;= 0 =&gt; ...
+    case n if n &lt;= 0 =&gt; ...
+    case n           =&gt;  unreachable!()
+}
+</code></pre>
+<p>Use of <code>bug!</code> and <code>unreachable!</code> should be avoided
+whenever possible.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="purity-reflection"><a class="header" href="#purity-reflection">Purity Reflection</a></h1>
+<blockquote>
+<p><strong>Note:</strong> This feature is experimental and not yet intended for use.</p>
+</blockquote>
+<p>Purity reflection is an advanced Flix feature that enables higher-order functions to inspect
+the purity of their function arguments. This allows us to write functions that use <em>selective</em> lazy
+and/or parallel evaluation.</p>
+<p>For example, here is the implementation of <code>Set.count</code>:</p>
+<pre><code class="language-flix">@ParallelWhenPure
+pub def count(f: a -&gt; Bool \ ef, s: Set[a]): Int32 \ ef =
+    reifyEff(f) {
+        case Pure(g) =&gt;
+            if (useParallelEvaluation(s))
+                let h = (k, _) -&gt; g(k);
+                let Set(t) = s;
+                RedBlackTree.parCount(threads() - 1, h, t) as \ {}
+            else
+                foldLeft((b, k) -&gt; if (f(k)) b + 1 else b, 0, s)
+        case _  =&gt; foldLeft((b, k) -&gt; if (f(k)) b + 1 else b, 0, s)
+    }
+</code></pre>
+<p>Here the <code>reifyEff</code> construct allows us to reflect on the purity of <code>f</code>.
+We have two cases: <code>f</code> is guaranteed to be pure (in which case we bind it to <code>g</code> and
+take the first branch) and <code>f</code> may be impure.</p>
+<p>If <code>f</code> is pure then we apply it in parallel over the set. Otherwise we apply it
+sequentially.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="append"><a class="header" href="#append">Append</a></h1>
+<p>The appendix covers technical details such as:</p>
+<ul>
+<li><a href="./identifiers.html">Legal Identifiers</a></li>
+<li><a href="./precedence.html">Operator Precedence</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="identifiers"><a class="header" href="#identifiers">Identifiers</a></h1>
+<p>Flix supports several different kinds of identifier:</p>
+<ul>
+<li><strong>Uppercase name:</strong> An identifier that starts with an uppercase letter followed by any number of uppercase and lowercase letters, underscore, and exclamation mark (<code>A</code>…<code>Z</code>, <code>a</code>…<code>z</code>, <code>_</code>, <code>!</code>).
+<ul>
+<li>e.g. <code>String</code>, <code>ALL_UPPER</code>, <code>Shriek!</code></li>
+<li>Can be used to name: namespaces, annotations, type classes, effects, predicates (within datalog), tags (within enums), types</li>
+</ul>
+</li>
+<li><strong>Lowercase name:</strong> An identifier that starts with aa lowercase letter followed by any number of uppercase and lowercase letters, underscore, and exclamation mark (<code>A</code>…<code>Z</code>, <code>a</code>…<code>z</code>, <code>_</code>, <code>!</code>).
+<ul>
+<li>e.g. <code>anIdentifier</code>, <code>x</code>, <code>this_and_that</code></li>
+<li>Can be used to name: annotations, attributes (within datalog), functions, fields (within records), variables</li>
+</ul>
+</li>
+<li><strong>Greek name:</strong> An identifier consisting of any combination of letters from the Greek alphabet (the unicode range U+0370 to U+03FF).
+<ul>
+<li>e.g. <code>Χαίρετε</code>, <code>αναγνωριστικό</code></li>
+<li>Can be used to name: functions, variables</li>
+</ul>
+</li>
+<li><strong>Math name:</strong> An identifier consisting of any combination of math symbols (the unicode range U+2190 to U+22FF).
+<ul>
+<li>e.g. <code>⊆</code>, <code>√</code>, <code>⊙</code></li>
+<li>Can be used to name: functions, variables</li>
+</ul>
+</li>
+<li><strong>Operator name:</strong> An identifier of minimum length 2 consisting of any combination of <code>+</code>, <code>-</code>, <code>*</code>, <code>&lt;</code>, <code>&gt;</code>, <code>=</code>, <code>!</code>, <code>&amp;</code>, <code>|</code>, <code>^</code>, and <code>$</code>.
+<ul>
+<li>e.g. <code>&gt;==&gt;</code>, <code>&lt;*&gt;</code></li>
+<li>Can be used to name: functions</li>
+</ul>
+</li>
+</ul>
+<p>Note that greek letters, math symbols, and operator letters cannot be combined within a single identifier.</p>
+<h2 id="reserved-identifiers"><a class="header" href="#reserved-identifiers">Reserved Identifiers</a></h2>
+<p>The following are reserved by Flix and cannot be redefined within user code:</p>
+<p><code>!=</code>, <code>**</code>, <code>..</code>, <code>::</code>, <code>:=</code>, <code>&lt;-</code>, <code>&lt;=</code>, <code>==</code>, <code>=&gt;</code>, <code>&gt;=</code>, <code>or</code>,
+<code>&amp;&amp;&amp;</code>, <code>&lt;+&gt;</code>, <code>&lt;&lt;&lt;</code>, <code>&lt;=&gt;</code>, <code>&gt;&gt;&gt;</code>, <code>???</code>, <code>^^^</code>, <code>and</code>, <code>mod</code>, <code>not</code>, <code>rem</code>, <code>|||</code>, <code>~~~</code>,
+<code>$DEFAULT$</code>, <code>*</code>, <code>+</code>, <code>-</code>, <code>/</code>, <code>:</code>, <code>&lt;</code>, 
+<code>&gt;</code>, <code>@</code>, <code>Absent</code>, <code>Bool</code>, <code>Impure</code>, <code>Nil</code>, <code>Predicate</code>, <code>Present</code>, <code>Pure</code>,
+<code>Read</code>, <code>RecordRow</code>, <code>Region</code>, <code>SchemaRow</code>, <code>Type</code>, <code>Write</code>, <code>alias</code>, <code>case</code>, <code>catch</code>, <code>chan</code>,
+<code>class</code>, <code>def</code>, <code>deref</code>, <code>else</code>, <code>enum</code>, <code>false</code>, <code>fix</code>, <code>force</code>,
+<code>if</code>, <code>import</code>, <code>inline</code>, <code>instance</code>, <code>into</code>, <code>lat</code>, <code>law</code>, <code>lawful</code>, <code>lazy</code>, <code>let</code>, <code>let*</code>, <code>match</code>,
+<code>namespace</code>, <code>null</code>, <code>opaque</code>, <code>override</code>, <code>pub</code>, <code>ref</code>, <code>region</code>, <code>reify</code>,
+<code>reifyBool</code>, <code>reifyEff</code>, <code>reifyType</code>, <code>rel</code>, <code>sealed</code>, <code>set</code>, <code>spawn</code>, <code>Static</code>, <code>true</code>,
+<code>type</code>, <code>use</code>, <code>where</code>, <code>with</code>, <code>discard</code>, <code>object</code></p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="precedence"><a class="header" href="#precedence">Precedence</a></h2>
+<ol>
+<li>Unary operators (<code>+</code>, <code>-</code>, <code>~~~</code>, and <code>not</code>)</li>
+<li>User-defined operators (including operators defined in the standard library such as <code>|&gt;</code>)</li>
+<li>Functions applied infix with backticks</li>
+<li>Composition (<code>&lt;+&gt;</code>)</li>
+<li>Multiplicative (<code>**</code>, <code>*</code>, <code>/</code>, <code>mod</code>, and <code>rem</code>)</li>
+<li>Additive (<code>+</code> and <code>-</code>)</li>
+<li>Shift (<code>&lt;&lt;&lt;</code> and <code>&gt;&gt;&gt;</code>)</li>
+<li>Comparison (<code>&lt;=</code>, <code>&gt;=</code>, <code>&lt;</code>, and <code>&gt;</code>)</li>
+<li>Equality (<code>==</code>, <code>!=</code>, and <code>&lt;==&gt;</code>)</li>
+<li>Bitwise And (<code>&amp;&amp;&amp;</code>)</li>
+<li>Bitwise Xor (<code>^^^</code>)</li>
+<li>Bitwise Or (<code>|||</code>)</li>
+<li>Logical <code>and</code></li>
+<li>Logical <code>or</code></li>
+<li>Channel <code>&lt;-</code></li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>

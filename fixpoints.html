@@ -1,0 +1,614 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Fixpoints with Datalog - Programming Flix</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction to Flix</a></li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="installing.html"><strong aria-hidden="true">2.1.</strong> Installing Flix</a></li><li class="chapter-item expanded "><a href="editor-support.html"><strong aria-hidden="true">2.2.</strong> Editor Support</a></li></ol></li><li class="chapter-item expanded "><a href="projects.html"><strong aria-hidden="true">3.</strong> Projects</a></li><li class="chapter-item expanded "><a href="data-types.html"><strong aria-hidden="true">4.</strong> Data Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="primitive-types.html"><strong aria-hidden="true">4.1.</strong> Primitives</a></li><li class="chapter-item expanded "><a href="tuples.html"><strong aria-hidden="true">4.2.</strong> Tuples</a></li><li class="chapter-item expanded "><a href="enums.html"><strong aria-hidden="true">4.3.</strong> Enums</a></li><li class="chapter-item expanded "><a href="type-aliases.html"><strong aria-hidden="true">4.4.</strong> Type Aliases</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li class="chapter-item expanded "><a href="immutable-data.html"><strong aria-hidden="true">6.</strong> Immutable Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lists.html"><strong aria-hidden="true">6.1.</strong> Lists</a></li><li class="chapter-item expanded "><a href="records.html"><strong aria-hidden="true">6.2.</strong> Records</a></li></ol></li><li class="chapter-item expanded "><a href="mutable-data.html"><strong aria-hidden="true">7.</strong> Mutable Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="references.html"><strong aria-hidden="true">7.1.</strong> References</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">7.2.</strong> Arrays</a></li></ol></li><li class="chapter-item expanded "><a href="control-structures.html"><strong aria-hidden="true">8.</strong> Control Structures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="if-then-else.html"><strong aria-hidden="true">8.1.</strong> If-Then-Else</a></li><li class="chapter-item expanded "><a href="pattern-matching.html"><strong aria-hidden="true">8.2.</strong> Pattern Matching</a></li><li class="chapter-item expanded "><a href="foreach-foryield.html"><strong aria-hidden="true">8.3.</strong> For-Each and For-Yield</a></li></ol></li><li class="chapter-item expanded "><a href="concurrency.html"><strong aria-hidden="true">9.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="parallelism.html"><strong aria-hidden="true">10.</strong> Parallelism</a></li><li class="chapter-item expanded "><a href="effects.html"><strong aria-hidden="true">11.</strong> Effect System</a></li><li class="chapter-item expanded "><a href="laziness.html"><strong aria-hidden="true">12.</strong> Laziness</a></li><li class="chapter-item expanded "><a href="fixpoints.html" class="active"><strong aria-hidden="true">13.</strong> Fixpoints with Datalog</a></li><li class="chapter-item expanded "><a href="type-classes.html"><strong aria-hidden="true">14.</strong> Type Classes</a></li><li class="chapter-item expanded "><a href="namespaces.html"><strong aria-hidden="true">15.</strong> Namespaces</a></li><li class="chapter-item expanded "><a href="interoperability.html"><strong aria-hidden="true">16.</strong> Interoperability</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="creating-objects.html"><strong aria-hidden="true">16.1.</strong> Creating Objects</a></li><li class="chapter-item expanded "><a href="calling-methods.html"><strong aria-hidden="true">16.2.</strong> Calling Methods</a></li><li class="chapter-item expanded "><a href="reading-and-writing-fields.html"><strong aria-hidden="true">16.3.</strong> Reading and Writing Fields</a></li><li class="chapter-item expanded "><a href="extending-classes-and-interfaces.html"><strong aria-hidden="true">16.4.</strong> Classes and Interfaces</a></li><li class="chapter-item expanded "><a href="nested-and-inner-classes.html"><strong aria-hidden="true">16.5.</strong> Nested and Inner classes</a></li></ol></li><li class="chapter-item expanded "><a href="everyday-programming.html"><strong aria-hidden="true">17.</strong> Everyday Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="main.html"><strong aria-hidden="true">17.1.</strong> The Main Function</a></li><li class="chapter-item expanded "><a href="printing-to-stdout.html"><strong aria-hidden="true">17.2.</strong> Printing to Standard Out</a></li><li class="chapter-item expanded "><a href="string-interpolation.html"><strong aria-hidden="true">17.3.</strong> String Interpolation</a></li><li class="chapter-item expanded "><a href="holes.html"><strong aria-hidden="true">17.4.</strong> Anonymous and Named Holes</a></li><li class="chapter-item expanded "><a href="type-ascriptions.html"><strong aria-hidden="true">17.5.</strong> Type Ascriptions</a></li><li class="chapter-item expanded "><a href="redundancy.html"><strong aria-hidden="true">17.6.</strong> Redundancy</a></li><li class="chapter-item expanded "><a href="debugging.html"><strong aria-hidden="true">17.7.</strong> Debugging</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">18.</strong> Tools</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vscode.html"><strong aria-hidden="true">18.1.</strong> Visual Studio Code</a></li><li class="chapter-item expanded "><a href="build-and-packages.html"><strong aria-hidden="true">18.2.</strong> Package Manager</a></li><li class="chapter-item expanded "><a href="test-framework.html"><strong aria-hidden="true">18.3.</strong> Test Framework</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="advanced-features.html"><strong aria-hidden="true">19.</strong> Advanced Features</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="upcast.html"><strong aria-hidden="true">19.1.</strong> Upcasts</a></li><li class="chapter-item expanded "><a href="casts.html"><strong aria-hidden="true">19.2.</strong> Type and Effect Casts</a></li><li class="chapter-item expanded "><a href="bug-and-unreachable.html"><strong aria-hidden="true">19.3.</strong> Bugs and Unreachable Code</a></li><li class="chapter-item expanded "><a href="purity-reflection.html"><strong aria-hidden="true">19.4.</strong> Purity Reflection</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="appendix.html"><strong aria-hidden="true">20.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="identifiers.html"><strong aria-hidden="true">20.1.</strong> Legal Identifiers</a></li><li class="chapter-item expanded "><a href="precedence.html"><strong aria-hidden="true">20.2.</strong> Operator Precedence</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Programming Flix</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/flix/book/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/flix/book/edit/master/src/fixpoints.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="fixpoints"><a class="header" href="#fixpoints">Fixpoints</a></h1>
+<p>A unique feature of Flix is its built-in support for
+fixpoint computations on <em>constraint on relations</em>
+and <em>constraint on lattices</em>.</p>
+<p>We assume that the reader is already familiar with
+Datalog and focus on the Flix specific features.</p>
+<h2 id="using-flix-to-solve-constraints-on-relations"><a class="header" href="#using-flix-to-solve-constraints-on-relations">Using Flix to Solve Constraints on Relations</a></h2>
+<p>We can use Flix to solve a fixpoint computation
+inside a function.</p>
+<p>For example, given a set of edges <code>s</code>, a <code>src</code> node,
+and <code>dst</code> node, compute if there is a path from <code>src</code>
+to <code>dst</code>.
+We can elegantly solve this problem as follows:</p>
+<pre><code class="language-flix">def isConnected(s: Set[(Int32, Int32)], src: Int32, dst: Int32): Bool =
+    let rules = #{
+        Path(x, y) :- Edge(x, y).
+        Path(x, z) :- Path(x, y), Edge(y, z).
+    };
+    let edges = inject s into Edge;
+    let paths = query edges, rules select true from Path(src, dst);
+    not (paths |&gt; Array.isEmpty)
+
+def main(): Unit \ IO =
+    let s = Set#{(1, 2), (2, 3), (3, 4), (4, 5)};
+    let src = 1;
+    let dst = 5;
+    if (isConnected(s, src, dst)) {
+        println(&quot;Found a path between ${src} and ${dst}!&quot;)
+    } else {
+        println(&quot;Did not find a path between ${src} and ${dst}!&quot;)
+    }
+</code></pre>
+<p>The <code>isConnected</code> function behaves like any other
+function: We can call it with a set of edges
+(<code>Int32</code>-pairs), an <code>Int32</code> source node, and
+an <code>Int32</code> destination node.
+What is interesting about <code>isConnected</code> is that its
+implementation uses a small Datalog program to solve
+the task at hand.</p>
+<p>In the <code>isConnected</code> function, the local variable
+<code>rules</code> holds a Datalog program fragment that
+consists of two rules which define the <code>Path</code>
+relation.
+Note that the predicate symbols, <code>Edge</code> and <code>Path</code> do
+not have to be explicitly introduced; they are simply
+used.
+The local variable <code>edges</code> holds a collection of edge
+facts that are obtained by taking all the tuples in
+the set <code>s</code> and turning them into <code>Edge</code> facts.
+Next, the local variable <code>paths</code> holds the result of
+computing the fixpoint of the facts and rules
+(<code>edges</code> and <code>rules</code>) and selecting the Boolean
+<code>true</code> <em>if</em> there is a <code>Path(src, dst)</code> fact.
+Note that here <code>src</code> and <code>dst</code> are the
+lexically-bound function parameters.
+Thus, <code>paths</code> is either an empty array (no paths were
+found) or a one-element array (a path was found), and
+we simply return this fact.</p>
+<p>Flix is strongly typed.
+Any attempt to use predicate symbol with terms of the
+wrong type (or with the wrong arity) is caught by the
+type checker.
+Note also that Flix supports type inference, hence we
+did not have to declare the type of <code>Edge</code> nor of
+<code>Path</code>.</p>
+<h2 id="stratified-negation"><a class="header" href="#stratified-negation">Stratified Negation</a></h2>
+<p>Flix supports <em>stratified negation</em> which allow
+restricted use of negation in rule bodies.
+For example:</p>
+<pre><code class="language-flix">def main(): Unit \ IO =
+    let movies = #{
+        Movie(&quot;The Hateful Eight&quot;).
+        Movie(&quot;Interstellar&quot;).
+    };
+    let actors = #{
+        StarringIn(&quot;The Hateful Eight&quot;, &quot;Samuel L. Jackson&quot;).
+        StarringIn(&quot;The Hateful Eight&quot;, &quot;Kurt Russel&quot;).
+        StarringIn(&quot;The Hateful Eight&quot;, &quot;Quentin Tarantino&quot;).
+        StarringIn(&quot;Interstellar&quot;, &quot;Matthew McConaughey&quot;).
+        StarringIn(&quot;Interstellar&quot;, &quot;Anne Hathaway&quot;).
+    };
+    let directors = #{
+        DirectedBy(&quot;The Hateful Eight&quot;, &quot;Quentin Tarantino&quot;).
+        DirectedBy(&quot;Interstellar&quot;, &quot;Christopher Nolan&quot;).
+    };
+    let rule = #{
+        MovieWithoutDirector(title) :-
+            Movie(title),
+            DirectedBy(title, name),
+            not StarringIn(title, name).
+    };
+    query movies, actors, directors, rule
+        select title from MovieWithoutDirector(title) |&gt; println
+</code></pre>
+<p>The program defines three local variables that
+contain information about movies, actors, and
+directors.
+The local variable <code>rule</code> contains a rule that
+captures all movies where the director does not star
+in the movie.
+Note the use negation in this rule.
+The query returns an array with the string
+<code>&quot;Interstellar&quot;</code> because Christopher Nolan did not
+star in that movie.</p>
+<blockquote>
+<p><strong>Design Note</strong></p>
+<p>Flix enforces that programs are stratified, i.e. a
+program must not have recursive dependencies on
+which there is use of negation.
+If there is, the Flix compiler rejects the program.</p>
+</blockquote>
+<h2 id="programming-with-first-class-constraints"><a class="header" href="#programming-with-first-class-constraints">Programming with First-class Constraints</a></h2>
+<p>A unique feature of Flix is its support for
+<em>first-class constraints</em>.
+A first-class constraint is a value that can be
+constructed, passed around, composed with other
+constraints, and ultimately solved.
+The solution to a constraint system is another
+constraint system which can be further composed.
+For example:</p>
+<pre><code class="language-flix">def getParents(): #{ ParentOf(String, String) | r } = #{
+    ParentOf(&quot;Pompey&quot;, &quot;Strabo&quot;).
+    ParentOf(&quot;Gnaeus&quot;, &quot;Pompey&quot;).
+    ParentOf(&quot;Pompeia&quot;, &quot;Pompey&quot;).
+    ParentOf(&quot;Sextus&quot;, &quot;Pompey&quot;).
+}
+
+def getAdoptions(): #{ AdoptedBy(String, String) | r } = #{
+    AdoptedBy(&quot;Augustus&quot;, &quot;Caesar&quot;).
+    AdoptedBy(&quot;Tiberius&quot;, &quot;Augustus&quot;).
+}
+
+def withAncestors(): #{ ParentOf(String, String),
+                        AncestorOf(String, String) | r } = #{
+        AncestorOf(x, y) :- ParentOf(x, y).
+        AncestorOf(x, z) :- AncestorOf(x, y), AncestorOf(y, z).
+}
+
+def withAdoptions(): #{ AdoptedBy(String, String),
+                        AncestorOf(String, String) | r } = #{
+    AncestorOf(x, y) :- AdoptedBy(x, y).
+}
+
+def main(): Unit \ IO =
+    let c = false;
+    if (c) {
+        query getParents(), getAdoptions(), withAncestors()
+            select (x, y) from AncestorOf(x, y) |&gt; println
+    } else {
+        query getParents(), getAdoptions(), withAncestors(), withAdoptions()
+            select (x, y) from AncestorOf(x, y) |&gt; println
+    }
+</code></pre>
+<p>The program uses three predicate symbols: <code>ParentOf</code>,
+<code>AncestorOf</code>, and <code>AdoptedBy</code>.
+The <code>getParents</code>function returns a collection of facts
+that represent biological parents, whereas the
+<code>getAdoptions</code> function returns a collection of facts
+that represent adoptions.
+The <code>withAncestors</code> function returns two constraints
+that populate the <code>AncestorOf</code> relation using the
+<code>ParentOf</code> relation.
+The <code>withAdoptions</code> function returns a constraint
+that populates the <code>ParentOf</code> relation using the
+<code>AdoptedBy</code> relation.</p>
+<p>In the <code>main</code> function the local variable <code>c</code>
+controls whether we query a Datalog program that only
+considers biological parents or if we include
+adoptions.</p>
+<p>As can be seen, the types the functions are
+row-polymorphic.
+For example, the signature of <code>getParents</code> is
+<code>def getParents(): #{ ParentOf | r }</code> where <code>r</code>
+is row polymorphic type variable that represent the
+rest of the predicates that the result of the
+function can be composed with.</p>
+<blockquote>
+<p><strong>Design Note</strong></p>
+<p>The row polymorphic types are best understood as an
+over-approximation of the predicates that may occur
+in a constraint system.
+For example, if a constraint system has type
+<code>#{ A(String), B(Int32, Int32) }</code> that does
+necessarily mean that it will contain facts or rules
+that use the predicate symbols <code>A</code> or <code>B</code>, but it
+does guarantee that it will not contain any fact or
+rule that refer to a predicate symbol <code>C</code>.</p>
+</blockquote>
+<h2 id="polymorphic-first-class-constraints"><a class="header" href="#polymorphic-first-class-constraints">Polymorphic First-class Constraints</a></h2>
+<p>Another unique feature of Flix is its support for
+first-class <em>polymorphic</em> constraints.
+That is, constraints where one or more constraints
+are polymorphic in their term types.
+For example:</p>
+<pre><code class="language-flix">def edgesWithNumbers(): #{ LabelledEdge(String, Int32 , String) | r } = #{
+    LabelledEdge(&quot;a&quot;, 1, &quot;b&quot;).
+    LabelledEdge(&quot;b&quot;, 1, &quot;c&quot;).
+    LabelledEdge(&quot;c&quot;, 2, &quot;d&quot;).
+}
+
+def edgesWithColor(): #{ LabelledEdge(String, String, String) | r } = #{
+    LabelledEdge(&quot;a&quot;, &quot;red&quot;, &quot;b&quot;).
+    LabelledEdge(&quot;b&quot;, &quot;red&quot;, &quot;c&quot;).
+    LabelledEdge(&quot;c&quot;, &quot;blu&quot;, &quot;d&quot;).
+}
+
+def closure(): #{ LabelledEdge(String, l, String),
+                  LabelledPath(String, l, String) } with Boxable[l] = #{
+    LabelledPath(x, l, y) :- LabelledEdge(x, l, y).
+    LabelledPath(x, l, z) :- LabelledPath(x, l, y), LabelledPath(y, l, z).
+}
+
+def main(): Unit \ IO =
+    query edgesWithNumbers(), closure()
+        select (x, l, z) from LabelledPath(x, l, z) |&gt; println;
+    query edgesWithColor(), closure()
+        select (x, l, z) from LabelledPath(x, l, z) |&gt; println
+</code></pre>
+<p>Here we use two predicate symbols: <code>LabelledEdge</code> and
+<code>LabelledPath</code>.
+Each predicate has a type parameter named <code>l</code> and is
+polymorphic in the “label” type associated with the
+edge/path.
+Note how <code>edgesWithNumbers</code> returns a collection of
+edge facts where the labels are integers, whereas
+<code>edgesWithColor</code> returns a collection of facts where
+the labels are strings.
+The <code>closure</code> function is polymorphic and returns two
+rules that compute the transitive closure of edges
+that have the same label.</p>
+<p>The Flix type system ensures that we cannot
+accidentally mix edges (or paths) with different
+types of labels.</p>
+<blockquote>
+<p><strong>Design Note</strong></p>
+<p>The <code>Boxable</code> type class constraint simply requires
+that each label type has <code>Eq</code>, <code>Order</code>, and
+<code>ToString</code> instances.</p>
+</blockquote>
+<h2 id="injecting-facts-into-datalog"><a class="header" href="#injecting-facts-into-datalog">Injecting Facts into Datalog</a></h2>
+<p>Flix provides a flexible mechanism that allows
+functional data structures (such as lists, sets,
+and maps) to be converted into Datalog facts.</p>
+<p>For example, given a Flix list of pairs we can
+convert it to a collection of Datalog facts:</p>
+<pre><code class="language-flix">let l = (1, 2) :: (2, 3) :: Nil;
+let p = inject l into Edge;
+</code></pre>
+<p>where <code>l</code> has type <code>List[(Int32, Int32)]</code>.
+The <code>inject</code> expression converts <code>l</code> into a Datalog
+constraint set <code>p</code> of type
+<code>#{ Edge(Int32, Int32) | ... }</code>.</p>
+<p>The <code>inject</code> expression works with any type that
+implements the <code>Foldable</code> type class.
+Consequently, it can be used with lists, sets, maps,
+and so forth.</p>
+<p>The <code>inject</code> expression can operate on multiple
+collections simultaneously.
+For example:</p>
+<pre><code class="language-flix">let names = &quot;Lucky Luke&quot; :: &quot;Luke Skywalker&quot; :: Nil;
+let jedis = &quot;Luke Skywalker&quot; :: Nil;
+let p = inject names, jedis into Name, Jedi;
+</code></pre>
+<p>where <code>p</code> has type
+<code>#{ Name(String), Jedi(String) | ... }</code>.</p>
+<h2 id="pipelines-of-fixpoint-computations"><a class="header" href="#pipelines-of-fixpoint-computations">Pipelines of Fixpoint Computations</a></h2>
+<p>The solution (i.e. fixpoint) of a constraint system
+is another constraint system.
+We can use this to construct <em>pipelines</em> of fixpoint
+computations, i.e. to feed the result of one fixpoint
+computation into another fixpoint computation.
+For example:</p>
+<pre><code class="language-flix">def main(): Unit \ IO =
+    let f1 = #{
+        ColorEdge(1, &quot;blue&quot;, 2).
+        ColorEdge(2, &quot;blue&quot;, 3).
+        ColorEdge(3, &quot;red&quot;, 4).
+    };
+    let r1 = #{
+        ColorPath(x, c, y) :- ColorEdge(x, c, y).
+        ColorPath(x, c, z) :- ColorPath(x, c, y), ColorEdge(y, c, z).
+    };
+    let r2 = #{
+        ColorlessPath(x, y) :- ColorPath(x, _, y).
+    };
+    let m = solve f1, r1 inject ColorPath;
+    query m, r2 select (x, y) from ColorlessPath(x, y) |&gt; println
+</code></pre>
+<p>The program uses three predicates: <code>ColorEdge</code>,
+<code>ColorPath</code>, and <code>ColorlessPath</code>.
+Our goal is to compute the transitive closure of the
+colored edges and then afterwards construct a graph
+where the edges have no color.</p>
+<p>The program first computes the fixpoint of <code>f1</code> and
+<code>r1</code> and injects out the <code>ColorPath</code> fact.
+The result is stored in <code>m</code>. Next, the program
+queries <code>m</code> and <code>r2</code>, and selects all <code>ColorlessPath</code>
+facts.</p>
+<h2 id="using-flix-to-solve-constraints-on-lattices"><a class="header" href="#using-flix-to-solve-constraints-on-lattices">Using Flix to Solve Constraints on Lattices</a></h2>
+<p>Flix supports not only <em>constraints on relations</em>,
+but also <em>constraints on lattices</em>.
+To create such constraints, we must first define the
+lattice operations (the partial order, the least
+upper bound, and so on) as functions, associate them
+with a type, and then declare the predicate symbols
+that have lattice semantics.</p>
+<p>We begin with the definition of the <code>Sign</code> data type:</p>
+<pre><code class="language-flix">enum Sign {
+    case Top,
+    case Neg,
+    case Zer,
+    case Pos,
+    case Bot
+}
+</code></pre>
+<p>We need to define the usual <code>Eq</code>, <code>Order</code>, and
+<code>ToString</code> instances for this new type.
+Note that the order instance is unrelated to the
+partial order instance we will later define, and is
+simply used to sort elements for pretty printing etc.</p>
+<pre><code class="language-flix">instance Boxable[Sign]
+
+instance Eq[Sign] {
+    pub def eq(x: Sign, y: Sign): Bool = match (x, y) {
+        case (Bot, Bot) =&gt; true
+        case (Neg, Neg) =&gt; true
+        case (Zer, Zer) =&gt; true
+        case (Pos, Pos) =&gt; true
+        case (Top, Top) =&gt; true
+        case _          =&gt; false
+    }
+}
+
+instance Order[Sign] {
+    pub def compare(x: Sign, y: Sign): Comparison =
+        let num = w -&gt; match w {
+            case Bot =&gt; 0
+            case Neg =&gt; 1
+            case Zer =&gt; 2
+            case Pos =&gt; 3
+            case Top =&gt; 4
+        };
+        num(x) &lt;=&gt; num(y)
+}
+
+instance ToString[Sign] {
+    pub def toString(x: Sign): String = match x {
+        case Bot =&gt; &quot;Bot&quot;
+        case Neg =&gt; &quot;Neg&quot;
+        case Zer =&gt; &quot;Zer&quot;
+        case Pos =&gt; &quot;Pos&quot;
+        case Top =&gt; &quot;Top&quot;
+    }
+}
+</code></pre>
+<p>With these type class instances in place, we can now
+define the lattice operations on <code>Sign</code>.</p>
+<p>We define the bottom element and the partial order:</p>
+<pre><code class="language-flix">instance LowerBound[Sign] {
+    pub def minValue(): Sign = Bot
+}
+
+instance PartialOrder[Sign] {
+    pub def lessEqual(x: Sign, y: Sign): Bool =
+        match (x, y) {
+            case (Bot, _)   =&gt; true
+            case (Neg, Neg) =&gt; true
+            case (Zer, Zer) =&gt; true
+            case (Pos, Pos) =&gt; true
+            case (_, Top)   =&gt; true
+            case _          =&gt; false
+        }
+}
+</code></pre>
+<p>Next, we define the least upper bound and greatest
+lower bound:</p>
+<pre><code class="language-flix">instance JoinLattice[Sign] {
+    pub def leastUpperBound(x: Sign, y: Sign): Sign =
+        match (x, y) {
+            case (Bot, _)   =&gt; y
+            case (_, Bot)   =&gt; x
+            case (Neg, Neg) =&gt; Neg
+            case (Zer, Zer) =&gt; Zer
+            case (Pos, Pos) =&gt; Pos
+            case _          =&gt; Top
+        }
+}
+
+instance MeetLattice[Sign] {
+    pub def greatestLowerBound(x: Sign, y: Sign): Sign =
+        match (x, y) {
+            case (Top, _)   =&gt; y
+            case (_, Top)   =&gt; x
+            case (Neg, Neg) =&gt; Neg
+            case (Zer, Zer) =&gt; Zer
+            case (Pos, Pos) =&gt; Pos
+            case _          =&gt; Bot
+        }
+}
+</code></pre>
+<p>With all of these definitions we are ready to write
+Datalog constraints with lattice semantics.
+But before we proceed, let us also write a single
+monotone function:</p>
+<pre><code class="language-flix">def sum(x: Sign, y: Sign): Sign = match (x, y) {
+    case (Bot, _)   =&gt; Bot
+    case (_, Bot)   =&gt; Bot
+    case (Neg, Zer) =&gt; Neg
+    case (Zer, Neg) =&gt; Neg
+    case (Zer, Zer) =&gt; Zer
+    case (Zer, Pos) =&gt; Pos
+    case (Pos, Zer) =&gt; Pos
+    case (Pos, Pos) =&gt; Pos
+    case _          =&gt; Top
+}
+</code></pre>
+<p>We can now finally put everything to use:</p>
+<pre><code class="language-flix">pub def main(): Unit \ IO =
+    let p = #{
+        LocalVar(&quot;x&quot;; Pos).
+        LocalVar(&quot;y&quot;; Zer).
+        LocalVar(&quot;z&quot;; Neg).
+        AddStm(&quot;r1&quot;, &quot;x&quot;, &quot;y&quot;).
+        AddStm(&quot;r2&quot;, &quot;x&quot;, &quot;y&quot;).
+        AddStm(&quot;r2&quot;, &quot;y&quot;, &quot;z&quot;).
+        LocalVar(r; sum(v1, v2)) :-
+            AddStm(r, x, y), LocalVar(x; v1), LocalVar(y; v2).
+    };
+    query p select (r, v) from LocalVar(r; v) |&gt; println
+</code></pre>
+<p>Note the careful use of <code>;</code> to designate lattice
+semantics.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="laziness.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="type-classes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="laziness.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="type-classes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

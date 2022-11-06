@@ -1,0 +1,339 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Type Classes - Programming Flix</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction to Flix</a></li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="installing.html"><strong aria-hidden="true">2.1.</strong> Installing Flix</a></li><li class="chapter-item expanded "><a href="editor-support.html"><strong aria-hidden="true">2.2.</strong> Editor Support</a></li></ol></li><li class="chapter-item expanded "><a href="projects.html"><strong aria-hidden="true">3.</strong> Projects</a></li><li class="chapter-item expanded "><a href="data-types.html"><strong aria-hidden="true">4.</strong> Data Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="primitive-types.html"><strong aria-hidden="true">4.1.</strong> Primitives</a></li><li class="chapter-item expanded "><a href="tuples.html"><strong aria-hidden="true">4.2.</strong> Tuples</a></li><li class="chapter-item expanded "><a href="enums.html"><strong aria-hidden="true">4.3.</strong> Enums</a></li><li class="chapter-item expanded "><a href="type-aliases.html"><strong aria-hidden="true">4.4.</strong> Type Aliases</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li class="chapter-item expanded "><a href="immutable-data.html"><strong aria-hidden="true">6.</strong> Immutable Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lists.html"><strong aria-hidden="true">6.1.</strong> Lists</a></li><li class="chapter-item expanded "><a href="records.html"><strong aria-hidden="true">6.2.</strong> Records</a></li></ol></li><li class="chapter-item expanded "><a href="mutable-data.html"><strong aria-hidden="true">7.</strong> Mutable Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="references.html"><strong aria-hidden="true">7.1.</strong> References</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">7.2.</strong> Arrays</a></li></ol></li><li class="chapter-item expanded "><a href="control-structures.html"><strong aria-hidden="true">8.</strong> Control Structures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="if-then-else.html"><strong aria-hidden="true">8.1.</strong> If-Then-Else</a></li><li class="chapter-item expanded "><a href="pattern-matching.html"><strong aria-hidden="true">8.2.</strong> Pattern Matching</a></li><li class="chapter-item expanded "><a href="foreach-foryield.html"><strong aria-hidden="true">8.3.</strong> For-Each and For-Yield</a></li></ol></li><li class="chapter-item expanded "><a href="concurrency.html"><strong aria-hidden="true">9.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="parallelism.html"><strong aria-hidden="true">10.</strong> Parallelism</a></li><li class="chapter-item expanded "><a href="effects.html"><strong aria-hidden="true">11.</strong> Effect System</a></li><li class="chapter-item expanded "><a href="laziness.html"><strong aria-hidden="true">12.</strong> Laziness</a></li><li class="chapter-item expanded "><a href="fixpoints.html"><strong aria-hidden="true">13.</strong> Fixpoints with Datalog</a></li><li class="chapter-item expanded "><a href="type-classes.html" class="active"><strong aria-hidden="true">14.</strong> Type Classes</a></li><li class="chapter-item expanded "><a href="namespaces.html"><strong aria-hidden="true">15.</strong> Namespaces</a></li><li class="chapter-item expanded "><a href="interoperability.html"><strong aria-hidden="true">16.</strong> Interoperability</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="creating-objects.html"><strong aria-hidden="true">16.1.</strong> Creating Objects</a></li><li class="chapter-item expanded "><a href="calling-methods.html"><strong aria-hidden="true">16.2.</strong> Calling Methods</a></li><li class="chapter-item expanded "><a href="reading-and-writing-fields.html"><strong aria-hidden="true">16.3.</strong> Reading and Writing Fields</a></li><li class="chapter-item expanded "><a href="extending-classes-and-interfaces.html"><strong aria-hidden="true">16.4.</strong> Classes and Interfaces</a></li><li class="chapter-item expanded "><a href="nested-and-inner-classes.html"><strong aria-hidden="true">16.5.</strong> Nested and Inner classes</a></li></ol></li><li class="chapter-item expanded "><a href="everyday-programming.html"><strong aria-hidden="true">17.</strong> Everyday Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="main.html"><strong aria-hidden="true">17.1.</strong> The Main Function</a></li><li class="chapter-item expanded "><a href="printing-to-stdout.html"><strong aria-hidden="true">17.2.</strong> Printing to Standard Out</a></li><li class="chapter-item expanded "><a href="string-interpolation.html"><strong aria-hidden="true">17.3.</strong> String Interpolation</a></li><li class="chapter-item expanded "><a href="holes.html"><strong aria-hidden="true">17.4.</strong> Anonymous and Named Holes</a></li><li class="chapter-item expanded "><a href="type-ascriptions.html"><strong aria-hidden="true">17.5.</strong> Type Ascriptions</a></li><li class="chapter-item expanded "><a href="redundancy.html"><strong aria-hidden="true">17.6.</strong> Redundancy</a></li><li class="chapter-item expanded "><a href="debugging.html"><strong aria-hidden="true">17.7.</strong> Debugging</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">18.</strong> Tools</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vscode.html"><strong aria-hidden="true">18.1.</strong> Visual Studio Code</a></li><li class="chapter-item expanded "><a href="build-and-packages.html"><strong aria-hidden="true">18.2.</strong> Package Manager</a></li><li class="chapter-item expanded "><a href="test-framework.html"><strong aria-hidden="true">18.3.</strong> Test Framework</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="advanced-features.html"><strong aria-hidden="true">19.</strong> Advanced Features</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="upcast.html"><strong aria-hidden="true">19.1.</strong> Upcasts</a></li><li class="chapter-item expanded "><a href="casts.html"><strong aria-hidden="true">19.2.</strong> Type and Effect Casts</a></li><li class="chapter-item expanded "><a href="bug-and-unreachable.html"><strong aria-hidden="true">19.3.</strong> Bugs and Unreachable Code</a></li><li class="chapter-item expanded "><a href="purity-reflection.html"><strong aria-hidden="true">19.4.</strong> Purity Reflection</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="appendix.html"><strong aria-hidden="true">20.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="identifiers.html"><strong aria-hidden="true">20.1.</strong> Legal Identifiers</a></li><li class="chapter-item expanded "><a href="precedence.html"><strong aria-hidden="true">20.2.</strong> Operator Precedence</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Programming Flix</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/flix/book/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/flix/book/edit/master/src/type-classes.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="type-classes"><a class="header" href="#type-classes">Type Classes</a></h1>
+<p>Type classes are one of the ways to support a high
+level of genericity in functional programming.
+Flix’s type classes largely follow the style of those
+of Haskell, with some additional principles.</p>
+<h2 id="essentials"><a class="header" href="#essentials">Essentials</a></h2>
+<p>The function <code>isSingleton</code> naively determines whether
+a list has exactly one element.
+However, it only works with lists.
+Although checking the length of a collection like
+this is possible for all standard collections, we
+have to implement a separate <code>isSingleton</code> function
+for each of them.</p>
+<pre><code class="language-flix">def isSingleton(l: List[a]): Bool =
+    List.length(l) == 1
+</code></pre>
+<p>We can generalize this behavior by using a type class
+constraint.
+Rather than requiring the argument to be a list, we
+use a type variable <code>a</code> and constrain it with to the
+type class <code>Length</code>, which means that the function
+<code>Length.length</code> can be applied to the argument.</p>
+<pre><code class="language-flix">def isSingleton(l: a): Bool with Length[a] =
+    Length.length(l) == 1
+</code></pre>
+<p>The type class declaration <code>Length</code> specifies what
+can be done with its members.
+In this case, there is only one function:
+<code>Length.length</code>, which takes the member type as an
+argument and returns an integer.
+The law <code>nonnegative</code> is also defined as part of the
+class.
+Laws will be further explored below.</p>
+<pre><code class="language-flix">pub class Length[a] {
+    pub def length(x: a): Int32
+
+    law nonnegative: forall(x: a) . Length.length(x) &gt;= 0
+}
+</code></pre>
+<p>If we try to use the new <code>isSingleton</code> function, we
+will see that it fails to compile:</p>
+<pre><code class="language-flix">isSingleton(1 :: 2 :: Nil)
+</code></pre>
+<p>While we know that a list has a length, we haven’t
+told this to the compiler.
+To do this, we introduce an <code>instance</code> of the type
+class for the generic type <code>List[a]</code>.</p>
+<pre><code class="language-flix">instance Length[List[a]] {
+    pub def length(x: List[a]): Int32 = List.length(x)
+}
+</code></pre>
+<p>This instance simply states that in order to get the
+length of the list, we just use the <code>List.length</code>
+function from the standard library.
+With this instance around, the call to the
+<code>isSingleton</code> function will compile.
+However, you may have noticed that our implementation
+is inefficient.
+While comparing the length to 1 is a correct solution
+generally, for lists specifically the solution has a
+greater runtime complexity than necessary.
+In order to preserve the general solution while
+allowing for optimizations where needed, we can use a
+default implementation in the type class and an
+override implementation in the instance.</p>
+<pre><code class="language-flix">pub class Length[a] {
+
+    pub def length(x: a): Int32
+
+    pub def isSingleton(x: a): Bool = length(x) == 1
+
+    law nonnegative: forall(x: a) . Length.length(x) &gt;= 0
+
+    law singletonMeansOne: forall(x: a) . Length.length(x) == 1 &lt;==&gt; Length.isSingleton(x)
+}
+
+instance Length[List[a]] {
+    pub def length(x: List[a]): Int32 = List.length(x)
+    override pub def isSingleton(x: List[a]): Bool = match x {
+        case _ :: Nil =&gt; true
+        case _ =&gt; false
+    }
+}
+</code></pre>
+<p>We have added the <code>isSingleton</code> function to the
+<code>Length</code> type class, with a default implementation
+that works in general.
+(We also added a new law <code>singletonMeansOne</code>; see
+section <strong>Laws</strong>.)
+We have added an efficient <code>override</code> implementation
+of <code>isSingleton</code> to the <code>Length</code> instance for
+<code>List[a]</code>.
+The advantage of the default implementation is that
+if there’s no special behavior needed for a type, the
+default is assumed.
+The function does not have to be implemented.</p>
+<pre><code class="language-flix">instance Length[String] {
+    pub def length(x: String): Int32 = String.length(x)
+}
+</code></pre>
+<p>The instance <code>Length[String]</code> simply uses the default
+implementation of the <code>isSingleton</code> function.</p>
+<h2 id="laws"><a class="header" href="#laws">Laws</a></h2>
+<p>In addition to the functions forming part of their
+contract, type classes have laws that govern how the
+functions may be implemented.</p>
+<pre><code class="language-flix">pub class Length[a] {
+    pub def length(x: a): Int32
+
+    law nonnegative: forall(x: a) . Length.length(x) &gt;= 0
+}
+</code></pre>
+<p>The <code>nonnegative</code> law asserts that the length of
+something can never be negative.</p>
+<h4 id="planned-feature"><a class="header" href="#planned-feature">Planned Feature</a></h4>
+<p>We plan to implement a quickcheck framework to verify
+that these laws hold.
+For now, however, they only serve as a form of
+documentation.</p>
+<h2 id="type-constraints"><a class="header" href="#type-constraints">Type Constraints</a></h2>
+<p>We’ve seen type constraints on on function
+definitions, but constraints can appear on on
+instances and type classes themselves as well.</p>
+<pre><code class="language-flix">pub class TreeSize[a] {
+    /// Returns the number of nodes in the object graph of this object
+    pub def size(x: a): Int32
+
+    law positive: forall(x: a) . size(x) &gt; 0
+}
+
+instance TreeSize[Int32] {
+    pub def size(x: Int32): Int32 = 1
+}
+
+instance TreeSize[List[a]] with TreeSize[a] {
+    pub def size(x: List[a]): Int32 = {
+        // one node for each cons cell, one for the nil, and nodes for each node's value
+        List.Length(x) + 1 + List.foldLeft((acc, y) -&gt; acc + TreeSize.size(y), 0, x)
+    }
+}
+</code></pre>
+<h2 id="sealed-classes"><a class="header" href="#sealed-classes">Sealed Classes</a></h2>
+<p>In general, a user can add an instance of a class for
+any type they define.
+In some cases, however, it is useful to restrict
+membership in a class to a finite list of types,
+defined by the author of the class.
+This is the purpose of a <code>sealed</code> class, for which
+instances outside the class’s namespace are not
+permitted.</p>
+<pre><code class="language-flix">sealed class Primitive[a]
+
+instance Primitive[Bool]
+instance Primitive[Int32]
+instance Primitive[Float64]
+// ... and so on
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="fixpoints.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="namespaces.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="fixpoints.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="namespaces.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Projects - Programming Flix</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction to Flix</a></li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="installing.html"><strong aria-hidden="true">2.1.</strong> Installing Flix</a></li><li class="chapter-item expanded "><a href="editor-support.html"><strong aria-hidden="true">2.2.</strong> Editor Support</a></li></ol></li><li class="chapter-item expanded "><a href="projects.html" class="active"><strong aria-hidden="true">3.</strong> Projects</a></li><li class="chapter-item expanded "><a href="data-types.html"><strong aria-hidden="true">4.</strong> Data Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="primitive-types.html"><strong aria-hidden="true">4.1.</strong> Primitives</a></li><li class="chapter-item expanded "><a href="tuples.html"><strong aria-hidden="true">4.2.</strong> Tuples</a></li><li class="chapter-item expanded "><a href="enums.html"><strong aria-hidden="true">4.3.</strong> Enums</a></li><li class="chapter-item expanded "><a href="type-aliases.html"><strong aria-hidden="true">4.4.</strong> Type Aliases</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li class="chapter-item expanded "><a href="immutable-data.html"><strong aria-hidden="true">6.</strong> Immutable Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lists.html"><strong aria-hidden="true">6.1.</strong> Lists</a></li><li class="chapter-item expanded "><a href="records.html"><strong aria-hidden="true">6.2.</strong> Records</a></li></ol></li><li class="chapter-item expanded "><a href="mutable-data.html"><strong aria-hidden="true">7.</strong> Mutable Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="references.html"><strong aria-hidden="true">7.1.</strong> References</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">7.2.</strong> Arrays</a></li></ol></li><li class="chapter-item expanded "><a href="control-structures.html"><strong aria-hidden="true">8.</strong> Control Structures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="if-then-else.html"><strong aria-hidden="true">8.1.</strong> If-Then-Else</a></li><li class="chapter-item expanded "><a href="pattern-matching.html"><strong aria-hidden="true">8.2.</strong> Pattern Matching</a></li><li class="chapter-item expanded "><a href="foreach-foryield.html"><strong aria-hidden="true">8.3.</strong> For-Each and For-Yield</a></li></ol></li><li class="chapter-item expanded "><a href="concurrency.html"><strong aria-hidden="true">9.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="parallelism.html"><strong aria-hidden="true">10.</strong> Parallelism</a></li><li class="chapter-item expanded "><a href="effects.html"><strong aria-hidden="true">11.</strong> Effect System</a></li><li class="chapter-item expanded "><a href="laziness.html"><strong aria-hidden="true">12.</strong> Laziness</a></li><li class="chapter-item expanded "><a href="fixpoints.html"><strong aria-hidden="true">13.</strong> Fixpoints with Datalog</a></li><li class="chapter-item expanded "><a href="type-classes.html"><strong aria-hidden="true">14.</strong> Type Classes</a></li><li class="chapter-item expanded "><a href="namespaces.html"><strong aria-hidden="true">15.</strong> Namespaces</a></li><li class="chapter-item expanded "><a href="interoperability.html"><strong aria-hidden="true">16.</strong> Interoperability</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="creating-objects.html"><strong aria-hidden="true">16.1.</strong> Creating Objects</a></li><li class="chapter-item expanded "><a href="calling-methods.html"><strong aria-hidden="true">16.2.</strong> Calling Methods</a></li><li class="chapter-item expanded "><a href="reading-and-writing-fields.html"><strong aria-hidden="true">16.3.</strong> Reading and Writing Fields</a></li><li class="chapter-item expanded "><a href="extending-classes-and-interfaces.html"><strong aria-hidden="true">16.4.</strong> Classes and Interfaces</a></li><li class="chapter-item expanded "><a href="nested-and-inner-classes.html"><strong aria-hidden="true">16.5.</strong> Nested and Inner classes</a></li></ol></li><li class="chapter-item expanded "><a href="everyday-programming.html"><strong aria-hidden="true">17.</strong> Everyday Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="main.html"><strong aria-hidden="true">17.1.</strong> The Main Function</a></li><li class="chapter-item expanded "><a href="printing-to-stdout.html"><strong aria-hidden="true">17.2.</strong> Printing to Standard Out</a></li><li class="chapter-item expanded "><a href="string-interpolation.html"><strong aria-hidden="true">17.3.</strong> String Interpolation</a></li><li class="chapter-item expanded "><a href="holes.html"><strong aria-hidden="true">17.4.</strong> Anonymous and Named Holes</a></li><li class="chapter-item expanded "><a href="type-ascriptions.html"><strong aria-hidden="true">17.5.</strong> Type Ascriptions</a></li><li class="chapter-item expanded "><a href="redundancy.html"><strong aria-hidden="true">17.6.</strong> Redundancy</a></li><li class="chapter-item expanded "><a href="debugging.html"><strong aria-hidden="true">17.7.</strong> Debugging</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">18.</strong> Tools</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vscode.html"><strong aria-hidden="true">18.1.</strong> Visual Studio Code</a></li><li class="chapter-item expanded "><a href="build-and-packages.html"><strong aria-hidden="true">18.2.</strong> Package Manager</a></li><li class="chapter-item expanded "><a href="test-framework.html"><strong aria-hidden="true">18.3.</strong> Test Framework</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="advanced-features.html"><strong aria-hidden="true">19.</strong> Advanced Features</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="upcast.html"><strong aria-hidden="true">19.1.</strong> Upcasts</a></li><li class="chapter-item expanded "><a href="casts.html"><strong aria-hidden="true">19.2.</strong> Type and Effect Casts</a></li><li class="chapter-item expanded "><a href="bug-and-unreachable.html"><strong aria-hidden="true">19.3.</strong> Bugs and Unreachable Code</a></li><li class="chapter-item expanded "><a href="purity-reflection.html"><strong aria-hidden="true">19.4.</strong> Purity Reflection</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="appendix.html"><strong aria-hidden="true">20.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="identifiers.html"><strong aria-hidden="true">20.1.</strong> Legal Identifiers</a></li><li class="chapter-item expanded "><a href="precedence.html"><strong aria-hidden="true">20.2.</strong> Operator Precedence</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Programming Flix</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/flix/book/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/flix/book/edit/master/src/projects.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="projects"><a class="header" href="#projects">Projects</a></h1>
+<blockquote>
+<p>🤔 Note: The following is written from the POV of command line usage, but we should have and document VSCode equivalents.</p>
+</blockquote>
+<h2 id="creating-a-flix-project"><a class="header" href="#creating-a-flix-project">Creating a Flix Project</a></h2>
+<p>You can create and run a new Flix project with <code>flix new</code>, for example:</p>
+<pre><code>% flix new hello-world
+Creating project from template &quot;app&quot; in hello-world
+% cd hello-world
+% flix run
+Hello world!
+</code></pre>
+<h2 id="anatomy-of-a-flix-project"><a class="header" href="#anatomy-of-a-flix-project">Anatomy of a Flix Project</a></h2>
+<p>This is the structure that the above creates:</p>
+<pre class="svgbob"><style>text{fill:var(--fg)}</style><svg xmlns="http://www.w3.org/2000/svg" width="176" height="208">
+  <style>
+    line, path, circle, rect, polygon{stroke:var(--fg);stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;}text{font-family:Iosevka Fixed, monospace;font-size:14px;}rect.backdrop{stroke:none;fill:transparent;}.broken{stroke-dasharray:8;}.filled{fill:black;}.bg_filled{fill:transparent;}.nofill{fill:transparent;}.end_marked_arrow{marker-end:url(#arrow);}.start_marked_arrow{marker-start:url(#arrow);}.end_marked_diamond{marker-end:url(#diamond);}.start_marked_diamond{marker-start:url(#diamond);}.end_marked_circle{marker-end:url(#circle);}.start_marked_circle{marker-start:url(#circle);}.end_marked_open_circle{marker-end:url(#open_circle);}.start_marked_open_circle{marker-start:url(#open_circle);}.end_marked_big_open_circle{marker-end:url(#big_open_circle);}.start_marked_big_open_circle{marker-start:url(#big_open_circle);}
+    <!--separator-->
+    
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <polygon points="0,0 0,4 4,2 0,0"></polygon>
+    </marker>
+    <marker id="diamond" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <polygon points="0,2 2,0 4,2 2,4 0,2"></polygon>
+    </marker>
+    <marker id="circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <circle cx="4" cy="4" r="2" class="filled"></circle>
+    </marker>
+    <marker id="open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <circle cx="4" cy="4" r="2" class="bg_filled"></circle>
+    </marker>
+    <marker id="big_open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <circle cx="4" cy="4" r="3" class="bg_filled"></circle>
+    </marker>
+  </defs>
+  <rect class="backdrop" x="0" y="0" width="176" height="208"></rect>
+  <text x="34" y="28" >src</text>
+  <text x="66" y="60" >Main.flix</text>
+  <text x="34" y="92" >test</text>
+  <text x="66" y="124" >TestMain.flix</text>
+  <text x="34" y="156" >FlixProject.toml</text>
+  <text x="34" y="172" >LICENSE.txt</text>
+  <text x="34" y="188" >README.md</text>
+  <g>
+    <line x1="12" y1="0" x2="12" y2="180" class="solid"></line>
+    <line x1="12" y1="24" x2="24" y2="24" class="solid"></line>
+    <line x1="12" y1="88" x2="24" y2="88" class="solid"></line>
+    <line x1="12" y1="152" x2="24" y2="152" class="solid"></line>
+    <line x1="12" y1="168" x2="24" y2="168" class="solid"></line>
+    <path d="M 12,180 A 4,4 0,0,0 16,184" class="nofill"></path>
+    <line x1="16" y1="184" x2="24" y2="184" class="solid"></line>
+  </g>
+  <g>
+    <line x1="44" y1="32" x2="44" y2="52" class="solid"></line>
+    <path d="M 44,52 A 4,4 0,0,0 48,56" class="nofill"></path>
+    <line x1="48" y1="56" x2="56" y2="56" class="solid"></line>
+  </g>
+  <g>
+    <line x1="44" y1="96" x2="44" y2="116" class="solid"></line>
+    <path d="M 44,116 A 4,4 0,0,0 48,120" class="nofill"></path>
+    <line x1="48" y1="120" x2="56" y2="120" class="solid"></line>
+  </g>
+</svg></pre>
+<p>Flix treats any directory containing a file called <code>FlixProject.toml</code> as a Flix project. There are two different basic types of Flix project:</p>
+<ul>
+<li>
+<p><strong>Applications:</strong> Collections of source files and other resources (e.g. HTML files, images, …) which are built into an executable project.</p>
+</li>
+<li>
+<p><strong>Libraries:</strong> Collections of source files and other resources which are intended for use within applications (or other libraries).</p>
+</li>
+</ul>
+<p>By default <code>flix new</code> creates an application project, but it can be used to create a library by specifying the <code>lib</code> template: <code>flix new --template lib my-new-library</code>.</p>
+<blockquote>
+<p>🤔 Note: Perhaps not at first release, but eventually we should allow the creation of user defined templates to automate the creation of more complex projects, e.g. web apps (which in addition to the above would have a <code>resources</code> directory, <code>index.html</code>, default routes, etc.).</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="editor-support.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="data-types.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="editor-support.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="data-types.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
