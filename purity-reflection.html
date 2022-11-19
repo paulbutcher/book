@@ -150,15 +150,16 @@ and/or parallel evaluation.</p>
 <p>For example, here is the implementation of <code>Set.count</code>:</p>
 <pre><code class="language-flix">@ParallelWhenPure
 pub def count(f: a -&gt; Bool \ ef, s: Set[a]): Int32 \ ef =
-    reifyEff(f) {
-        case Pure(g) =&gt;
+    typematch f {
+        case g: a -&gt; Bool \ {} =&gt;
             if (useParallelEvaluation(s))
                 let h = (k, _) -&gt; g(k);
                 let Set(t) = s;
                 RedBlackTree.parCount(threads() - 1, h, t) as \ {}
             else
                 foldLeft((b, k) -&gt; if (f(k)) b + 1 else b, 0, s)
-        case _  =&gt; foldLeft((b, k) -&gt; if (f(k)) b + 1 else b, 0, s)
+        case g: a -&gt; Bool \ ef =&gt; foldLeft((b, k) -&gt; if (g(k)) b + 1 else b, 0, s)
+        case _: _ =&gt; unreachable!()
     }
 </code></pre>
 <p>Here the <code>reifyEff</code> construct allows us to reflect on the purity of <code>f</code>.

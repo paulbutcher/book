@@ -1836,23 +1836,20 @@ If want parallelism, but not concurrency, a more light-weight approach is to use
 <pre><code class="language-flix">let (x, y, z) = par (e1, e2, e3)
 </code></pre>
 <p>which will spawn a thread for each of <code>e1</code>, <code>e2</code>, and <code>e3</code> and bind the result to the local variables <code>x</code>, <code>y</code>, and <code>z</code>.</p>
-<p>For convenience, Flix also supports a parallel function application expression.</p>
-<p>The <code>par</code> expression:</p>
-<pre><code class="language-flix">par f(e1, e2, e3)
+<p>For convenience, Flix also offers the <code>par-yield</code> construct:</p>
+<pre><code class="language-flix">par (x &lt;- e1; y &lt;- e2; z &lt;- e3) 
+    yield x + y + z
 </code></pre>
-<p>evaluates the function expression <code>f</code>, and its argument expressions <code>e1</code>, <code>e2</code>, and <code>e3</code> in parallel.</p>
-<p>Once all four expressions have been evaluated, the function <code>f</code> is called with the arguments in the current thread.</p>
-<p>This allows us to write a parallel <code>List.map</code> function:</p>
+<p>which evaluates <code>e1</code>, <code>e2</code>, and <code>e3</code> in parallel, binds their results to <code>x</code>, <code>y</code>, and <code>z</code>, and returns their sum.</p>
+<p>We can use <code>par-yield</code> to write a parallel <code>List.map</code> function:</p>
 <pre><code class="language-flix">def parMap(f: a -&gt; b, l: List[a]): List[b] = match l {
     case Nil     =&gt; Nil
-    case x :: xs =&gt; par (f(x) :: parMap(f, xs))
+    case x :: xs =&gt; 
+        par (r &lt;- f(x); rs &lt;- parMap(f, xs))
+            yield r :: rs
 }
 </code></pre>
-<p>This function will evaluate <code>f(x)</code> and <code>parMap(f, xs)</code> in parallel. Thus each recursive call spawns a new thread.
-Whether this leads to performance improvements depends on how expensive <code>f</code> is to compute.</p>
-<blockquote>
-<p><strong>Note:</strong> The <code>par</code> construct requires the sub-expression(s) to be pure.</p>
-</blockquote>
+<p>This function will evaluate <code>f(x)</code> and <code>parMap(f, xs)</code> in parallel. Thus each recursive call spawns a new thread.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="effect-system"><a class="header" href="#effect-system">Effect System</a></h1>
 <p>The Flix type and effect system separates pure and
 impure expressions.
@@ -3662,15 +3659,16 @@ and/or parallel evaluation.</p>
 <p>For example, here is the implementation of <code>Set.count</code>:</p>
 <pre><code class="language-flix">@ParallelWhenPure
 pub def count(f: a -&gt; Bool \ ef, s: Set[a]): Int32 \ ef =
-    reifyEff(f) {
-        case Pure(g) =&gt;
+    typematch f {
+        case g: a -&gt; Bool \ {} =&gt;
             if (useParallelEvaluation(s))
                 let h = (k, _) -&gt; g(k);
                 let Set(t) = s;
                 RedBlackTree.parCount(threads() - 1, h, t) as \ {}
             else
                 foldLeft((b, k) -&gt; if (f(k)) b + 1 else b, 0, s)
-        case _  =&gt; foldLeft((b, k) -&gt; if (f(k)) b + 1 else b, 0, s)
+        case g: a -&gt; Bool \ ef =&gt; foldLeft((b, k) -&gt; if (g(k)) b + 1 else b, 0, s)
+        case _: _ =&gt; unreachable!()
     }
 </code></pre>
 <p>Here the <code>reifyEff</code> construct allows us to reflect on the purity of <code>f</code>.
