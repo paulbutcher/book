@@ -416,21 +416,24 @@ version = &quot;1.2.3&quot;
 flix = &quot;0.31.0&quot;
 
 [package.dependencies]
-mvn.&quot;org.postgresql/postgresql&quot; = &quot;42.3.3&quot;
-mvn.&quot;org.eclipse.jetty/jetty-server&quot; = &quot;11.0.11&quot;
+mvn.&quot;org.postgresql:postgresql&quot; = &quot;42.3.3&quot;
+mvn.&quot;org.eclipse.jetty:jetty-server&quot; = &quot;11.0.11&quot;
 fpkg.&quot;com.github.paulbutcher/my-flix-library&quot; = &quot;0.3.1&quot;
 
 [build.dev.dependencies]
 fpkg.&quot;com.github.example/debugging-helper&quot; = &quot;2.3.4&quot;
 </code></pre>
-<p>This defines an application which depends upon two different Maven dependencies: <code>org.postgresql/postgresql</code> and <code>org.eclipse.jetty/jetty-server</code>, plus a single Fpgk: <code>com.github.paulbutcher/my-flix-library</code>. The development build also depends upon an additional Fpkg: <code>com.github.example/debugging-helper</code>.</p>
+<p>This defines an application which depends upon two different Maven dependencies: <code>org.postgresql:postgresql</code> and <code>org.eclipse.jetty:jetty-server</code>, plus a single Fpgk: <code>com.github.paulbutcher/my-flix-library</code>. The development build also depends upon an additional Fpkg: <code>com.github.example/debugging-helper</code>.</p>
 <blockquote>
 <p>🤔 Note: In <a href="https://github.com/flix/flix/issues/4380">#4380</a> I proposed that we had “group-id/artifact”.mvn, but I think I’ve convinced myself that the other way around works slightly better. Ultimately it doesn’t really make much difference and we can pick whichever way round we think is best.</p>
 </blockquote>
+<blockquote>
+<p>🤔 Note: I’m suggesting that we specify dependencies with the most natural separator for the type of dependency, so <code>:</code> for Maven and <code>/</code> for fpkg. We could alternatively use a common separator for both (probably <code>/</code>).</p>
+</blockquote>
 <h1 id="maven-dependencies"><a class="header" href="#maven-dependencies">Maven Dependencies</a></h1>
-<p>Maven dependencies are specified as a <a href="https://maven.apache.org/pom.html#Maven_Coordinates"><em>maven coordinate</em></a> of the form <code>groupId/artifactId</code>. In the simple case this maps onto a simple version number, but in the event that you need to deal with subdependency conflicts or reduce the size of the build, you can exclude subdependencies as follows:</p>
+<p>Maven dependencies are specified as a <a href="https://maven.apache.org/pom.html#Maven_Coordinates"><em>maven coordinate</em></a> of the form <code>groupId:artifactId</code>. In the simple case this maps onto a simple version number, but in the event that you need to deal with subdependency conflicts or reduce the size of the build, you can exclude subdependencies as follows:</p>
 <pre><code class="language-ini">[package.dependencies]
-mvn.&quot;org.eclipse.jetty/jetty-server&quot; = { version = &quot;11.0.11&quot;, exclusions = [&quot;org.slf4j/slf4j-api&quot;] }
+mvn.&quot;org.eclipse.jetty:jetty-server&quot; = { version = &quot;11.0.11&quot;, exclusions = [&quot;org.slf4j:slf4j-api&quot;] }
 </code></pre>
 <p>Maven dependencies are downloaded to your <code>~/.m2</code> directory and referenced directly on the classpath (i.e. if two different projects reference the same dependency, it is only downloaded once).</p>
 <blockquote>
@@ -546,7 +549,7 @@ An example of a Flix library, distributed as an fpkg
 homepage = &quot;https://github.com/org-name/example-flix-library&quot;
 
 [package.dependencies]
-mvn.&quot;com.example/some-lib&quot; = &quot;1.2.3&quot;
+mvn.&quot;com.example:some-lib&quot; = &quot;1.2.3&quot;
 fpkg.&quot;com.example/another-flix-library&quot; = &quot;2.3.4&quot;
 
 [build.dev.dependencies]
